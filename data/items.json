@@ -1,0 +1,55 @@
+[
+  {
+    "id": "camisa_cenguera_barca",
+    "nom": "Camisa Cenguera del Barça",
+    "emoji": "🔵🔴",
+    "descripcio": "La samarreta blaugrana que demostra que has dominat el capítol de Barcelona.",
+    "rar": "epic",
+    "tipus": "roba",
+    "imatge": "./camisa_cenguera.png"
+  },
+  {
+    "id": "flor_suprema_temps_flors",
+    "nom": "Flor Suprema del Temps de Flors",
+    "emoji": "💐",
+    "descripcio": "El premi màxim del Temps de Flors de Girona.",
+    "rar": "llegendari",
+    "tipus": "trofeu",
+    "imatge": "./ram_roses_girona.png"
+  },
+  {
+    "id": "clau_de_la_lonja",
+    "nom": "Clau de la Lonja",
+    "emoji": "🗝️",
+    "descripcio": "Obri la Ciutat Vella de València quan cau el sol",
+    "rar": "epic",
+    "tipus": "clau",
+    "imatge": "./clau_lonja.png"
+  },
+  {
+    "id": "clau_port_olympic",
+    "nom": "Clau del Port Olímpic",
+    "emoji": "🍸",
+    "descripcio": "Copa de vermú del Port. Demostra que vas aguantar la nit amb DJ RAYO.",
+    "rar": "llegendari",
+    "tipus": "clau",
+    "imatge": "./clau_port.png"
+  },
+  {
+    "id": "ulleres_rayo",
+    "nom": "Ulleres de DJ RAYO",
+    "emoji": "🕶️",
+    "descripcio": "Les ulleres que portava DJ RAYO a les 3 AM. Estil 100% rauxa.",
+    "rar": "epic",
+    "tipus": "accessori",
+    "imatge": "./ulleres_rayo.png"
+  },
+  {
+    "id": "clau_muralla_girona",
+    "nom": "Clau de la Muralla Viva",
+    "emoji": "🗝️",
+    "descripcio": "Obre el Barri Vell de Girona quan cau el sol.",
+    "rar": "epic",
+    "tipus": "clau"
+  }
+]
