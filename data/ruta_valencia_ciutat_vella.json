@@ -1,0 +1,137 @@
+[
+  {
+    "escena": "Torres de Serrans - 23:00",
+    "npc_nom": "Vicent",
+    "npc_emoji": "🛡️",
+    "dialog": "VICENT, guàrdia nocturn: 'Això són les Torres de Serrans, del segle XIV. Abans eren la porta principal de València. Si vols entrar a la Ciutat Vella, guanya-t'ho. Com es diu bona nit en valencià amb respecte?'",
+    "personatge": "Vicent",
+    "pregunta": "Què li dius al guàrdia?",
+    "opcions": [...]
+  },
+  {
+    "escena": "Catedral i Micalet - Plaça de la Reina",
+    "npc_nom": "Meritxell",
+    "npc_emoji": "🔔",
+    "dialog": "MERITXELL, campanera: 'Sóc la que cuida el Micalet. 207 escalons fins dalt. Si dius el nom correcte de la torre en valencià, et conte una llegenda'.",
+    "personatge": "Meritxell",
+    "pregunta": "Com es diu la torre?",
+    "opcions": [...]
+  },
+  {
+    "escena": "Plaça de la Verge - Font del Túria",
+    "npc_nom": "Jordi",
+    "npc_emoji": "⚖️",
+    "dialog": "JORDI, historiador del Tribunal de les Aigües: 'Cada dijous ací es fa justícia des de fa 1000 anys. Som l'únic tribunal oral d'Europa que mai ha parat. Com es diu aigua en valencià?'",
+    "personatge": "Jordi",
+    "pregunta": "Respon-li per demostrar que has estudiat",
+    "opcions": [...]
+  },
+  {
+    "escena": "Basílica de la Mare de Déu",
+    "npc_nom": "Sor Consol",
+    "npc_emoji": "🙏",
+    "dialog": "SOR CONSOL, monja: 'Aquesta és la Mare de Déu dels Desamparats, patrona de València. La gent li diu la Geperudeta. Sap per què?'",
+    "personatge": "Sor Consol",
+    "pregunta": "Què li contestes?",
+    "opcions": [...]
+  },
+  {
+    "escena": "Lonja de la Seda - Carrer de la Lonja",
+    "npc_nom": "Isabel",
+    "npc_emoji": "🏛️",
+    "dialog": "ISABEL, guia de la Lonja: 'Açò és gòtic valencià del segle XV. Patrimoni de la Humanitat. No és modern, no és barroc. Si ho dius bé, et deixe entrar al pati'.",
+    "personatge": "Isabel",
+    "pregunta": "Com descrius l'estil?",
+    "opcions": [...]
+  },
+  {
+    "escena": "Mercat Central",
+    "npc_nom": "Pep",
+    "npc_emoji": "🥕",
+    "dialog": "PEP, venedor de verdures: 'Açò és el Mercat Central, un dels més grans d'Europa. Tot ve de l'horta de València. Com dius tomaca en valencià?'",
+    "personatge": "Pep",
+    "pregunta": "Què li dius?",
+    "opcions": [...]
+  },
+  {
+    "escena": "Barri del Carme - Carrer de Cabillers",
+    "npc_nom": "Raül",
+    "npc_emoji": "🎨",
+    "dialog": "RAÜL, artista urbà: 'Ací tot són grafitis, bars i història. El Carme és el barri més viu de València. Si dius una frase en valencià amb ganes, et pinte un mural virtual'.",
+    "personatge": "Raül",
+    "pregunta": "Què li dius per demostrar actitud?",
+    "opcions": [...]
+  },
+  {
+    "escena": "Portal de Valldigna",
+    "npc_nom": "Nazira",
+    "npc_emoji": "🕌",
+    "dialog": "NAZIRA, historiadora àrab: 'Aquest portal era l'entrada al barri moro. València va ser musulmana 500 anys. Com dius gràcies en àrab valencià antic?'",
+    "personatge": "Nazira",
+    "pregunta": "Què li dius?",
+    "opcions": [...]
+  },
+  {
+    "escena": "Plaça del Tossal",
+    "npc_nom": "Toni",
+    "npc_emoji": "🎶",
+    "dialog": "TONI, músic de tabal i dolçaina: 'Açò sona a festa. La dolçaina és l'ànima de València. Si dius el nom bé, et toque una albaes'.",
+    "personatge": "Toni",
+    "pregunta": "Com es diu l'instrument?",
+    "opcions": [...]
+  },
+  {
+    "escena": "Plaça de l'Ajuntament - Silenci nocturn",
+    "npc_nom": "Paqui",
+    "npc_emoji": "👵",
+    "dialog": "PAQUI, veïna de tota la vida: 'De dia açò és un caos per les falles. De nit és màgic. Com dius València en falles amb orgull?'",
+    "personatge": "Paqui",
+    "pregunta": "Diga-li com se sent",
+    "opcions": [...]
+  },
+  {
+    "escena": "Carrer dels Cavallers",
+    "npc_nom": "Lucia",
+    "npc_emoji": "📜",
+    "dialog": "LUCIA, historiadora: 'Aquest carrer era la via noble de València. Ací vivien els senyors. Com dius cavaller en valencià?'",
+    "personatge": "Lucia",
+    "pregunta": "Respon bé i segueix",
+    "opcions": [...]
+  },
+  {
+    "escena": "Plaça de Sant Jaume",
+    "npc_nom": "Fermin",
+    "npc_emoji": "🥤",
+    "dialog": "FERMIN, orxater: 'Sense orxata no hi ha València. És de xufla. Com dius orxata en valencià?'",
+    "personatge": "Fermin",
+    "pregunta": "Què li demanes?",
+    "opcions": [...]
+  },
+  {
+    "escena": "Carrer de la Pau",
+    "npc_nom": "Elena",
+    "npc_emoji": "📚",
+    "dialog": "ELENA, llibretera: 'Ací hi ha les llibreries més velles de València. La pau es fa llegint. Com dius llibre en valencià?'",
+    "personatge": "Elena",
+    "pregunta": "Respon-li",
+    "opcions": [...]
+  },
+  {
+    "escena": "Plaça de la Reina - Mirador nocturn",
+    "npc_nom": "Roger",
+    "npc_emoji": "📸",
+    "dialog": "ROGER, fotògraf: 'Des d'ací es veu tota la Ciutat Vella il·luminada. És màgia. Com dius nit màgica en valencià?'",
+    "personatge": "Roger",
+    "pregunta": "Diga-li la frase",
+    "opcions": [...]
+  },
+  {
+    "escena": "Final - Terrat amb vistes a la Ciutat Vella",
+    "npc_nom": "Grup",
+    "npc_emoji": "🎉",
+    "dialog": "Tots els NPCs et miren des del terrat. 'Has caminat la Ciutat Vella parlant valencià. Això és estimar València. Agafa la clau, és teua'.",
+    "personatge": "Grup",
+    "pregunta": "Com tanques la nit?",
+    "opcions": [...]
+  }
+]
