@@ -1,0 +1,58 @@
+[
+  {
+    "escena": "Port Olímpic - Porta Secreta",
+    "npc_nom": "DJ Rayo",
+    "npc_emoji": "🕶️",
+    "dialog": "DJ RAYO, con gafas de sol a las 3 AM: 'Ostia tio! Aquí només entra qui parla català millor que jo pinxo. Prova-ho o pirat!'",
+    "pregunta": "Com dius 'Let's dance' per trencar el gel?",
+    "opcions": [...]
+  },
+  {
+    "escena": "Bar del Port",
+    "npc_nom": "Luna",
+    "npc_emoji": "🍸",
+    "dialog": "LUNA, la bartender, te mira de dalt a baix: 'Si no saps demanar en català, no beus. Així de simple. Què vols?'",
+    "pregunta": "Com demanes una cervesa ben dit?",
+    "opcions": [...]
+  },
+  {
+    "escena": "Pista Central",
+    "npc_nom": "Colla",
+    "npc_emoji": "🕺",
+    "dialog": "El beat puja. Un grup de nois et fan un cercle. 'Canta amb nosaltres o fora!'. Posan una frase en català mal dita.",
+    "pregunta": "Quina és la forma correcta de dir 'I love you'?",
+    "opcions": [...]
+  },
+  {
+    "escena": "Zona Chill",
+    "npc_nom": "Àvia Montse",
+    "npc_emoji": "👵",
+    "dialog": "ÀVIA MONTSE, 70 anys, ballant millor que tu: 'Nen, jo vaig amagar llibres en català sota Franco. Tu què saps?'",
+    "pregunta": "Com li respectes dient 'Gracias por todo'?",
+    "opcions": [...]
+  },
+  {
+    "escena": "Zona VIP",
+    "npc_nom": "Mikel",
+    "npc_emoji": "🛡️",
+    "dialog": "PORTER MIKEL, 2 metres d'alçada: 'Lema de la rave o no entres. Sense excuses'.",
+    "pregunta": "Com dius 'No t'aturis mai' amb actitud?",
+    "opcions": [...]
+  },
+  {
+    "escena": "Backstage",
+    "npc_nom": "DJ Rayo",
+    "npc_emoji": "🕶️",
+    "dialog": "DJ RAYO torna, suat: 'Última prova. Si l'encertes, et dono la clau. Si falles, tornes a la porta'.",
+    "pregunta": "Com dius 'Let's keep the party going'?",
+    "opcions": [...]
+  },
+  {
+    "escena": "Amanecer al Port",
+    "npc_nom": "Colla",
+    "npc_emoji": "🌅",
+    "dialog": "Surten els primers raigs. El Port brilla. RAYO, LUNA, MIKEL i l'ÀVIA MONTSE t'envolten. 'Has aguantat tota la nit parlant català. Això té premi'.",
+    "pregunta": "Com et acomiades dient 'See you later' per tancar la nit?",
+    "opcions": [...]
+  }
+]
