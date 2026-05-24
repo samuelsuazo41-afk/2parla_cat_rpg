@@ -1,4 +1,4 @@
-// main.js - Lógica de Parla Cat RPG
+// main.js - Lógica de 2Parla Cat RPG
 let musicaActivada = true;
 let BIBLIOTECA_EMOJIS_BASE = []; // Declarado arriba para que exista globalmente
 
