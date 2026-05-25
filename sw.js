@@ -6,7 +6,7 @@ const urlsToCache = [
   './manifest.json',
   './data/items.json',
   './data/capitols.json',
-  './data/capitol1_bcn_born.json',
+  './data/capitol_01_bcn_born.json',
   './data/capitol_02_girona.json',
   './data/capitol_03_fires_valencia.json',
   './data/ruta_rave_port_olympic.json',
