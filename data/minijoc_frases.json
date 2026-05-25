@@ -1,124 +1,976 @@
 {
   "frases": [
     {
-      "id": 1,
+      "id": "p1_1",
       "plantilla": "El {persona} menja {menjar}",
       "nivell": 1,
       "emojis": 2
     },
     {
-      "id": 2,
+      "id": "p1_2",
+      "plantilla": "La {persona} cuina {menjar}",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": "p1_3",
+      "plantilla": "El meu {persona} compra {menjar}",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": "p1_4",
+      "plantilla": "La {persona} no menja {menjar}",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": "p1_5",
+      "plantilla": "El {persona} comparteix {menjar}",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": "p1_6",
+      "plantilla": "La {persona} prepara {menjar} per sopar",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": "p1_7",
+      "plantilla": "El {persona} tasta {menjar} nou",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": "p1_8",
+      "plantilla": "La {persona} porta {menjar} a la feina",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": "p1_9",
+      "plantilla": "El {persona} ven {menjar} al mercat",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": "p1_10",
+      "plantilla": "La {persona} guarda {menjar} a la nevera",
+      "nivell": 1,
+      "emojis": 2
+    },
+
+    {
+      "id": "p2_1",
       "plantilla": "El {animal} va a {lloc}",
       "nivell": 1,
       "emojis": 2
     },
     {
-      "id": 3,
+      "id": "p2_2",
+      "plantilla": "El meu {animal} viu a {lloc}",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": "p2_3",
+      "plantilla": "He trobat un {animal} a {lloc}",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": "p2_4",
+      "plantilla": "El {animal} dorm a {lloc}",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": "p2_5",
+      "plantilla": "El {animal} corre cap a {lloc}",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": "p2_6",
+      "plantilla": "La {persona} porta el {animal} a {lloc}",
+      "nivell": 1,
+      "emojis": 3
+    },
+    {
+      "id": "p2_7",
+      "plantilla": "El {animal} juga a {lloc}",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": "p2_8",
+      "plantilla": "He vist un {animal} prop de {lloc}",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": "p2_9",
+      "plantilla": "El {animal} menja a {lloc}",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": "p2_10",
+      "plantilla": "La {persona} cuida el {animal} a {lloc}",
+      "nivell": 1,
+      "emojis": 3
+    },
+
+    {
+      "id": "p3_1",
       "plantilla": "Jo veig el {animal} a {lloc}",
       "nivell": 1,
       "emojis": 2
     },
     {
-      "id": 4,
+      "id": "p3_2",
+      "plantilla": "Nosaltres veiem el {animal} a {lloc}",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": "p3_3",
+      "plantilla": "El {persona} veu el {animal} a {lloc}",
+      "nivell": 1,
+      "emojis": 3
+    },
+    {
+      "id": "p3_4",
+      "plantilla": "Tu veus el {animal} a {lloc}",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": "p3_5",
+      "plantilla": "Ella veu el {animal} a {lloc} cada dia",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": "p3_6",
+      "plantilla": "Ell no veu el {animal} a {lloc}",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": "p3_7",
+      "plantilla": "Voleu veure el {animal} a {lloc}?",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": "p3_8",
+      "plantilla": "Hem vist el {animal} a {lloc} ahir",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": "p3_9",
+      "plantilla": "La {persona} veu molts {animal} a {lloc}",
+      "nivell": 1,
+      "emojis": 3
+    },
+    {
+      "id": "p3_10",
+      "plantilla": "Jo no veig el {animal} a {lloc} ara",
+      "nivell": 1,
+      "emojis": 2
+    },
+
+    {
+      "id": "p4_1",
       "plantilla": "El {persona} juga a {esport}",
       "nivell": 2,
       "emojis": 2
     },
     {
-      "id": 5,
+      "id": "p4_2",
+      "plantilla": "La {persona} entrena {esport}",
+      "nivell": 2,
+      "emojis": 2
+    },
+    {
+      "id": "p4_3",
+      "plantilla": "El meu {persona} estima {esport}",
+      "nivell": 2,
+      "emojis": 2
+    },
+    {
+      "id": "p4_4",
+      "plantilla": "La {persona} guanya a {esport}",
+      "nivell": 2,
+      "emojis": 2
+    },
+    {
+      "id": "p4_5",
+      "plantilla": "El {persona} perd a {esport} avui",
+      "nivell": 2,
+      "emojis": 2
+    },
+    {
+      "id": "p4_6",
+      "plantilla": "La {persona} practica {esport} cada dia",
+      "nivell": 2,
+      "emojis": 2
+    },
+    {
+      "id": "p4_7",
+      "plantilla": "El {persona} mira {esport} per la tele",
+      "nivell": 2,
+      "emojis": 2
+    },
+    {
+      "id": "p4_8",
+      "plantilla": "La {persona} ensenya {esport} als nens",
+      "nivell": 2,
+      "emojis": 2
+    },
+    {
+      "id": "p4_9",
+      "plantilla": "El {persona} compra material de {esport}",
+      "nivell": 2,
+      "emojis": 2
+    },
+    {
+      "id": "p4_10",
+      "plantilla": "La {persona} va a veure {esport} al camp",
+      "nivell": 2,
+      "emojis": 2
+    },
+
+    {
+      "id": "p5_1",
       "plantilla": "Nosaltres anem a {lloc} amb el {vehicle}",
       "nivell": 2,
       "emojis": 2
     },
     {
-      "id": 6,
+      "id": "p5_2",
+      "plantilla": "Ells van a {lloc} amb el {vehicle}",
+      "nivell": 2,
+      "emojis": 2
+    },
+    {
+      "id": "p5_3",
+      "plantilla": "Jo vaig a {lloc} amb el meu {vehicle}",
+      "nivell": 2,
+      "emojis": 2
+    },
+    {
+      "id": "p5_4",
+      "plantilla": "La {persona} va a {lloc} amb el {vehicle}",
+      "nivell": 2,
+      "emojis": 3
+    },
+    {
+      "id": "p5_5",
+      "plantilla": "Tornem de {lloc} amb el {vehicle}",
+      "nivell": 2,
+      "emojis": 2
+    },
+    {
+      "id": "p5_6",
+      "plantilla": "El {persona} condueix el {vehicle} cap a {lloc}",
+      "nivell": 2,
+      "emojis": 3
+    },
+    {
+      "id": "p5_7",
+      "plantilla": "Hem arribat a {lloc} amb el {vehicle}",
+      "nivell": 2,
+      "emojis": 2
+    },
+    {
+      "id": "p5_8",
+      "plantilla": "La {persona} perd el {vehicle} cap a {lloc}",
+      "nivell": 2,
+      "emojis": 3
+    },
+    {
+      "id": "p5_9",
+      "plantilla": "Voleu anar a {lloc} amb el {vehicle}?",
+      "nivell": 2,
+      "emojis": 2
+    },
+    {
+      "id": "p5_10",
+      "plantilla": "El {vehicle} va ràpid cap a {lloc}",
+      "nivell": 2,
+      "emojis": 2
+    },
+
+    {
+      "id": "p6_1",
       "plantilla": "El {persona} beu {beguda} a {lloc}",
       "nivell": 3,
       "emojis": 3
     },
     {
-      "id": 7,
+      "id": "p6_2",
+      "plantilla": "La {persona} serveix {beguda} a {lloc}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p6_3",
+      "plantilla": "El meu {persona} compra {beguda} a {lloc}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p6_4",
+      "plantilla": "La {persona} no beu {beguda} a {lloc}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p6_5",
+      "plantilla": "El {persona} comparteix {beguda} a {lloc}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p6_6",
+      "plantilla": "La {persona} prepara {beguda} a {lloc}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p6_7",
+      "plantilla": "El {persona} tasta {beguda} a {lloc}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p6_8",
+      "plantilla": "La {persona} ven {beguda} a {lloc}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p6_9",
+      "plantilla": "El {persona} guarda {beguda} a {lloc}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p6_10",
+      "plantilla": "La {persona} demana {beguda} a {lloc}",
+      "nivell": 3,
+      "emojis": 3
+    },
+
+    {
+      "id": "p7_1",
       "plantilla": "El {persona} treballa de {feina}",
       "nivell": 3,
       "emojis": 2
     },
     {
-      "id": 8,
+      "id": "p7_2",
+      "plantilla": "La {persona} és {feina}",
+      "nivell": 3,
+      "emojis": 2
+    },
+    {
+      "id": "p7_3",
+      "plantilla": "El meu pare treballa de {feina}",
+      "nivell": 3,
+      "emojis": 1
+    },
+    {
+      "id": "p7_4",
+      "plantilla": "La meva mare és {feina}",
+      "nivell": 3,
+      "emojis": 1
+    },
+    {
+      "id": "p7_5",
+      "plantilla": "El {persona} aprèn a ser {feina}",
+      "nivell": 3,
+      "emojis": 2
+    },
+    {
+      "id": "p7_6",
+      "plantilla": "La {persona} ajuda com a {feina}",
+      "nivell": 3,
+      "emojis": 2
+    },
+    {
+      "id": "p7_7",
+      "plantilla": "El {persona} guanya diners com a {feina}",
+      "nivell": 3,
+      "emojis": 2
+    },
+    {
+      "id": "p7_8",
+      "plantilla": "La {persona} està cansada de ser {feina}",
+      "nivell": 3,
+      "emojis": 2
+    },
+    {
+      "id": "p7_9",
+      "plantilla": "El {persona} parla amb el {feina}",
+      "nivell": 3,
+      "emojis": 2
+    },
+    {
+      "id": "p7_10",
+      "plantilla": "La {persona} vol ser {feina} quan sigui gran",
+      "nivell": 3,
+      "emojis": 2
+    },
+
+    {
+      "id": "p8_1",
       "plantilla": "El {animal} dorm a {natura}",
       "nivell": 3,
       "emojis": 2
     },
     {
-      "id": 9,
+      "id": "p8_2",
+      "plantilla": "El meu {animal} viu a {natura}",
+      "nivell": 3,
+      "emojis": 2
+    },
+    {
+      "id": "p8_3",
+      "plantilla": "He vist un {animal} a {natura}",
+      "nivell": 3,
+      "emojis": 2
+    },
+    {
+      "id": "p8_4",
+      "plantilla": "El {animal} menja a {natura}",
+      "nivell": 3,
+      "emojis": 2
+    },
+    {
+      "id": "p8_5",
+      "plantilla": "El {animal} corre per {natura}",
+      "nivell": 3,
+      "emojis": 2
+    },
+    {
+      "id": "p8_6",
+      "plantilla": "La {persona} cuida el {animal} a {natura}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p8_7",
+      "plantilla": "El {animal} juga a {natura}",
+      "nivell": 3,
+      "emojis": 2
+    },
+    {
+      "id": "p8_8",
+      "plantilla": "El {animal} amaga a {natura}",
+      "nivell": 3,
+      "emojis": 2
+    },
+    {
+      "id": "p8_9",
+      "plantilla": "El {animal} neix a {natura}",
+      "nivell": 3,
+      "emojis": 2
+    },
+    {
+      "id": "p8_10",
+      "plantilla": "El {animal} canta a {natura}",
+      "nivell": 3,
+      "emojis": 2
+    },
+
+    {
+      "id": "p9_1",
       "plantilla": "El {persona} porta {roba} a {lloc}",
       "nivell": 4,
       "emojis": 3
     },
     {
-      "id": 10,
+      "id": "p9_2",
+      "plantilla": "La {persona} compra {roba} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p9_3",
+      "plantilla": "El meu {persona} renta {roba} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p9_4",
+      "plantilla": "La {persona} tria {roba} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p9_5",
+      "plantilla": "El {persona} guarda {roba} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p9_6",
+      "plantilla": "La {persona} planxa {roba} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p9_7",
+      "plantilla": "El {persona} ven {roba} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p9_8",
+      "plantilla": "La {persona} prova {roba} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p9_9",
+      "plantilla": "El {persona} perd {roba} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p9_10",
+      "plantilla": "La {persona} troba {roba} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+
+    {
+      "id": "p10_1",
       "plantilla": "El {persona} escolta {musica} amb el {objecte}",
       "nivell": 4,
       "emojis": 3
     },
     {
-      "id": 11,
+      "id": "p10_2",
+      "plantilla": "La {persona} toca {musica} amb el {objecte}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p10_3",
+      "plantilla": "El meu {persona} canta {musica} amb el {objecte}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p10_4",
+      "plantilla": "La {persona} grava {musica} amb el {objecte}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p10_5",
+      "plantilla": "El {persona} compra {musica} per el {objecte}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p10_6",
+      "plantilla": "La {persona} balla {musica} amb el {objecte}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p10_7",
+      "plantilla": "El {persona} aprèn {musica} amb el {objecte}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p10_8",
+      "plantilla": "La {persona} comparteix {musica} amb el {objecte}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p10_9",
+      "plantilla": "El {persona} crea {musica} amb el {objecte}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p10_10",
+      "plantilla": "La {persona} descarrega {musica} al {objecte}",
+      "nivell": 4,
+      "emojis": 3
+    },
+
+    {
+      "id": "p11_1",
       "plantilla": "El {persona} compra {menjar} a {lloc}",
       "nivell": 5,
       "emojis": 3
     },
     {
-      "id": 12,
+      "id": "p11_2",
+      "plantilla": "La {persona} ven {menjar} a {lloc}",
+      "nivell": 5,
+      "emojis": 3
+    },
+    {
+      "id": "p11_3",
+      "plantilla": "El meu {persona} cuina {menjar} a {lloc}",
+      "nivell": 5,
+      "emojis": 3
+    },
+    {
+      "id": "p11_4",
+      "plantilla": "La {persona} prova {menjar} a {lloc}",
+      "nivell": 5,
+      "emojis": 3
+    },
+    {
+      "id": "p11_5",
+      "plantilla": "El {persona} guarda {menjar} a {lloc}",
+      "nivell": 5,
+      "emojis": 3
+    },
+    {
+      "id": "p11_6",
+      "plantilla": "La {persona} comparteix {menjar} a {lloc}",
+      "nivell": 5,
+      "emojis": 3
+    },
+    {
+      "id": "p11_7",
+      "plantilla": "El {persona} paga {menjar} a {lloc}",
+      "nivell": 5,
+      "emojis": 3
+    },
+    {
+      "id": "p11_8",
+      "plantilla": "La {persona} tria {menjar} a {lloc}",
+      "nivell": 5,
+      "emojis": 3
+    },
+    {
+      "id": "p11_9",
+      "plantilla": "El {persona} porta {menjar} de {lloc}",
+      "nivell": 5,
+      "emojis": 3
+    },
+    {
+      "id": "p11_10",
+      "plantilla": "La {persona} demana {menjar} a {lloc}",
+      "nivell": 5,
+      "emojis": 3
+    },
+
+    {
+      "id": "p12_1",
       "plantilla": "El {persona} i el {persona} van a {lloc} amb {vehicle}",
       "nivell": 5,
       "emojis": 4
     },
     {
-      "id": 13,
+      "id": "p12_2",
+      "plantilla": "La {persona} i la {persona} tornen de {lloc} amb {vehicle}",
+      "nivell": 5,
+      "emojis": 4
+    },
+    {
+      "id": "p12_3",
+      "plantilla": "El {persona} i el {persona} treballen a {lloc} amb {vehicle}",
+      "nivell": 5,
+      "emojis": 4
+    },
+    {
+      "id": "p12_4",
+      "plantilla": "La {persona} i el {persona} juguen a {lloc} amb {vehicle}",
+      "nivell": 5,
+      "emojis": 4
+    },
+    {
+      "id": "p12_5",
+      "plantilla": "El {persona} i la {persona} mengen a {lloc} amb {vehicle}",
+      "nivell": 5,
+      "emojis": 4
+    },
+    {
+      "id": "p12_6",
+      "plantilla": "El {persona} i el {persona} dormen a {lloc} amb {vehicle}",
+      "nivell": 5,
+      "emojis": 4
+    },
+    {
+      "id": "p12_7",
+      "plantilla": "La {persona} i el {persona} compren a {lloc} amb {vehicle}",
+      "nivell": 5,
+      "emojis": 4
+    },
+    {
+      "id": "p12_8",
+      "plantilla": "El {persona} i la {persona} canten a {lloc} amb {vehicle}",
+      "nivell": 5,
+      "emojis": 4
+    },
+    {
+      "id": "p12_9",
+      "plantilla": "El {persona} i el {persona} ballen a {lloc} amb {vehicle}",
+      "nivell": 5,
+      "emojis": 4
+    },
+    {
+      "id": "p12_10",
+      "plantilla": "La {persona} i el {persona} riuen a {lloc} amb {vehicle}",
+      "nivell": 5,
+      "emojis": 4
+    },
+
+    {
+      "id": "p13_1",
       "plantilla": "El {persona} cuida el {animal} a {natura}",
       "nivell": 4,
       "emojis": 3
     },
     {
-      "id": 14,
+      "id": "p13_2",
+      "plantilla": "La {persona} alimenta el {animal} a {natura}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p13_3",
+      "plantilla": "El meu {persona} troba el {animal} a {natura}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p13_4",
+      "plantilla": "La {persona} salva el {animal} a {natura}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p13_5",
+      "plantilla": "El {persona} juga amb el {animal} a {natura}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p13_6",
+      "plantilla": "La {persona} neteja el {animal} a {natura}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p13_7",
+      "plantilla": "El {persona} fotografia el {animal} a {natura}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p13_8",
+      "plantilla": "La {persona} parla amb el {animal} a {natura}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p13_9",
+      "plantilla": "El {persona} perd el {animal} a {natura}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p13_10",
+      "plantilla": "La {persona} troba el {animal} a {natura}",
+      "nivell": 4,
+      "emojis": 3
+    },
+
+    {
+      "id": "p14_1",
       "plantilla": "El {persona} fa esport de {esport} a {lloc}",
       "nivell": 4,
       "emojis": 3
     },
     {
-      "id": 15,
+      "id": "p14_2",
+      "plantilla": "La {persona} entrena {esport} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p14_3",
+      "plantilla": "El meu {persona} mira {esport} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p14_4",
+      "plantilla": "La {persona} guanya {esport} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p14_5",
+      "plantilla": "El {persona} perd {esport} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p14_6",
+      "plantilla": "La {persona} ensenya {esport} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p14_7",
+      "plantilla": "El {persona} compra material de {esport} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p14_8",
+      "plantilla": "La {persona} organitza {esport} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p14_9",
+      "plantilla": "El {persona} filma {esport} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": "p14_10",
+      "plantilla": "La {persona} celebra {esport} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+
+    {
+      "id": "p15_1",
       "plantilla": "El {persona} menja {menjar} i beu {beguda}",
       "nivell": 3,
       "emojis": 3
     },
     {
-      "id": 16,
+      "id": "p15_2",
+      "plantilla": "La {persona} cuina {menjar} i prepara {beguda}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p15_3",
+      "plantilla": "El meu {persona} compra {menjar} i {beguda}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p15_4",
+      "plantilla": "La {persona} comparteix {menjar} i {beguda}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p15_5",
+      "plantilla": "El {persona} serveix {menjar} i {beguda}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p15_6",
+      "plantilla": "La {persona} guarda {menjar} i {beguda}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p15_7",
+      "plantilla": "El {persona} tasta {menjar} i {beguda}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p15_8",
+      "plantilla": "La {persona} ven {menjar} i {beguda}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p15_9",
+      "plantilla": "El {persona} porta {menjar} i {beguda}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p15_10",
+      "plantilla": "La {persona} demana {menjar} i {beguda}",
+      "nivell": 3,
+      "emojis": 3
+    },
+
+    {
+      "id": "p16_1",
       "plantilla": "El {animal} menja {menjar} a {natura}",
       "nivell": 3,
       "emojis": 3
     },
     {
-      "id": 17,
-      "plantilla": "El {persona} porta el {animal} a {lloc}",
-      "nivell": 4,
+      "id": "p16_2",
+      "plantilla": "El meu {animal} busca {menjar} a {natura}",
+      "nivell": 3,
       "emojis": 3
     },
     {
-      "id": 18,
-      "plantilla": "El {persona} toca {musica} a {lloc}",
-      "nivell": 4,
+      "id": "p16_3",
+      "plantilla": "He vist el {animal} menjant {menjar} a {natura}",
+      "nivell": 3,
       "emojis": 3
     },
     {
-      "id": 19,
-      "plantilla": "El {persona} usa el {objecte} per treballar de {feina}",
-      "nivell": 5,
+      "id": "p16_4",
+      "plantilla": "El {animal} amaga {menjar} a {natura}",
+      "nivell": 3,
       "emojis": 3
     },
     {
-      "id": 20,
-      "plantilla": "El {persona} i el {animal} van a {lloc} amb {vehicle}",
-      "nivell": 5,
-      "emojis": 4
-    }
-  ]
-}
+      "id": "p16_5",
+      "plantilla": "El {animal} comparteix {menjar} a {natura}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p16_6",
+      "plantilla": "El {animal} troba {menjar} a {natura}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p16_7",
+      "plantilla": "El {animal} guarda {menjar} a {natura}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p16_8",
+      "plantilla": "El {animal} perd {menjar} a {natura}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p16_9",
+      "plantilla": "El {animal} porta {menjar} a {natura}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": "p16_10",
+      "plantilla": "El {animal} demana {menjar} a {natura}",
+      "nivell": 3,
+      "emojis":
