@@ -1,1 +1,13 @@
-
+{
+  "nivell": 1,
+  "frases": [
+    {"text": "L'home és feliç", "solucio": ["👨", "😊"]},
+    {"text": "La noia riu", "solucio": ["👧", "😄"]},
+    {"text": "El bebè plora", "solucio": ["👶", "😢"]},
+    {"text": "L'estudiant estudia", "solucio": ["👨‍🎓", "📚"]},
+    {"text": "El músic toca", "solucio": ["👨‍🎵", "🎵"]},
+    {"text": "L'astronauta va a l'espai", "solucio": ["👨‍🚀", "🚀"]},
+    {"text": "El pintor pinta", "solucio": ["👨‍🎨", "🎨"]},
+    {"text": "El tècnic treballa", "solucio": ["👨‍🔧", "🔧"]}
+  ]
+}
