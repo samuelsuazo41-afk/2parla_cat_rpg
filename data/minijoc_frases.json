@@ -1,64 +1,110 @@
 {
   "frases": [
-    {
-      "text": "L'arbre i la flor",
-      "solucio": ["🌳", "🌸"],
-      "pack": "natura",
-      "nivell": 2
-    },
-    {
-      "text": "El sol i el mar",
-      "solucio": ["☀️", "🌊"],
-      "pack": "natura",
-      "nivell": 2
-    },
-    {
-      "text": "La flor sota el sol",
-      "solucio": ["🌸", "☀️"],
-      "pack": "natura",
-      "nivell": 2
-    },
-    {
-      "text": "L'arbre al costat del mar",
-      "solucio": ["🌳", "🌊"],
-      "pack": "natura",
-      "nivell": 2
-    },
-    {
-      "text": "El mar i la flor",
-      "solucio": ["🌊", "🌸"],
-      "pack": "natura",
-      "nivell": 2
-    },
-    {
-      "text": "L'arbre i el sol",
-      "solucio": ["🌳", "☀️"],
-      "pack": "natura",
-      "nivell": 2
-    },
-    {
-      "text": "El sol escalfa la flor",
-      "solucio": ["☀️", "🌸"],
-      "pack": "natura",
-      "nivell": 3
-    },
-    {
-      "text": "L'arbre toca el cel",
-      "solucio": ["🌳", "☀️"],
-      "pack": "natura",
-      "nivell": 3
-    },
-    {
-      "text": "La flor vora el mar",
-      "solucio": ["🌸", "🌊"],
-      "pack": "natura",
-      "nivell": 3
-    },
-    {
-      "text": "El sol surt del mar",
-      "solucio": ["☀️", "🌊"],
-      "pack": "natura",
-      "nivell": 3
-    }
-  ]
-}
+    {"text": "Amunt", "solucio": ["amunt"], "pack": "direccions", "nivell": 1},
+    {"text": "Avall", "solucio": ["avall"], "pack": "direccions", "nivell": 1},
+    {"text": "Esquerra", "solucio": ["esquerra"], "pack": "direccions", "nivell": 1},
+    {"text": "Dreta", "solucio": ["dreta"], "pack": "direccions", "nivell": 1},
+    {"text": "Hola", "solucio": ["hola"], "pack": "salutacions", "nivell": 1},
+    {"text": "Adeu", "solucio": ["adeu"], "pack": "salutacions", "nivell": 1},
+    {"text": "Home", "solucio": ["home"], "pack": "familia", "nivell": 1},
+    {"text": "Dona", "solucio": ["dona"], "pack": "familia", "nivell": 1},
+    {"text": "Cotxe", "solucio": ["cotxe"], "pack": "transport", "nivell": 1},
+    {"text": "Casa", "solucio": ["casa"], "pack": "ciutat", "nivell": 1},
+    {"text": "Sol", "solucio": ["sol"], "pack": "natura", "nivell": 1},
+    {"text": "Mar", "solucio": ["mar"], "pack": "natura", "nivell": 1},
+    {"text": "Gat", "solucio": ["gat"], "pack": "animals", "nivell": 1},
+    
+    {"text": "Puja amunt", "solucio": ["pujar", "amunt"], "pack": "direccions", "nivell": 2},
+    {"text": "Baixa avall", "solucio": ["baixar", "avall"], "pack": "direccions", "nivell": 2},
+    {"text": "Ves a l'esquerra", "solucio": ["anar", "esquerra"], "pack": "direccions", "nivell": 2},
+    {"text": "Hola, com estàs", "solucio": ["hola", "com", "estar"], "pack": "salutacions", "nivell": 2},
+    {"text": "El pare i la mare", "solucio": ["pare", "mare"], "pack": "familia", "nivell": 2},
+    {"text": "El metge cura el nen", "solucio": ["metge", "curar", "nen"], "pack": "professions", "nivell": 2},
+    {"text": "El cotxe roig va ràpid", "solucio": ["cotxe_roig", "anar", "rapid"], "pack": "transport", "nivell": 2},
+    {"text": "El llibre està a la taula", "solucio": ["llibre", "taula"], "pack": "objectes", "nivell": 2},
+    {"text": "L'arbre i la flor", "solucio": ["arbre", "flor"], "pack": "natura", "nivell": 2},
+    {"text": "El gos corre", "solucio": ["gos", "correr"], "pack": "animals", "nivell": 2},
+    {"text": "Casa gran", "solucio": ["casa", "gran"], "pack": "ciutat", "nivell": 2},
+    {"text": "Aigua clara", "solucio": ["aigua", "clara"], "pack": "natura", "nivell": 2},
+    
+    {"text": "Ves amunt i mira", "solucio": ["anar", "amunt", "mirar"], "pack": "direccions", "nivell": 3},
+    {"text": "Baixa avall amb compte", "solucio": ["baixar", "avall", "compte"], "pack": "direccions", "nivell": 3},
+    {"text": "Gira a l'esquerra ara", "solucio": ["girar", "esquerra", "ara"], "pack": "direccions", "nivell": 3},
+    {"text": "El meu pare és metge", "solucio": ["meu", "pare", "metge"], "pack": "professions", "nivell": 3},
+    {"text": "La meva mare cuina pa", "solucio": ["meva", "mare", "cuinar", "pa"], "pack": "professions", "nivell": 3},
+    {"text": "El cotxe va per la carretera", "solucio": ["cotxe", "anar", "carretera"], "pack": "transport", "nivell": 3},
+    {"text": "L'ordinador està encès", "solucio": ["ordinador", "ences"], "pack": "objectes", "nivell": 3},
+    {"text": "El nen juga a futbol", "solucio": ["nen", "jugar", "futbol"], "pack": "esports", "nivell": 3},
+    {"text": "La professora ensenya català", "solucio": ["professora", "ensenyar", "catala"], "pack": "professions", "nivell": 3},
+    {"text": "Em rento les mans", "solucio": ["rentar", "ma"], "pack": "cos", "nivell": 3},
+    {"text": "El sol escalfa la flor", "solucio": ["sol", "flor"], "pack": "natura", "nivell": 3},
+    {"text": "La lluna brilla al cel", "solucio": ["lluna", "cel"], "pack": "natura", "nivell": 3},
+    
+    {"text": "Mira amunt al cel blau", "solucio": ["mirar", "amunt", "cel", "blau"], "pack": "direccions", "nivell": 4},
+    {"text": "El gat salta avall de l'arbre", "solucio": ["gat", "saltar", "avall", "arbre"], "pack": "direccions", "nivell": 4},
+    {"text": "Gira a l'esquerra al pont", "solucio": ["girar", "esquerra", "pont"], "pack": "direccions", "nivell": 4},
+    {"text": "El metge treballa a l'hospital", "solucio": ["metge", "treballar", "hospital"], "pack": "professions", "nivell": 4},
+    {"text": "El cuiner prepara pizza", "solucio": ["cuiner", "preparar", "pizza"], "pack": "professions", "nivell": 4},
+    {"text": "El camió porta fruita fresca", "solucio": ["camio", "portar", "fruita", "fresca"], "pack": "transport", "nivell": 4},
+    {"text": "Escric amb el pinzell", "solucio": ["escriure", "pinzell"], "pack": "objectes", "nivell": 4},
+    {"text": "La nena juga a bàsquet", "solucio": ["nena", "jugar", "basquet"], "pack": "esports", "nivell": 4},
+    {"text": "El policia atura el cotxe", "solucio": ["policia", "aturar", "cotxe"], "pack": "professions", "nivell": 4},
+    {"text": "La familia sopa a casa", "solucio": ["familia", "sopar", "casa"], "pack": "familia", "nivell": 4},
+    {"text": "El vent mou l'arbre alt", "solucio": ["vent", "arbre", "alt"], "pack": "natura", "nivell": 4},
+    {"text": "Plou sobre el mar blau", "solucio": ["pluja", "mar", "blau"], "pack": "natura", "nivell": 4},
+    
+    {"text": "Puja amunt per l'escala alta", "solucio": ["pujar", "amunt", "escala", "alta"], "pack": "direccions", "nivell": 5},
+    {"text": "Baixa avall amb compte i lent", "solucio": ["baixar", "avall", "compte", "lent"], "pack": "direccions", "nivell": 5},
+    {"text": "El meu avi és pagès i treballa al camp", "solucio": ["meu", "avi", "pagès", "treballar", "camp"], "pack": "professions", "nivell": 5},
+    {"text": "La meva germana és professora d'angles", "solucio": ["meva", "germana", "professora", "angles"], "pack": "professions", "nivell": 5},
+    {"text": "L'ambulancia va ràpid a l'hospital", "solucio": ["ambulancia", "anar", "rapid", "hospital"], "pack": "transport", "nivell": 5},
+    {"text": "Escric amb l'ordinador portàtil", "solucio": ["escriure", "ordinador_portatil"], "pack": "objectes", "nivell": 5},
+    {"text": "El nen petit juga a tennis", "solucio": ["nen", "petit", "jugar", "tennis"], "pack": "esports", "nivell": 5},
+    {"text": "La cuinera prepara pa i formatge", "solucio": ["cuinera", "preparar", "pa", "formatge"], "pack": "professions", "nivell": 5},
+    {"text": "Em rento les dents cada mati", "solucio": ["rentar", "dent", "mati"], "pack": "cos", "nivell": 5},
+    {"text": "Anem a la botiga a comprar llet", "solucio": ["anar", "botiga", "comprar", "llet"], "pack": "ciutat", "nivell": 5},
+    {"text": "El gat dorm sota l'arbre verd", "solucio": ["gat", "dormir", "arbre", "verd"], "pack": "animals", "nivell": 5},
+    {"text": "Neva a la muntanya alta blanca", "solucio": ["neu", "muntanya", "alta", "blanca"], "pack": "natura", "nivell": 5},
+    
+    {"text": "Puja amunt per la muntanya alta", "solucio": ["pujar", "amunt", "muntanya", "alta"], "pack": "direccions", "nivell": 6},
+    {"text": "Baixa avall fins al riu clar", "solucio": ["baixar", "avall", "riu", "clar"], "pack": "direccions", "nivell": 6},
+    {"text": "El pilot vola amb l'avió gran", "solucio": ["pilot", "volar", "avió", "gran"], "pack": "professions", "nivell": 6},
+    {"text": "La meva familia sopa junts a casa", "solucio": ["meva", "familia", "sopar", "junt", "casa"], "pack": "familia", "nivell": 6},
+    {"text": "El bomber apaga el foc amb aigua", "solucio": ["bomber", "apagar", "foc", "aigua"], "pack": "professions", "nivell": 6},
+    {"text": "El camió porta mobles a la casa nova", "solucio": ["camio", "portar", "moble", "casa", "nova"], "pack": "transport", "nivell": 6},
+    {"text": "Estudio català a l'escola cada dia", "solucio": ["estudiar", "catala", "escola", "dia"], "pack": "escola", "nivell": 6},
+    {"text": "El meu amic juga a futbol al parc", "solucio": ["meu", "amic", "jugar", "futbol", "parc"], "pack": "esports", "nivell": 6},
+    {"text": "La meva germana canta molt bé", "solucio": ["meva", "germana", "cantar", "be"], "pack": "familia", "nivell": 6},
+    {"text": "Anem al mercat a comprar verdura fresca", "solucio": ["anar", "mercat", "comprar", "verdura", "fresca"], "pack": "ciutat", "nivell": 6},
+    {"text": "La casa gran vora el mar blau", "solucio": ["casa", "gran", "mar", "blau"], "pack": "ciutat", "nivell": 6},
+    {"text": "El foc crema la fusta seca", "solucio": ["foc", "cremar", "fusta", "seca"], "pack": "natura", "nivell": 6},
+    
+    {"text": "Puja amunt per l'escala de pedra vella", "solucio": ["pujar", "amunt", "escala", "pedra", "vella"], "pack": "direccions", "nivell": 7},
+    {"text": "Baixa avall amb compte pel camí estret", "solucio": ["baixar", "avall", "compte", "cami", "estret"], "pack": "direccions", "nivell": 7},
+    {"text": "L'astronauta viatja a l'espai amb el coet", "solucio": ["astronauta", "viatjar", "espai", "coet"], "pack": "professions", "nivell": 7},
+    {"text": "El meu avi explica històries de la guerra", "solucio": ["meu", "avi", "explicar", "historia", "guerra"], "pack": "familia", "nivell": 7},
+    {"text": "El taxista porta el client a l'aeroport", "solucio": ["taxista", "portar", "client", "aeroport"], "pack": "professions", "nivell": 7},
+    {"text": "L'autobús porta els nens a l'escola", "solucio": ["autobus", "portar", "nen", "escola"], "pack": "transport", "nivell": 7},
+    {"text": "Estudio matemàtiques i català a l'escola", "solucio": ["estudiar", "matematiques", "catala", "escola"], "pack": "escola", "nivell": 7},
+    {"text": "El meu amic juga a bàsquet cada tarda", "solucio": ["meu", "amic", "jugar", "basquet", "tarda"], "pack": "esports", "nivell": 7},
+    {"text": "La meva germana petita dibuixa flors boniques", "solucio": ["meva", "germana", "petita", "dibuixar", "flor", "bonica"], "pack": "familia", "nivell": 7},
+    {"text": "Anem al supermercat a comprar fruita fresca", "solucio": ["anar", "supermercat", "comprar", "fruita", "fresca"], "pack": "ciutat", "nivell": 7},
+    {"text": "Arbre vell al bosc fosc humit", "solucio": ["arbre", "vell", "bosc", "fosc", "humit"], "pack": "natura", "nivell": 7},
+    {"text": "Flor groga al prat verd brillant", "solucio": ["flor", "groga", "prat", "verd", "brillant"], "pack": "natura", "nivell": 7},
+    
+    {"text": "Puja amunt per l'escala de cargol antiga", "solucio": ["pujar", "amunt", "escala", "cargol", "antiga"], "pack": "direccions", "nivell": 8},
+    {"text": "Baixa avall amb compte pel camí de terra humida", "solucio": ["baixar", "avall", "compte", "cami", "terra", "humida"], "pack": "direccions", "nivell": 8},
+    {"text": "El metge cirurgià opera al pacient a l'hospital", "solucio": ["metge", "cirurgià", "operar", "pacient", "hospital"], "pack": "professions", "nivell": 8},
+    {"text": "La meva familia gran celebra el Nadal junts", "solucio": ["meva", "familia", "gran", "celebrar", "nadal", "junt"], "pack": "familia", "nivell": 8},
+    {"text": "El policia investiga el robatori al banc", "solucio": ["policia", "investigar", "robatori", "banc"], "pack": "professions", "nivell": 8},
+    {"text": "L'helicopter rescata la gent de la muntanya", "solucio": ["helicopter", "rescatar", "gent", "muntanya"], "pack": "transport", "nivell": 8},
+    {"text": "Estudio angles i frances a l'institut", "solucio": ["estudiar", "angles", "frances", "institut"], "pack": "escola", "nivell": 8},
+    {"text": "El meu amic juga a tennis cada dissabte", "solucio": ["meu", "amic", "jugar", "tennis", "dissabte"], "pack": "esports", "nivell": 8},
+    {"text": "La meva germana petita apren a llegir ràpid", "solucio": ["meva", "germana", "petita", "aprenre", "llegir", "rapid"], "pack": "familia", "nivell": 8},
+    {"text": "Anem al mercat municipal a comprar peix fresc", "solucio": ["anar", "mercat", "municipal", "comprar", "peix", "fresc"], "pack": "ciutat", "nivell": 8},
+    {"text": "La lluna plena il·lumina el camí fosc", "solucio": ["lluna", "plena", "il·lumina", "cami", "fosc"], "pack": "natura", "nivell": 8},
+    {"text": "El gat negre caça ratolí petit", "solucio": ["gat", "negre", "caçar", "ratoli", "petit"], "pack": "animals", "nivell": 8},
+    
+    {"text": "Puja amunt per l'escala de cargol del castell antic", "solucio": ["pujar", "amunt", "escala", "cargol", "castell", "antic"], "pack": "direccions", "nivell": 9},
+    {"text": "Baixa avall amb compte pel camí de muntanya humida", "solucio": ["baixar", "avall", "compte", "cami", "muntanya", "humida"], "pack": "direccions", "nivell": 9},
+    {"text": "El científic investiga al laboratori modern", "solucio": ["cientific", "investigar", "laboratori", "modern"], "pack": "professions", "
