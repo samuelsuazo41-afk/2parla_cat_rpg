@@ -3,7 +3,7 @@
     {
       "id": "pack_natura",
       "nom": "Pack Natura",
-      "preu": 1500,
+      "preu": 200,
       "descripcio": "Animals, plantes, paisatge",
       "emojis": [
         {"emoji": "🌳", "nom_cat": "arbre", "desc": "Un arbre gran"},
@@ -16,7 +16,7 @@
     {
       "id": "pack_emocions",
       "nom": "Pack Emocions", 
-      "preu": 1500,
+      "preu": 200,
       "descripcio": "Sentiments i estats d'ànim",
       "emojis": [
         {"emoji": "😍", "nom_cat": "enamorat", "desc": "Estar enamorat"},
@@ -28,7 +28,7 @@
     {
       "id": "pack_objectes",
       "nom": "Pack Objectes Casa",
-      "preu": 1500,
+      "preu": 200,
       "descripcio": "Objectes de la casa",
       "emojis": [
         {"emoji": "🪑", "nom_cat": "cadira", "desc": "Una cadira"},
