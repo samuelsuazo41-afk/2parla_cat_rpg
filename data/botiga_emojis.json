@@ -1,40 +1,40 @@
 {
   "packs": [
     {
-      "id": "pack_natura",
+      "id": "natura",
       "nom": "Pack Natura",
-      "preu": 200,
-      "descripcio": "Animals, plantes, paisatge",
+      "preu": 80,
+      "categoria": "natura",
+      "nivell": 2,
       "emojis": [
-        {"emoji": "🌳", "nom_cat": "arbre", "desc": "Un arbre gran"},
-        {"emoji": "🌊", "nom_cat": "mar", "desc": "El mar"},
-        {"emoji": "🌸", "nom_cat": "flor", "desc": "Una flor"},
-        {"emoji": "🐺", "nom_cat": "llop", "desc": "Un llop"},
-        {"emoji": "🌧️", "nom_cat": "pluja", "desc": "Pluja"}
+        {"emoji": "🌳", "nom_cat": "arbre"},
+        {"emoji": "🌸", "nom_cat": "flor"},
+        {"emoji": "🌊", "nom_cat": "mar"},
+        {"emoji": "☀️", "nom_cat": "sol"}
       ]
     },
     {
-      "id": "pack_emocions",
-      "nom": "Pack Emocions", 
-      "preu": 200,
-      "descripcio": "Sentiments i estats d'ànim",
+      "id": "congo",
+      "nom": "Pack Congo",
+      "preu": 120,
+      "categoria": "congo",
+      "nivell": 3,
       "emojis": [
-        {"emoji": "😍", "nom_cat": "enamorat", "desc": "Estar enamorat"},
-        {"emoji": "😱", "nom_cat": "espantat", "desc": "Tenir por"},
-        {"emoji": "🤔", "nom_cat": "pensant", "desc": "Estar pensant"},
-        {"emoji": "😎", "nom_cat": "guai", "desc": "Estar guai"}
+        {"emoji": "🥁", "nom_cat": "tambor"},
+        {"emoji": "🌴", "nom_cat": "palmera"},
+        {"emoji": "🦁", "nom_cat": "lleó"}
       ]
     },
     {
-      "id": "pack_objectes",
-      "nom": "Pack Objectes Casa",
-      "preu": 200,
-      "descripcio": "Objectes de la casa",
+      "id": "cuina",
+      "nom": "Pack Cuina",
+      "preu": 90,
+      "categoria": "cuina",
+      "nivell": 2,
       "emojis": [
-        {"emoji": "🪑", "nom_cat": "cadira", "desc": "Una cadira"},
-        {"emoji": "🛏️", "nom_cat": "llit", "desc": "Un llit"},
-        {"emoji": "📱", "nom_cat": "mòbil", "desc": "Un mòbil"},
-        {"emoji": "💻", "nom_cat": "ordinador", "desc": "Un ordinador"}
+        {"emoji": "🍳", "nom_cat": "paella"},
+        {"emoji": "🔪", "nom_cat": "ganivet"},
+        {"emoji": "🍅", "nom_cat": "tomàquet"}
       ]
     }
   ]
