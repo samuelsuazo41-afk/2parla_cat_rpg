@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rpg_parla_cat_v2-v49';
+const CACHE_NAME = 'rpg_parla_cat_v2-v55';
 const urlsToCache = [
   './',
   './index.html',
@@ -15,6 +15,7 @@ const urlsToCache = [
   './data/ruta_valencia_ciutat_vella.json',
   './data/biblioteca_emojis.json',
   './data/botiga_emojis.json',
+  './data/categories_emoji.json',
   './data/minijoc_frases.json',
   './camisa_cenguera.png',
   './ram_roses_girona.png',
