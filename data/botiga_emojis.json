@@ -1,41 +1,64 @@
 {
   "packs": [
     {
+      "id": "familia",
+      "nom": "Pack Familia",
+      "preu": 50,
+      "emojis": ["persona", "home", "dona", "noi", "noia", "infant", "avi", "àvia", "pare", "mare", "germà", "germana", "familia"]
+    },
+    {
+      "id": "professions",
+      "nom": "Pack Professions",
+      "preu": 80,
+      "emojis": ["metge", "infermera", "professor", "professora", "cuiner", "cuinera", "policia_home", "policia_dona", "bomber_home", "bombera", "pagès", "pagèsa", "pilot", "astronauta", "artist", "musico", "cientific", "enginyer"]
+    },
+    {
+      "id": "transport",
+      "nom": "Pack Transport",
+      "preu": 70,
+      "emojis": ["cotxe", "cotxe_roig", "camio", "autobus", "moto", "taxi", "ambulancia", "policia", "bomber", "helicopter", "vaixell_gran", "avió", "tren", "bici"]
+    },
+    {
       "id": "natura",
       "nom": "Pack Natura",
-      "preu": 80,
-      "categoria": "natura",
-      "nivell": 2,
-      "emojis": [
-        {"emoji": "🌳", "nom_cat": "arbre"},
-        {"emoji": "🌸", "nom_cat": "flor"},
-        {"emoji": "🌊", "nom_cat": "mar"},
-        {"emoji": "☀️", "nom_cat": "sol"}
-      ]
+      "preu": 60,
+      "emojis": ["arbre", "flor", "bosc", "muntanya", "mar", "platja", "sol", "lluna", "cel", "pluja", "neu", "vent"]
     },
     {
-      "id": "congo",
-      "nom": "Pack Congo",
-      "preu": 120,
-      "categoria": "congo",
-      "nivell": 3,
-      "emojis": [
-        {"emoji": "🥁", "nom_cat": "tambor"},
-        {"emoji": "🌴", "nom_cat": "palmera"},
-        {"emoji": "🦁", "nom_cat": "lleó"}
-      ]
+      "id": "animals",
+      "nom": "Pack Animals",
+      "preu": 65,
+      "emojis": ["gat", "gos", "cavall", "vaca", "porc", "gallina", "peix", "ocell", "papallona", "llop", "llop", "elefant"]
     },
     {
-      "id": "cuina",
-      "nom": "Pack Cuina",
-      "preu": 90,
-      "categoria": "cuina",
-      "nivell": 2,
-      "emojis": [
-        {"emoji": "🍳", "nom_cat": "paella"},
-        {"emoji": "🔪", "nom_cat": "ganivet"},
-        {"emoji": "🍅", "nom_cat": "tomàquet"}
-      ]
+      "id": "escola",
+      "nom": "Pack Escola",
+      "preu": 55,
+      "emojis": ["escola", "llibre", "pinzell", "llapis", "llibreta", "regla", "goma", "estudiant"]
+    },
+    {
+      "id": "objectes",
+      "nom": "Pack Objectes",
+      "preu": 75,
+      "emojis": ["ordinador", "ordinador_portatil", "telefon", "tablet", "teclat", "ratoli_pc", "cadira", "taula", "llit"]
+    },
+    {
+      "id": "menjar",
+      "nom": "Pack Menjar",
+      "preu": 60,
+      "emojis": ["poma", "pa", "formatge", "ou", "pastis", "fruita", "verdura", "carn", "peix_cuina"]
+    },
+    {
+      "id": "esports",
+      "nom": "Pack Esports",
+      "preu": 65,
+      "emojis": ["futbol", "basquet", "tennis", "natacio", "ciclisme", "atletisme"]
+    },
+    {
+      "id": "direccions",
+      "nom": "Pack Direccions",
+      "preu": 40,
+      "emojis": ["amunt", "avall", "esquerra", "dreta", "davant", "darrere"]
     }
   ]
 }
