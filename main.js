@@ -112,12 +112,12 @@ let estat = {
 
 const CAPITOLS = [
   {
-    id: "capitol1_bcn_born",
+    id: "capitol_01_bcn_born",
     nom: "Barcelona - El Born",
     icona: "🏛️",
     desbloquejat: true,
     desc: `Arribes al Born. Si parles bé,\net conviden a vermut 🍷`,
-    archivo: "capitol1_bcn_born.json",
+    archivo: "capitol_01_bcn_born.json",
     recompensa_100: {item_id: "camisa_cenguera_barca", ruta: "ruta_rave_port_olympic"}
   },
   {
@@ -127,7 +127,7 @@ const CAPITOLS = [
     desbloquejat: false,
     desc: "Flors als carrers. Català més lent, més de poble.",
     archivo: "capitol_02_girona.json",
-    requereix: "capitol1_bcn_born",
+    requereix: "capitol_01_bcn_born",
     recompensa_100: {item_id: "flor_suprema_temps_flors", ruta: "ruta_girona_muralla_viva"}
   },
   {
