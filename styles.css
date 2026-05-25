@@ -303,3 +303,45 @@ header h1 {
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   }
+
+.emoji-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+@media (min-width: 500px) {
+ .emoji-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.emoji-item {
+  min-height: 75px;
+}
+
+.emoji-large {
+  font-size: 32px;
+}
+
+@media (max-width: 400px) {
+ .emoji-large {
+    font-size: 28px;
+  }
+ .emoji-name {
+    font-size: 10px;
+  }
+}
+
+@keyframes correcteAnim {
+ 0% { transform: scale(1); }
+ 50% { transform: scale(1.05); }
+ 100% { transform: scale(1); }
+}
+
+@keyframes shake {
+ 0%, 100% { transform: translateX(0); }
+ 25% { transform: translateX(-8px); }
+ 75% { transform: translateX(8px); }
+}
