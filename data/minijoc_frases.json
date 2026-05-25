@@ -1,13 +1,28 @@
 {
-  "nivell": 1,
   "frases": [
-    {"text": "L'home és feliç", "solucio": ["👨", "😊"]},
-    {"text": "La noia riu", "solucio": ["👧", "😄"]},
-    {"text": "El bebè plora", "solucio": ["👶", "😢"]},
-    {"text": "L'estudiant estudia", "solucio": ["👨‍🎓", "📚"]},
-    {"text": "El músic toca", "solucio": ["👨‍🎵", "🎵"]},
-    {"text": "L'astronauta va a l'espai", "solucio": ["👨‍🚀", "🚀"]},
-    {"text": "El pintor pinta", "solucio": ["👨‍🎨", "🎨"]},
-    {"text": "El tècnic treballa", "solucio": ["👨‍🔧", "🔧"]}
+    {
+      "text": "El gat està content",
+      "solucio": ["🐱", "😊"],
+      "pack": "base",
+      "nivell": 1
+    },
+    {
+      "text": "L'arbre i la flor",
+      "solucio": ["🌳", "🌸"],
+      "pack": "natura",
+      "nivell": 2
+    },
+    {
+      "text": "El tambor a la selva",
+      "solucio": ["🥁", "🌴"],
+      "pack": "congo",
+      "nivell": 3
+    },
+    {
+      "text": "Cuino una paella",
+      "solucio": ["🍳", "🍅"],
+      "pack": "cuina",
+      "nivell": 2
+    }
   ]
 }
