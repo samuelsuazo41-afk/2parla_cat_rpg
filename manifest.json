@@ -1,6 +1,6 @@
 {
-  "name": "Rpg_parla_cat",
-  "short_name": "ParlaRPG",
+  "name": "Rpg_parla_cat_v2",
+  "short_name": "RPG Parla",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#000",
