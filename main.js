@@ -1,10 +1,10 @@
-// main.js - Lógica de RPG Parla Cat 
+// main.js - Lógica de RPG Parla Cat v2
 let musicaActivada = true;
 let BIBLIOTECA_EMOJIS_BASE = []; // Declarado arriba para que exista globalmente
 
 const LANGS = {
   es: {
-    app_titol: "RPG Parla Cat  - Crónicas de Cataluña",
+    app_titol: "RPG Parla Cat v2  - Crónicas de Cataluña",
     monedes: "Monedas",
     tab_mapa: "Mundo",
     tab_missio: "Misión",
