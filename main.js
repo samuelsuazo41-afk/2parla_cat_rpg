@@ -660,7 +660,7 @@ function mostrarGremi(tab, e) {
     }
   }
 
-  if(tab === 'llegendes') {
+    if(tab === 'llegendes') {
     const llegendes = [
       { id: 'capitol_01_bcn_born', nom: 'El Born, Barcelona', icona: '🏛️', desbloquejada: estat.capitolsCompletats.includes('capitol_01_bcn_born'), text: 'El Born és el barri gòtic més viu.' },
       { id: 'capitol_02_girona', nom: 'Temps de Flors, Girona', icona: '🏰', desbloquejada: estat.capitolsCompletats.includes('capitol_02_girona'), text: 'Cada maig, Girona s\'omple de flors.' },
@@ -668,7 +668,7 @@ function mostrarGremi(tab, e) {
     ];
     llegendes.forEach(l => {
       if(l.desbloquejada) {
-            cont.innerHTML += `<div class="gremi-item" style="grid-column:1/-1;"><div style="font-size:36px;">${l.icona}</div><h3 style="margin:10px 0;">${l.nom}</h3><p style="font-size:14px; color:#ccc;">${l.text}</p><div style="color:#4CAF50; font-size:12px; margin-top:10px;">✓ Desbloquejada</div></div>`;
+        cont.innerHTML += `<div class="gremi-item" style="grid-column:1/-1;"><div style="font-size:36px;">${l.icona}</div><h3 style="margin:10px 0;">${l.nom}</h3><p style="font-size:14px; color:#ccc;">${l.text}</p><div style="color:#4CAF50; font-size:12px; margin-top:10px;">✓ Desbloquejada</div></div>`;
       } else {
         cont.innerHTML += `<div class="gremi-item" style="grid-column:1/-1; opacity:0.4;"><div style="font-size:36px;">🔒</div><h3 style="margin:10px 0;">???</h3><p style="font-size:14px; color:#666;">Completa el capítol per desbloquejar aquesta llegenda</p></div>`;
       }
@@ -730,7 +730,7 @@ function mostrarBibliotecaTab(tab, e) {
 
 // LÓGICA MINIJUEGO HÍBRIDO CON SKIN TONES
 function novaFraseMinijoc() {
-  const emojisJugador = [...BIBLIOTECA_EMOJIS_BASE.map(e => e.emoji),...estat.emojisDesbloquejats.map(e => e.emoji)];
+  const emojisJugador = [...BIBLIOTECA_EMOJIS_BASE.map(e => e.emoji),...estat.emojisDesbloquejats];
 
   const usarMixta = NIVELL_MINIJOC.nivelActual >= 2 && Math.random() > 0.4;
 
@@ -764,17 +764,16 @@ function generarFraseMixta(emojisJugador) {
     `Nivell ${NIVELL_MINIJOC.nivelActual} - Completa amb ${frase.solucio.length} emoji(s)`;
 
   const emojisFalsos = emojisJugador
-  .filter(e =>!frase.solucio.some(eSol => quitarSkinTone(e) === quitarSkinTone(eSol)))
-  .sort(() => 0.5 - Math.random())
-  .slice(0, 8 - frase.solucio.length);
+   .filter(e =>!frase.solucio.some(eSol => quitarSkinTone(e) === quitarSkinTone(eSol)))
+   .sort(() => 0.5 - Math.random())
+   .slice(0, 8 - frase.solucio.length);
 
   const emojisAMostrar = [...frase.solucio,...emojisFalsos].sort(() => 0.5 - Math.random());
   estat.minijoc.emojisDisponibles = emojisAMostrar;
 
   let html = '';
   emojisAMostrar.forEach((emoji, i) => {
-    const emojiData = BIBLIOTECA_EMOJIS_BASE.find(e => quitarSkinTone(e.emoji) === quitarSkinTone(emoji)) ||
-                      estat.emojisDesbloquejats.find(e => quitarSkinTone(e.emoji) === quitarSkinTone(emoji));
+    const emojiData = BIBLIOTECA_EMOJIS_BASE.find(e => quitarSkinTone(e.emoji) === quitarSkinTone(emoji));
     html += `
       <div class="emoji-item" onclick="triarEmojiMinijoc(${i})" style="cursor:pointer;">
         <div class="emoji-large">${emoji}</div>
@@ -812,19 +811,18 @@ function generarFraseCorta(emojisJugador) {
 }
 
 function generarEmojisParaFraseCorta(frase) {
-  const emojisJugador = [...BIBLIOTECA_EMOJIS_BASE.map(e => e.emoji),...estat.emojisDesbloquejats.map(e => e.emoji)];
+  const emojisJugador = [...BIBLIOTECA_EMOJIS_BASE.map(e => e.emoji),...estat.emojisDesbloquejats];
   const emojisFalsos = emojisJugador
-  .filter(e =>!frase.solucio.some(eSol => quitarSkinTone(e) === quitarSkinTone(eSol)))
-  .sort(() => 0.5 - Math.random())
-  .slice(0, 10 - frase.solucio.length);
+   .filter(e =>!frase.solucio.some(eSol => quitarSkinTone(e) === quitarSkinTone(eSol)))
+   .sort(() => 0.5 - Math.random())
+   .slice(0, 10 - frase.solucio.length);
 
   const emojisAMostrar = [...frase.solucio,...emojisFalsos].sort(() => 0.5 - Math.random());
   estat.minijoc.emojisDisponibles = emojisAMostrar;
 
   let html = '';
   emojisAMostrar.forEach((emoji, i) => {
-    const emojiData = BIBLIOTECA_EMOJIS_BASE.find(e => quitarSkinTone(e.emoji) === quitarSkinTone(emoji)) ||
-                      estat.emojisDesbloquejats.find(e => quitarSkinTone(e.emoji) === quitarSkinTone(emoji));
+    const emojiData = BIBLIOTECA_EMOJIS_BASE.find(e => quitarSkinTone(e.emoji) === quitarSkinTone(emoji));
     html += `
       <div class="emoji-item" onclick="triarEmojiMinijoc(${i})" style="cursor:pointer;">
         <div class="emoji-large">${emoji}</div>
@@ -983,7 +981,8 @@ async function carregarBotiga() {
       cont.appendChild(card);
     });
   } catch(e) {
-    cont.innerHTML = '<div style="grid-column:1/-1; text-align:center; color:#888;">Pròximament</div>';
+    console.error(e);
+    cont.innerHTML = `<div style="grid-column:1/-1; text-align:center; color:#f44336;">Error: ${e.message}</div>`;
   }
 }
 
