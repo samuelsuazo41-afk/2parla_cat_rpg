@@ -1,87 +1,87 @@
 [
-  {
-    "emoji": "🧑",
-    "nom_cat": "persona",
-    "para_frases": ["persona", "gent", "algú", "jo", "tu", "ell", "ella"]
-  },
-  {
-    "emoji": "👦",
-    "nom_cat": "noi",
-    "para_frases": ["noi", "nen", "fill", "ell"]
-  },
-  {
-    "emoji": "👧",
-    "nom_cat": "noia",
-    "para_frases": ["noia", "nena", "filla", "ella"]
-  },
-  {
-    "emoji": "👨",
-    "nom_cat": "home",
-    "para_frases": ["home", "senyor", "pare", "ell"]
-  },
-  {
-    "emoji": "👩",
-    "nom_cat": "dona",
-    "para_frases": ["dona", "senyora", "mare", "ella"]
-  },
-  {
-    "emoji": "👶",
-    "nom_cat": "infant",
-    "para_frases": ["infant", "nen", "nena", "bebè", "criatura", "petit"]
-  },
-  {
-    "emoji": "👴",
-    "nom_cat": "avi",
-    "para_frases": ["avi", "vell", "home"]
-  },
-  {
-    "emoji": "👵",
-    "nom_cat": "àvia",
-    "para_frases": ["àvia", "vella", "dona"]
-  },
-  {
-    "emoji": "👨‍🎓",
-    "nom_cat": "estudiant",
-    "para_frases": ["estudiant", "alumne", "estudiar", "universitat"]
-  },
-  {
-    "emoji": "👨‍💼",
-    "nom_cat": "oficinista",
-    "para_frases": ["oficinista", "treballador", "feina", "oficina"]
-  },
-  {
-    "emoji": "👨‍🔧",
-    "nom_cat": "tècnic",
-    "para_frases": ["tècnic", "mecànic", "arreglar", "treballar"]
-  },
-  {
-    "emoji": "👨‍🎵",
-    "nom_cat": "músic",
-    "para_frases": ["músic", "música", "tocar", "cantant"]
-  },
-  {
-    "emoji": "👨‍🎨",
-    "nom_cat": "pintor",
-    "para_frases": ["pintor", "artista", "pintar", "dibuixar"]
-  },
-  {
-    "emoji": "👨‍🚀",
-    "nom_cat": "astronauta",
-    "para_frases": ["astronauta", "espai", "coet", "lluna"]
-  },
-  {
-    "emoji": "😊",
-    "nom_cat": "content",
-    "para_frases": ["content", "feliç", "alegre", "somriure"]
-  },
-  {
-    "emoji": "🍎",
-    "nom_cat": "poma",
-    "para_frases": ["poma", "fruita", "menjar", "aliment"]
-  },
-  {
-    "emoji": "🐱",
-    "nom_cat": "gat",
-    "para_frases": ["gat", "gatet", "animal", "mascota"]
-  }
+  {"emoji": "🧑", "nom_cat": "persona", "para_frases": ["persona", "gent", "algú", "jo", "tu", "ell", "ella"]},
+  {"emoji": "👦", "nom_cat": "noi", "para_frases": ["noi", "nen", "fill", "ell"]},
+  {"emoji": "👧", "nom_cat": "noia", "para_frases": ["noia", "nena", "filla", "ella"]},
+  {"emoji": "👨", "nom_cat": "home", "para_frases": ["home", "senyor", "pare", "ell"]},
+  {"emoji": "👩", "nom_cat": "dona", "para_frases": ["dona", "senyora", "mare", "ella"]},
+  {"emoji": "👶", "nom_cat": "infant", "para_frases": ["infant", "nen", "nena", "bebè", "criatura", "petit"]},
+  {"emoji": "👴", "nom_cat": "avi", "para_frases": ["avi", "vell", "home"]},
+  {"emoji": "👵", "nom_cat": "àvia", "para_frases": ["àvia", "vella", "dona"]},
+  {"emoji": "👨‍🎓", "nom_cat": "estudiant", "para_frases": ["estudiant", "alumne", "estudiar", "universitat"]},
+  {"emoji": "👨‍💼", "nom_cat": "oficinista", "para_frases": ["oficinista", "treballador", "feina", "oficina"]},
+  {"emoji": "👨‍🔧", "nom_cat": "tècnic", "para_frases": ["tècnic", "mecànic", "arreglar", "treballar"]},
+  {"emoji": "👨‍🎵", "nom_cat": "músic", "para_frases": ["músic", "música", "tocar", "cantant"]},
+  {"emoji": "👨‍🎨", "nom_cat": "pintor", "para_frases": ["pintor", "artista", "pintar", "dibuixar"]},
+  {"emoji": "👨‍🚀", "nom_cat": "astronauta", "para_frases": ["astronauta", "espai", "coet", "lluna"]},
+  {"emoji": "😊", "nom_cat": "content", "para_frases": ["content", "feliç", "alegre", "somriure"]},
+  {"emoji": "🍎", "nom_cat": "poma", "para_frases": ["poma", "fruita", "menjar", "aliment"]},
+  {"emoji": "🐱", "nom_cat": "gat", "para_frases": ["gat", "gatet", "animal", "mascota"]},
+  
+  {"emoji": "🐶", "nom_cat": "gos", "para_frases": ["gos", "gosset", "animal", "mascota"]},
+  {"emoji": "🌳", "nom_cat": "arbre", "para_frases": ["arbre", "planta", "bosc", "natura"]},
+  {"emoji": "🌸", "nom_cat": "flor", "para_frases": ["flor", "planta", "jardí", "natura"]},
+  {"emoji": "☀️", "nom_cat": "sol", "para_frases": ["sol", "dia", "llum", "cel"]},
+  {"emoji": "🌙", "nom_cat": "lluna", "para_frases": ["lluna", "nit", "cel", "llum"]},
+  {"emoji": "🌊", "nom_cat": "mar", "para_frases": ["mar", "aigua", "ona", "platja"]},
+  {"emoji": "☁️", "nom_cat": "cel", "para_frases": ["cel", "núvol", "aire", "cel"]},
+  {"emoji": "🌧️", "nom_cat": "pluja", "para_frases": ["pluja", "aigua", "temps", "mullar"]},
+  {"emoji": "❄️", "nom_cat": "neu", "para_frases": ["neu", "fred", "hivern", "muntanya"]},
+  {"emoji": "🏠", "nom_cat": "casa", "para_frases": ["casa", "llar", "edifici", "lloc"]},
+  {"emoji": "🚗", "nom_cat": "cotxe", "para_frases": ["cotxe", "cotxe_roig", "vehicle", "transport"]},
+  {"emoji": "🚌", "nom_cat": "autobus", "para_frases": ["autobus", "bus", "transport", "viatjar"]},
+  {"emoji": "✈️", "nom_cat": "avió", "para_frases": ["avió", "volar", "viatjar", "transport"]},
+  {"emoji": "🚲", "nom_cat": "bici", "para_frases": ["bici", "bicicleta", "transport", "esport"]},
+  {"emoji": "📚", "nom_cat": "llibre", "para_frases": ["llibre", "llegir", "estudiar", "escola"]},
+  {"emoji": "💻", "nom_cat": "ordinador", "para_frases": ["ordinador", "ordinador_portatil", "ordinador", "tecnologia"]},
+  {"emoji": "📱", "nom_cat": "telefon", "para_frases": ["telefon", "mobil", "telefon", "comunicar"]},
+  {"emoji": "⚽", "nom_cat": "futbol", "para_frases": ["futbol", "esport", "jugar", "pilota"]},
+  {"emoji": "🏀", "nom_cat": "basquet", "para_frases": ["basquet", "esport", "jugar", "pilota"]},
+  {"emoji": "🎵", "nom_cat": "musica", "para_frases": ["musica", "cantar", "tocar", "so"]},
+  
+  {"emoji": "🐴", "nom_cat": "cavall", "para_frases": ["cavall", "animal", "granja"]},
+  {"emoji": "🐄", "nom_cat": "vaca", "para_frases": ["vaca", "animal", "granja", "llet"]},
+  {"emoji": "🐷", "nom_cat": "porc", "para_frases": ["porc", "animal", "granja"]},
+  {"emoji": "🐔", "nom_cat": "gallina", "para_frases": ["gallina", "animal", "granja", "ou"]},
+  {"emoji": "🐟", "nom_cat": "peix", "para_frases": ["peix", "animal", "mar", "nedar"]},
+  {"emoji": "🐦", "nom_cat": "ocell", "para_frases": ["ocell", "animal", "volar", "cel"]},
+  {"emoji": "🦋", "nom_cat": "papallona", "para_frases": ["papallona", "animal", "volar", "jardí"]},
+  {"emoji": "🌲", "nom_cat": "bosc", "para_frases": ["bosc", "arbre", "natura", "verd"]},
+  {"emoji": "⛰️", "nom_cat": "muntanya", "para_frases": ["muntanya", "alta", "pujar", "natura"]},
+  {"emoji": "🏖️", "nom_cat": "platja", "para_frases": ["platja", "mar", "sorra", "estiu"]},
+  {"emoji": "🏫", "nom_cat": "escola", "para_frases": ["escola", "estudiar", "alumne", "aprenre"]},
+  {"emoji": "🏥", "nom_cat": "hospital", "para_frases": ["hospital", "metge", "curar", "malalt"]},
+  {"emoji": "🏪", "nom_cat": "botiga", "para_frases": ["botiga", "comprar", "vendre", "comerç"]},
+  {"emoji": "🚓", "nom_cat": "policia", "para_frases": ["policia", "seguretat", "aturar", "llei"]},
+  {"emoji": "🚒", "nom_cat": "bomber", "para_frases": ["bomber", "foc", "apagar", "ajudar"]},
+  {"emoji": "🚑", "nom_cat": "ambulancia", "para_frases": ["ambulancia", "hospital", "ajudar", "urgent"]},
+  {"emoji": "🍞", "nom_cat": "pa", "para_frases": ["pa", "menjar", "aliment", "forn"]},
+  {"emoji": "🧀", "nom_cat": "formatge", "para_frases": ["formatge", "menjar", "llet", "aliment"]},
+  {"emoji": "🥚", "nom_cat": "ou", "para_frases": ["ou", "menjar", "aliment", "gallina"]},
+  {"emoji": "🍰", "nom_cat": "pastis", "para_frases": ["pastis", "dolç", "menjar", "celebració"]},
+  
+  {"emoji": "⬆️", "nom_cat": "amunt", "para_frases": ["amunt", "pujar", "dalt", "alt"]},
+  {"emoji": "⬇️", "nom_cat": "avall", "para_frases": ["avall", "baixar", "baix", "baix"]},
+  {"emoji": "⬅️", "nom_cat": "esquerra", "para_frases": ["esquerra", "girar", "costat"]},
+  {"emoji": "➡️", "nom_cat": "dreta", "para_frases": ["dreta", "girar", "costat"]},
+  {"emoji": "👋", "nom_cat": "hola", "para_frases": ["hola", "saludar", "adeu"]},
+  {"emoji": "✅", "nom_cat": "si", "para_frases": ["si", "afirmar", "correcte"]},
+  {"emoji": "❌", "nom_cat": "no", "para_frases": ["no", "negar", "incorrecte"]},
+  {"emoji": "🙏", "nom_cat": "gracies", "para_frases": ["gracies", "si_us_plau", "agrair"]},
+  {"emoji": "👁️", "nom_cat": "ull", "para_frases": ["ull", "mirar", "veure", "cara"]},
+  {"emoji": "👃", "nom_cat": "nas", "para_frases": ["nas", "olorar", "cara"]},
+  {"emoji": "👄", "nom_cat": "boca", "para_frases": ["boca", "parlar", "menjar", "cara"]},
+  {"emoji": "✋", "nom_cat": "ma", "para_frases": ["ma", "agafar", "cos", "ma"]},
+  {"emoji": "🦶", "nom_cat": "peu", "para_frases": ["peu", "caminar", "cos", "peu"]},
+  {"emoji": "💪", "nom_cat": "braç", "para_frases": ["braç", "fort", "cos", "muscul"]},
+  
+  {"emoji": "👨‍⚕️", "nom_cat": "metge", "para_frases": ["metge", "curar", "hospital", "treballar"]},
+  {"emoji": "👩‍⚕️", "nom_cat": "infermera", "para_frases": ["infermera", "curar", "hospital", "treballar"]},
+  {"emoji": "👨‍🏫", "nom_cat": "professor", "para_frases": ["professor", "ensenyar", "escola", "treballar"]},
+  {"emoji": "👩‍🏫", "nom_cat": "professora", "para_frases": ["professora", "ensenyar", "escola", "treballar"]},
+  {"emoji": "👨‍🍳", "nom_cat": "cuiner", "para_frases": ["cuiner", "cuinar", "menjar", "cuina"]},
+  {"emoji": "👩‍🍳", "nom_cat": "cuinera", "para_frases": ["cuinera", "cuinar", "menjar", "cuina"]},
+  {"emoji": "👨‍✈️", "nom_cat": "pilot", "para_frases": ["pilot", "volar", "avió", "treballar"]},
+  {"emoji": "👨‍🌾", "nom_cat": "pagès", "para_frases": ["pagès", "camp", "treballar", "granja"]},
+  {"emoji": "👨‍🔬", "nom_cat": "cientific", "para_frases": ["cientific", "investigar", "laboratori", "ciència"]},
+  {"emoji": "👨‍💻", "nom_cat": "enginyer", "para_frases": ["enginyer", "programar", "ordinador", "treballar"]}
 ]
