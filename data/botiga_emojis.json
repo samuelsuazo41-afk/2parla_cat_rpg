@@ -3,252 +3,741 @@
     "id": "pack_persones_base",
     "nom": "Persones Base",
     "preu": 30,
-    "emojis": ["👨","👩","👦","👧","👴","👵","👶"]
+    "emojis": [
+      {"emoji": "👨", "nom_cat": "home", "para_frases": ["home", "persona"]},
+      {"emoji": "👩", "nom_cat": "dona", "para_frases": ["dona", "persona"]},
+      {"emoji": "👦", "nom_cat": "nen", "para_frases": ["nen", "persona", "infant"]},
+      {"emoji": "👧", "nom_cat": "nena", "para_frases": ["nena", "persona", "infant"]},
+      {"emoji": "👴", "nom_cat": "avi", "para_frases": ["avi", "persona", "home gran"]},
+      {"emoji": "👵", "nom_cat": "avia", "para_frases": ["avia", "persona", "dona gran"]},
+      {"emoji": "👶", "nom_cat": "bebè", "para_frases": ["bebè", "persona", "infant"]}
+    ]
   },
   {
     "id": "pack_persones_skin1",
     "nom": "Persones Tó Clar",
     "preu": 40,
-    "emojis": ["👨🏻","👩🏻","👦🏻","👧🏻","👴🏻","👵🏻","👶🏻"]
+    "emojis": [
+      {"emoji": "👨🏻", "nom_cat": "home pell clara", "para_frases": ["home", "persona"]},
+      {"emoji": "👩🏻", "nom_cat": "dona pell clara", "para_frases": ["dona", "persona"]},
+      {"emoji": "👦🏻", "nom_cat": "nen pell clara", "para_frases": ["nen", "persona"]},
+      {"emoji": "👧🏻", "nom_cat": "nena pell clara", "para_frases": ["nena", "persona"]},
+      {"emoji": "👴🏻", "nom_cat": "avi pell clara", "para_frases": ["avi", "persona"]},
+      {"emoji": "👵🏻", "nom_cat": "avia pell clara", "para_frases": ["avia", "persona"]},
+      {"emoji": "👶🏻", "nom_cat": "bebè pell clara", "para_frases": ["bebè", "persona"]}
+    ]
   },
   {
     "id": "pack_persones_skin2",
     "nom": "Persones Tó Mig Clar",
     "preu": 40,
-    "emojis": ["👨🏼","👩🏼","👦🏼","👧🏼","👴🏼","👵🏼","👶🏼"]
+    "emojis": [
+      {"emoji": "👨🏼", "nom_cat": "home pell mig clara", "para_frases": ["home", "persona"]},
+      {"emoji": "👩🏼", "nom_cat": "dona pell mig clara", "para_frases": ["dona", "persona"]},
+      {"emoji": "👦🏼", "nom_cat": "nen pell mig clara", "para_frases": ["nen", "persona"]},
+      {"emoji": "👧🏼", "nom_cat": "nena pell mig clara", "para_frases": ["nena", "persona"]},
+      {"emoji": "👴🏼", "nom_cat": "avi pell mig clara", "para_frases": ["avi", "persona"]},
+      {"emoji": "👵🏼", "nom_cat": "avia pell mig clara", "para_frases": ["avia", "persona"]},
+      {"emoji": "👶🏼", "nom_cat": "bebè pell mig clara", "para_frases": ["bebè", "persona"]}
+    ]
   },
   {
     "id": "pack_persones_skin3",
     "nom": "Persones Tó Mig",
     "preu": 40,
-    "emojis": ["👨🏽","👩🏽","👦🏽","👧🏽","👴🏽","👵🏽","👶🏽"]
+    "emojis": [
+      {"emoji": "👨🏽", "nom_cat": "home pell mitjana", "para_frases": ["home", "persona"]},
+      {"emoji": "👩🏽", "nom_cat": "dona pell mitjana", "para_frases": ["dona", "persona"]},
+      {"emoji": "👦🏽", "nom_cat": "nen pell mitjana", "para_frases": ["nen", "persona"]},
+      {"emoji": "👧🏽", "nom_cat": "nena pell mitjana", "para_frases": ["nena", "persona"]},
+      {"emoji": "👴🏽", "nom_cat": "avi pell mitjana", "para_frases": ["avi", "persona"]},
+      {"emoji": "👵🏽", "nom_cat": "avia pell mitjana", "para_frases": ["avia", "persona"]},
+      {"emoji": "👶🏽", "nom_cat": "bebè pell mitjana", "para_frases": ["bebè", "persona"]}
+    ]
   },
   {
     "id": "pack_persones_skin4",
     "nom": "Persones Tó Fosc",
     "preu": 40,
-    "emojis": ["👨🏾","👩🏾","👦🏾","👧🏾","👴🏾","👵🏾","👶🏾"]
+    "emojis": [
+      {"emoji": "👨🏾", "nom_cat": "home pell fosca", "para_frases": ["home", "persona"]},
+      {"emoji": "👩🏾", "nom_cat": "dona pell fosca", "para_frases": ["dona", "persona"]},
+      {"emoji": "👦🏾", "nom_cat": "nen pell fosca", "para_frases": ["nen", "persona"]},
+      {"emoji": "👧🏾", "nom_cat": "nena pell fosca", "para_frases": ["nena", "persona"]},
+      {"emoji": "👴🏾", "nom_cat": "avi pell fosca", "para_frases": ["avi", "persona"]},
+      {"emoji": "👵🏾", "nom_cat": "avia pell fosca", "para_frases": ["avia", "persona"]},
+      {"emoji": "👶🏾", "nom_cat": "bebè pell fosca", "para_frases": ["bebè", "persona"]}
+    ]
   },
   {
     "id": "pack_persones_skin5",
     "nom": "Persones Tó Molt Fosc",
     "preu": 40,
-    "emojis": ["👨🏿","👩🏿","👦🏿","👧🏿","👴🏿","👵🏿","👶🏿"]
+    "emojis": [
+      {"emoji": "👨🏿", "nom_cat": "home pell molt fosca", "para_frases": ["home", "persona"]},
+      {"emoji": "👩🏿", "nom_cat": "dona pell molt fosca", "para_frases": ["dona", "persona"]},
+      {"emoji": "👦🏿", "nom_cat": "nen pell molt fosca", "para_frases": ["nen", "persona"]},
+      {"emoji": "👧🏿", "nom_cat": "nena pell molt fosca", "para_frases": ["nena", "persona"]},
+      {"emoji": "👴🏿", "nom_cat": "avi pell molt fosca", "para_frases": ["avi", "persona"]},
+      {"emoji": "👵🏿", "nom_cat": "avia pell molt fosca", "para_frases": ["avia", "persona"]},
+      {"emoji": "👶🏿", "nom_cat": "bebè pell molt fosca", "para_frases": ["bebè", "persona"]}
+    ]
   },
   {
     "id": "pack_sanitat",
     "nom": "Sanitat i Rescat",
     "preu": 60,
-    "emojis": ["👨‍⚕️","👩‍⚕️","👨‍🚒","👩‍🚒","👨‍⚖️","👩‍⚖️"]
+    "emojis": [
+      {"emoji": "👨‍⚕️", "nom_cat": "metge", "para_frases": ["metge", "feina", "salut"]},
+      {"emoji": "👩‍⚕️", "nom_cat": "metgessa", "para_frases": ["metgessa", "feina", "salut"]},
+      {"emoji": "👨‍🚒", "nom_cat": "bomber", "para_frases": ["bomber", "feina", "emergència"]},
+      {"emoji": "👩‍🚒", "nom_cat": "bombera", "para_frases": ["bombera", "feina", "emergència"]},
+      {"emoji": "👨‍⚖️", "nom_cat": "jutge", "para_frases": ["jutge", "feina", "justícia"]},
+      {"emoji": "👩‍⚖️", "nom_cat": "jutgessa", "para_frases": ["jutgessa", "feina", "justícia"]}
+    ]
   },
   {
     "id": "pack_educacio",
     "nom": "Educació i Ciència",
     "preu": 60,
-    "emojis": ["👨‍🏫","👩‍🏫","👨‍🔬","👩‍🔬","👨‍💻","👩‍💻"]
+    "emojis": [
+      {"emoji": "👨‍🏫", "nom_cat": "professor", "para_frases": ["professor", "feina", "educació"]},
+      {"emoji": "👩‍🏫", "nom_cat": "professora", "para_frases": ["professora", "feina", "educació"]},
+      {"emoji": "👨‍🔬", "nom_cat": "científic", "para_frases": ["científic", "feina", "ciència"]},
+      {"emoji": "👩‍🔬", "nom_cat": "científica", "para_frases": ["científica", "feina", "ciència"]},
+      {"emoji": "👨‍💻", "nom_cat": "programador", "para_frases": ["programador", "feina", "tecnologia"]},
+      {"emoji": "👩‍💻", "nom_cat": "programadora", "para_frases": ["programadora", "feina", "tecnologia"]}
+    ]
   },
   {
     "id": "pack_oficis",
     "nom": "Oficis",
     "preu": 70,
-    "emojis": ["👨‍🔧","👩‍🔧","👨‍🍳","👩‍🍳","👨‍🌾","👩‍🌾","👨‍🏭","👩‍🏭"]
+    "emojis": [
+      {"emoji": "👨‍🔧", "nom_cat": "mecànic", "para_frases": ["mecànic", "feina", "taller"]},
+      {"emoji": "👩‍🔧", "nom_cat": "mecànica", "para_frases": ["mecànica", "feina", "taller"]},
+      {"emoji": "👨‍🍳", "nom_cat": "cuiner", "para_frases": ["cuiner", "feina", "cuina"]},
+      {"emoji": "👩‍🍳", "nom_cat": "cuinera", "para_frases": ["cuinera", "feina", "cuina"]},
+      {"emoji": "👨‍🌾", "nom_cat": "pagès", "para_frases": ["pagès", "feina", "granja"]},
+      {"emoji": "👩‍🌾", "nom_cat": "pagesa", "para_frases": ["pagesa", "feina", "granja"]},
+      {"emoji": "👨‍🏭", "nom_cat": "obrer", "para_frases": ["obrer", "feina", "fàbrica"]},
+      {"emoji": "👩‍🏭", "nom_cat": "obrera", "para_frases": ["obrera", "feina", "fàbrica"]}
+    ]
   },
   {
     "id": "pack_creatius",
     "nom": "Creatius i Art",
     "preu": 60,
-    "emojis": ["👨‍🎨","👩‍🎨","👨‍🎤","👩‍🎤","👨‍💼","👩‍💼"]
+    "emojis": [
+      {"emoji": "👨‍🎨", "nom_cat": "pintor", "para_frases": ["pintor", "feina", "art"]},
+      {"emoji": "👩‍🎨", "nom_cat": "pintora", "para_frases": ["pintora", "feina", "art"]},
+      {"emoji": "👨‍🎤", "nom_cat": "cantant", "para_frases": ["cantant", "feina", "música"]},
+      {"emoji": "👩‍🎤", "nom_cat": "cantant dona", "para_frases": ["cantant", "feina", "música"]},
+      {"emoji": "👨‍💼", "nom_cat": "empresari", "para_frases": ["empresari", "feina", "oficina"]},
+      {"emoji": "👩‍💼", "nom_cat": "empresària", "para_frases": ["empresària", "feina", "oficina"]}
+    ]
   },
   {
     "id": "pack_viatge",
     "nom": "Viatge i Espai",
     "preu": 70,
-    "emojis": ["👨‍✈️","👩‍✈️","👨‍🚀","👩‍🚀"]
+    "emojis": [
+      {"emoji": "👨‍✈️", "nom_cat": "pilot", "para_frases": ["pilot", "feina", "aviació"]},
+      {"emoji": "👩‍✈️", "nom_cat": "pilot dona", "para_frases": ["pilot", "feina", "aviació"]},
+      {"emoji": "👨‍🚀", "nom_cat": "astronauta", "para_frases": ["astronauta", "feina", "espai"]},
+      {"emoji": "👩‍🚀", "nom_cat": "astronauta dona", "para_frases": ["astronauta", "feina", "espai"]}
+    ]
   },
   {
     "id": "pack_mascotes",
     "nom": "Mascotes",
     "preu": 50,
-    "emojis": ["🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼"]
+    "emojis": [
+      {"emoji": "🐶", "nom_cat": "gos", "para_frases": ["gos", "animal", "mascota"]},
+      {"emoji": "🐱", "nom_cat": "gat", "para_frases": ["gat", "animal", "mascota"]},
+      {"emoji": "🐭", "nom_cat": "ratolí", "para_frases": ["ratolí", "animal"]},
+      {"emoji": "🐹", "nom_cat": "hàmster", "para_frases": ["hàmster", "animal", "mascota"]},
+      {"emoji": "🐰", "nom_cat": "conill", "para_frases": ["conill", "animal"]},
+      {"emoji": "🦊", "nom_cat": "guineu", "para_frases": ["guineu", "animal"]},
+      {"emoji": "🐻", "nom_cat": "ós", "para_frases": ["ós", "animal"]},
+      {"emoji": "🐼", "nom_cat": "panda", "para_frases": ["panda", "animal"]}
+    ]
   },
   {
     "id": "pack_granja",
     "nom": "Granja",
     "preu": 60,
-    "emojis": ["🐨","🐯","🦁","🐮","🐷","🐽","🐸","🐵"]
+    "emojis": [
+      {"emoji": "🐨", "nom_cat": "koala", "para_frases": ["koala", "animal"]},
+      {"emoji": "🐯", "nom_cat": "tigre", "para_frases": ["tigre", "animal", "salvatge"]},
+      {"emoji": "🦁", "nom_cat": "lleó", "para_frases": ["lleó", "animal", "salvatge"]},
+      {"emoji": "🐮", "nom_cat": "vaca", "para_frases": ["vaca", "animal", "granja"]},
+      {"emoji": "🐷", "nom_cat": "porc", "para_frases": ["porc", "animal", "granja"]},
+      {"emoji": "🐽", "nom_cat": "nas de porc", "para_frases": ["porc", "animal"]},
+      {"emoji": "🐸", "nom_cat": "granota", "para_frases": ["granota", "animal"]},
+      {"emoji": "🐵", "nom_cat": "mono", "para_frases": ["mono", "animal"]}
+    ]
   },
   {
     "id": "pack_aus",
     "nom": "Aus",
     "preu": 50,
-    "emojis": ["🐔","🐧","🐦","🐤","🦆","🦅","🦉","🦇"]
+    "emojis": [
+      {"emoji": "🐔", "nom_cat": "gallina", "para_frases": ["gallina", "animal", "aus"]},
+      {"emoji": "🐧", "nom_cat": "pingüí", "para_frases": ["pingüí", "animal", "aus"]},
+      {"emoji": "🐦", "nom_cat": "ocell", "para_frases": ["ocell", "animal", "aus"]},
+      {"emoji": "🐤", "nom_cat": "pollet", "para_frases": ["pollet", "animal", "aus"]},
+      {"emoji": "🦆", "nom_cat": "ànec", "para_frases": ["ànec", "animal", "aus"]},
+      {"emoji": "🦅", "nom_cat": "àliga", "para_frases": ["àliga", "animal", "aus"]},
+      {"emoji": "🦉", "nom_cat": "òliba", "para_frases": ["òliba", "animal", "aus"]},
+      {"emoji": "🦇", "nom_cat": "ratpenat", "para_frases": ["ratpenat", "animal"]}
+    ]
   },
   {
     "id": "pack_salvatges",
     "nom": "Animals Salvatges",
     "preu": 60,
-    "emojis": ["🐺","🐗","🐴","🦄","🐝","🐛","🦋","🐌"]
+    "emojis": [
+      {"emoji": "🐺", "nom_cat": "llop", "para_frases": ["llop", "animal", "salvatge"]},
+      {"emoji": "🐗", "nom_cat": "senglar", "para_frases": ["senglar", "animal", "salvatge"]},
+      {"emoji": "🐴", "nom_cat": "cavall", "para_frases": ["cavall", "animal"]},
+      {"emoji": "🦄", "nom_cat": "unicorn", "para_frases": ["unicorn", "animal", "fantasia"]},
+      {"emoji": "🐝", "nom_cat": "abella", "para_frases": ["abella", "animal", "insecte"]},
+      {"emoji": "🐛", "nom_cat": "cuc", "para_frases": ["cuc", "animal", "insecte"]},
+      {"emoji": "🦋", "nom_cat": "papallona", "para_frases": ["papallona", "animal", "insecte"]},
+      {"emoji": "🐌", "nom_cat": "cargol", "para_frases": ["cargol", "animal"]}
+    ]
   },
   {
     "id": "pack_mari",
     "nom": "Vida Marina",
     "preu": 70,
-    "emojis": ["🐬","🐳","🐋","🦈","🐙","🐟","🐠","🐡","🦐","🦞","🦀","🐚"]
+    "emojis": [
+      {"emoji": "🐬", "nom_cat": "dofí", "para_frases": ["dofí", "animal", "mar"]},
+      {"emoji": "🐳", "nom_cat": "balena", "para_frases": ["balena", "animal", "mar"]},
+      {"emoji": "🐋", "nom_cat": "balena blava", "para_frases": ["balena", "animal", "mar"]},
+      {"emoji": "🦈", "nom_cat": "tauró", "para_frases": ["tauró", "animal", "mar"]},
+      {"emoji": "🐙", "nom_cat": "pop", "para_frases": ["pop", "animal", "mar"]},
+      {"emoji": "🐟", "nom_cat": "peix", "para_frases": ["peix", "animal", "mar"]},
+      {"emoji": "🐠", "nom_cat": "peix tropical", "para_frases": ["peix", "animal", "mar"]},
+      {"emoji": "🐡", "nom_cat": "peix globus", "para_frases": ["peix", "animal", "mar"]},
+      {"emoji": "🦐", "nom_cat": "gamba", "para_frases": ["gamba", "animal", "mar", "menjar"]},
+      {"emoji": "🦞", "nom_cat": "llagosta", "para_frases": ["llagosta", "animal", "mar", "menjar"]},
+      {"emoji": "🦀", "nom_cat": "cranc", "para_frases": ["cranc", "animal", "mar"]},
+      {"emoji": "🐚", "nom_cat": "closca", "para_frases": ["closca", "animal", "mar"]}
+    ]
   },
   {
     "id": "pack_reptils",
     "nom": "Rèptils",
     "preu": 40,
-    "emojis": ["🐢","🐍","🦎","🐊"]
+    "emojis": [
+      {"emoji": "🐢", "nom_cat": "tortuga", "para_frases": ["tortuga", "animal", "rèptil"]},
+      {"emoji": "🐍", "nom_cat": "serp", "para_frases": ["serp", "animal", "rèptil"]},
+      {"emoji": "🦎", "nom_cat": "llangardaix", "para_frases": ["llangardaix", "animal", "rèptil"]},
+      {"emoji": "🐊", "nom_cat": "cocodril", "para_frases": ["cocodril", "animal", "rèptil"]}
+    ]
   },
   {
     "id": "pack_fruites",
     "nom": "Fruites i Verdures",
     "preu": 60,
-    "emojis": ["🍎","🍐","🍊","🍋","🍌","🍉","🍇","🍓","🍒","🍑","🥭","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥬","🥒"]
+    "emojis": [
+      {"emoji": "🍎", "nom_cat": "poma", "para_frases": ["poma", "menjar", "fruita"]},
+      {"emoji": "🍐", "nom_cat": "pera", "para_frases": ["pera", "menjar", "fruita"]},
+      {"emoji": "🍊", "nom_cat": "taronja", "para_frases": ["taronja", "menjar", "fruita"]},
+      {"emoji": "🍋", "nom_cat": "llimona", "para_frases": ["llimona", "menjar", "fruita"]},
+      {"emoji": "🍌", "nom_cat": "plàtan", "para_frases": ["plàtan", "menjar", "fruita"]},
+      {"emoji": "🍉", "nom_cat": "síndria", "para_frases": ["síndria", "menjar", "fruita"]},
+      {"emoji": "🍇", "nom_cat": "raïm", "para_frases": ["raïm", "menjar", "fruita"]},
+      {"emoji": "🍓", "nom_cat": "maduixa", "para_frases": ["maduixa", "menjar", "fruita"]},
+      {"emoji": "🍒", "nom_cat": "cirera", "para_frases": ["cirera", "menjar", "fruita"]},
+      {"emoji": "🍑", "nom_cat": "préssec", "para_frases": ["préssec", "menjar", "fruita"]},
+      {"emoji": "🥭", "nom_cat": "mango", "para_frases": ["mango", "menjar", "fruita"]},
+      {"emoji": "🍍", "nom_cat": "pinya", "para_frases": ["pinya", "menjar", "fruita"]},
+      {"emoji": "🥥", "nom_cat": "coco", "para_frases": ["coco", "menjar", "fruita"]},
+      {"emoji": "🥝", "nom_cat": "kiwi", "para_frases": ["kiwi", "menjar", "fruita"]},
+      {"emoji": "🍅", "nom_cat": "tomàquet", "para_frases": ["tomàquet", "menjar", "verdura"]},
+      {"emoji": "🍆", "nom_cat": "albergínia", "para_frases": ["albergínia", "menjar", "verdura"]},
+      {"emoji": "🥑", "nom_cat": "alvocet", "para_frases": ["alvocet", "menjar", "verdura"]},
+      {"emoji": "🥦", "nom_cat": "bròquil", "para_frases": ["bròquil", "menjar", "verdura"]},
+      {"emoji": "🥬", "nom_cat": "enciam", "para_frases": ["enciam", "menjar", "verdura"]},
+      {"emoji": "🥒", "nom_cat": "cogombre", "para_frases": ["cogombre", "menjar", "verdura"]}
+    ]
   },
   {
     "id": "pack_pa",
     "nom": "Pa i Làctics",
     "preu": 50,
-    "emojis": ["🌶️","🌽","🥕","🧄","🧅","🥔","🍠","🥐","🥯","🍞","🥖","🥨","🧀","🥚","🍳","🧈"]
+    "emojis": [
+      {"emoji": "🌶️", "nom_cat": "bitxo", "para_frases": ["bitxo", "menjar", "verdura"]},
+      {"emoji": "🌽", "nom_cat": "blat de moro", "para_frases": ["blat de moro", "menjar", "verdura"]},
+      {"emoji": "🥕", "nom_cat": "pastanaga", "para_frases": ["pastanaga", "menjar", "verdura"]},
+      {"emoji": "🧄", "nom_cat": "all", "para_frases": ["all", "menjar", "verdura"]},
+      {"emoji": "🧅", "nom_cat": "ceba", "para_frases": ["ceba", "menjar", "verdura"]},
+      {"emoji": "🥔", "nom_cat": "patata", "para_frases": ["patata", "menjar", "verdura"]},
+      {"emoji": "🍠", "nom_cat": "moniato", "para_frases": ["moniato", "menjar", "verdura"]},
+      {"emoji": "🥐", "nom_cat": "croissant", "para_frases": ["croissant", "menjar", "pa"]},
+      {"emoji": "🥯", "nom_cat": "bagel", "para_frases": ["bagel", "menjar", "pa"]},
+      {"emoji": "🍞", "nom_cat": "pa", "para_frases": ["pa", "menjar"]},
+      {"emoji": "🥖", "nom_cat": "barra de pa", "para_frases": ["pa", "menjar"]},
+      {"emoji": "🥨", "nom_cat": "pretzel", "para_frases": ["pretzel", "menjar", "pa"]},
+      {"emoji": "🧀", "nom_cat": "formatge", "para_frases": ["formatge", "menjar", "làctic"]},
+      {"emoji": "🥚", "nom_cat": "ou", "para_frases": ["ou", "menjar"]},
+      {"emoji": "🍳", "nom_cat": "ou ferrat", "para_frases": ["ou", "menjar", "esmorzar"]},
+      {"emoji": "🧈", "nom_cat": "mantega", "para_frases": ["mantega", "menjar", "làctic"]}
+    ]
   },
   {
     "id": "pack_menjar_rapid",
     "nom": "Menjar Ràpid",
     "preu": 70,
-    "emojis": ["🥞","🧇","🥓","🥩","🍗","🍖","🌭","🍔","🍟","🍕","🥪","🥙","🧆","🌮","🌯"]
+    "emojis": [
+      {"emoji": "🥞", "nom_cat": "tortetes", "para_frases": ["tortetes", "menjar", "esmorzar"]},
+      {"emoji": "🧇", "nom_cat": "goffre", "para_frases": ["goffre", "menjar", "esmorzar"]},
+      {"emoji": "🥓", "nom_cat": "bacó", "para_frases": ["bacó", "menjar", "carn"]},
+      {"emoji": "🥩", "nom_cat": "bistec", "para_frases": ["bistec", "menjar", "carn"]},
+      {"emoji": "🍗", "nom_cat": "pollastre", "para_frases": ["pollastre", "menjar", "carn"]},
+      {"emoji": "🍖", "nom_cat": "costella", "para_frases": ["costella", "menjar", "carn"]},
+      {"emoji": "🌭", "nom_cat": "gos calent", "para_frases": ["gos calent", "menjar", "ràpid"]},
+      {"emoji": "🍔", "nom_cat": "hamburguesa", "para_frases": ["hamburguesa", "menjar", "ràpid"]},
+      {"emoji": "🍟", "nom_cat": "patates fregides", "para_frases": ["patates", "menjar", "ràpid"]},
+      {"emoji": "🍕", "nom_cat": "pizza", "para_frases": ["pizza", "menjar", "ràpid"]},
+      {"emoji": "🥪", "nom_cat": "entrepà", "para_frases": ["entrepà", "menjar"]},
+      {"emoji": "🥙", "nom_cat": "kebab", "para_frases": ["kebab", "menjar"]},
+      {"emoji": "🧆", "nom_cat": "falafel", "para_frases": ["falafel", "menjar"]},
+      {"emoji": "🌮", "nom_cat": "taco", "para_frases": ["taco", "menjar"]},
+      {"emoji": "🌯", "nom_cat": "burrito", "para_frases": ["burrito", "menjar"]}
+    ]
   },
   {
     "id": "pack_menjar_asiatic",
     "nom": "Menjar Asiàtic",
     "preu": 60,
-    "emojis": ["🥗","🥘","🥫","🍝","🍜","🍛","🍣","🍱","🥟","🦪","🍤","🍦","🍰"]
+    "emojis": [
+      {"emoji": "🥗", "nom_cat": "amanida", "para_frases": ["amanida", "menjar"]},
+      {"emoji": "🥘", "nom_cat": "paella", "para_frases": ["paella", "menjar"]},
+      {"emoji": "🥫", "nom_cat": "conserva", "para_frases": ["conserva", "menjar"]},
+      {"emoji": "🍝", "nom_cat": "pasta", "para_frases": ["pasta", "menjar"]},
+      {"emoji": "🍜", "nom_cat": "ramen", "para_frases": ["ramen", "menjar", "asiàtic"]},
+      {"emoji": "🍛", "nom_cat": "curri", "para_frases": ["curri", "menjar", "asiàtic"]},
+      {"emoji": "🍣", "nom_cat": "sushi", "para_frases": ["sushi", "menjar", "asiàtic"]},
+      {"emoji": "🍱", "nom_cat": "bento", "para_frases": ["bento", "menjar", "asiàtic"]},
+      {"emoji": "🥟", "nom_cat": "dumpling", "para_frases": ["dumpling", "menjar", "asiàtic"]},
+      {"emoji": "🦪", "nom_cat": "ostra", "para_frases": ["ostra", "menjar", "mar"]},
+      {"emoji": "🍤", "nom_cat": "gamba fregida", "para_frases": ["gamba", "menjar", "mar"]},
+      {"emoji": "🍦", "nom_cat": "gelat", "para_frases": ["gelat", "menjar", "postres"]},
+      {"emoji": "🍰", "nom_cat": "pastís", "para_frases": ["pastís", "menjar", "postres"]}
+    ]
   },
   {
     "id": "pack_esports",
     "nom": "Esports",
     "preu": 60,
-    "emojis": ["⚽","🏀","🏈","⚾","🎾","🏐","🏉","🎱","🏓","🏸","🥅","🏒","🏑","🥍","🏏","⛳"]
+    "emojis": [
+      {"emoji": "⚽", "nom_cat": "futbol", "para_frases": ["futbol", "esport", "pilota"]},
+      {"emoji": "🏀", "nom_cat": "bàsquet", "para_frases": ["bàsquet", "esport", "pilota"]},
+      {"emoji": "🏈", "nom_cat": "futbol americà", "para_frases": ["futbol americà", "esport"]},
+      {"emoji": "⚾", "nom_cat": "bèisbol", "para_frases": ["bèisbol", "esport"]},
+      {"emoji": "🎾", "nom_cat": "tenis", "para_frases": ["tenis", "esport", "raqueta"]},
+      {"emoji": "🏐", "nom_cat": "voleibol", "para_frases": ["voleibol", "esport"]},
+      {"emoji": "🏉", "nom_cat": "rugbi", "para_frases": ["rugbi", "esport"]},
+      {"emoji": "🎱", "nom_cat": "billar", "para_frases": ["billar", "esport"]},
+      {"emoji": "🏓", "nom_cat": "tenis taula", "para_frases": ["tenis taula", "esport"]},
+      {"emoji": "🏸", "nom_cat": "bàdminton", "para_frases": ["bàdminton", "esport"]},
+      {"emoji": "🥅", "nom_cat": "portería", "para_frases": ["porteria", "esport"]},
+      {"emoji": "🏒", "nom_cat": "hoquei gel", "para_frases": ["hoquei", "esport"]},
+      {"emoji": "🏑", "nom_cat": "hoquei herba", "para_frases": ["hoquei", "esport"]},
+      {"emoji": "🥍", "nom_cat": "lacrosse", "para_frases": ["lacrosse", "esport"]},
+      {"emoji": "🏏", "nom_cat": "criquet", "para_frases": ["criquet", "esport"]},
+      {"emoji": "⛳", "nom_cat": "golf", "para_frases": ["golf", "esport"]}
+    ]
   },
   {
     "id": "pack_extrems",
     "nom": "Esports Extrems",
     "preu": 50,
-    "emojis": ["🏹","🎣","🥊","🥋","🎽","⛷️","🏂","🏋️"]
+    "emojis": [
+      {"emoji": "🏹", "nom_cat": "tir amb arc", "para_frases": ["tir amb arc", "esport"]},
+      {"emoji": "🎣", "nom_cat": "pesca", "para_frases": ["pesca", "esport", "activitat"]},
+      {"emoji": "🥊", "nom_cat": "boxa", "para_frases": ["boxa", "esport"]},
+      {"emoji": "🥋", "nom_cat": "karate", "para_frases": ["karate", "esport", "arts marcials"]},
+      {"emoji": "🎽", "nom_cat": "samarreta running", "para_frases": ["running", "esport"]},
+      {"emoji": "⛷️", "nom_cat": "esquí", "para_frases": ["esquí", "esport", "neu"]},
+      {"emoji": "🏂", "nom_cat": "snowboard", "para_frases": ["snowboard", "esport", "neu"]},
+      {"emoji": "🏋️", "nom_cat": "halterofília", "para_frases": ["halterofília", "esport", "gimnàs"]}
+    ]
   },
   {
+    {
     "id": "pack_transport_terra",
     "nom": "Transport Terrestre",
     "preu": 60,
-    "emojis": ["🚗","🚕","🚙","🚌","🚎","🏎️","🚓","🚑","🚒","🚐","🛻","🚚","🚛","🚜","🏍️","🛵"]
+    "emojis": [
+      {"emoji": "🚗", "nom_cat": "cotxe", "para_frases": ["cotxe", "vehicle", "transport"]},
+      {"emoji": "🚕", "nom_cat": "taxi", "para_frases": ["taxi", "vehicle", "transport"]},
+      {"emoji": "🚙", "nom_cat": "SUV", "para_frases": ["SUV", "vehicle", "transport"]},
+      {"emoji": "🚌", "nom_cat": "autobús", "para_frases": ["autobús", "vehicle", "transport"]},
+      {"emoji": "🚎", "nom_cat": "trolleybus", "para_frases": ["trolleybus", "vehicle", "transport"]},
+      {"emoji": "🏎️", "nom_cat": "cotxe carrera", "para_frases": ["cotxe carrera", "vehicle", "transport"]},
+      {"emoji": "🚓", "nom_cat": "cotxe policia", "para_frases": ["cotxe policia", "vehicle", "transport"]},
+      {"emoji": "🚑", "nom_cat": "ambulància", "para_frases": ["ambulància", "vehicle", "transport"]},
+      {"emoji": "🚒", "nom_cat": "camió bombers", "para_frases": ["camió bombers", "vehicle", "transport"]},
+      {"emoji": "🚐", "nom_cat": "furgoneta", "para_frases": ["furgoneta", "vehicle", "transport"]},
+      {"emoji": "🛻", "nom_cat": "pickup", "para_frases": ["pickup", "vehicle", "transport"]},
+      {"emoji": "🚚", "nom_cat": "camió", "para_frases": ["camió", "vehicle", "transport"]},
+      {"emoji": "🚛", "nom_cat": "camió trailer", "para_frases": ["camió trailer", "vehicle", "transport"]},
+      {"emoji": "🚜", "nom_cat": "tractor", "para_frases": ["tractor", "vehicle", "transport"]},
+      {"emoji": "🏍️", "nom_cat": "moto", "para_frases": ["moto", "vehicle", "transport"]},
+      {"emoji": "🛵", "nom_cat": "scooter", "para_frases": ["scooter", "vehicle", "transport"]}
+    ]
   },
   {
     "id": "pack_transport_vol",
     "nom": "Transport Aeri",
     "preu": 50,
-    "emojis": ["🚲","🛴","🛹","🛼","🚁","✈️","🛩️","🚀"]
+    "emojis": [
+      {"emoji": "🚲", "nom_cat": "bicicleta", "para_frases": ["bicicleta", "vehicle", "transport"]},
+      {"emoji": "🛴", "nom_cat": "patinet", "para_frases": ["patinet", "vehicle", "transport"]},
+      {"emoji": "🛹", "nom_cat": "skate", "para_frases": ["skate", "vehicle", "transport"]},
+      {"emoji": "🛼", "nom_cat": "patins", "para_frases": ["patins", "vehicle", "transport"]},
+      {"emoji": "🚁", "nom_cat": "helicòpter", "para_frases": ["helicòpter", "vehicle", "transport"]},
+      {"emoji": "✈️", "nom_cat": "avió", "para_frases": ["avió", "vehicle", "transport"]},
+      {"emoji": "🛩️", "nom_cat": "avioneta", "para_frases": ["avioneta", "vehicle", "transport"]},
+      {"emoji": "🚀", "nom_cat": "coet", "para_frases": ["coet", "vehicle", "transport", "espai"]}
+    ]
   },
   {
     "id": "pack_transport_mar",
     "nom": "Transport Marítim",
     "preu": 50,
-    "emojis": ["⛵","🚤","🛥️","🛳️","⛴️","🚢","🚂","🚃"]
+    "emojis": [
+      {"emoji": "⛵", "nom_cat": "vela", "para_frases": ["vela", "vehicle", "transport", "mar"]},
+      {"emoji": "🚤", "nom_cat": "llanxa", "para_frases": ["llanxa", "vehicle", "transport", "mar"]},
+      {"emoji": "🛥️", "nom_cat": "iot", "para_frases": ["iot", "vehicle", "transport", "mar"]},
+      {"emoji": "🛳️", "nom_cat": "creuer", "para_frases": ["creuer", "vehicle", "transport", "mar"]},
+      {"emoji": "⛴️", "nom_cat": "ferri", "para_frases": ["ferri", "vehicle", "transport", "mar"]},
+      {"emoji": "🚢", "nom_cat": "vaixell", "para_frases": ["vaixell", "vehicle", "transport", "mar"]},
+      {"emoji": "🚂", "nom_cat": "tren", "para_frases": ["tren", "vehicle", "transport"]},
+      {"emoji": "🚃", "nom_cat": "vagó tren", "para_frases": ["vagó tren", "vehicle", "transport"]}
+    ]
   },
   {
     "id": "pack_casa",
     "nom": "Edificis",
     "preu": 60,
-    "emojis": ["🏠","🏡","🏢","🏣","🏤","🏥","🏦","🏨","🏩","🏪","🏫","🏬"]
+    "emojis": [
+      {"emoji": "🏠", "nom_cat": "casa", "para_frases": ["casa", "lloc", "edifici", "llar"]},
+      {"emoji": "🏡", "nom_cat": "casa amb jardí", "para_frases": ["casa", "lloc", "edifici", "llar"]},
+      {"emoji": "🏢", "nom_cat": "edifici", "para_frases": ["edifici", "lloc"]},
+      {"emoji": "🏣", "nom_cat": "oficina correus", "para_frases": ["oficina correus", "lloc", "edifici"]},
+      {"emoji": "🏤", "nom_cat": "correus", "para_frases": ["correus", "lloc", "edifici"]},
+      {"emoji": "🏥", "nom_cat": "hospital", "para_frases": ["hospital", "lloc", "edifici", "salut"]},
+      {"emoji": "🏦", "nom_cat": "banc", "para_frases": ["banc", "lloc", "edifici"]},
+      {"emoji": "🏨", "nom_cat": "hotel", "para_frases": ["hotel", "lloc", "edifici"]},
+      {"emoji": "🏩", "nom_cat": "hotel amor", "para_frases": ["hotel amor", "lloc", "edifici"]},
+      {"emoji": "🏪", "nom_cat": "botiga", "para_frases": ["botiga", "lloc", "edifici", "comprar"]},
+      {"emoji": "🏫", "nom_cat": "escola", "para_frases": ["escola", "lloc", "edifici", "estudiar"]},
+      {"emoji": "🏬", "nom_cat": "grans magatzems", "para_frases": ["grans magatzems", "lloc", "edifici", "comprar"]}
+    ]
   },
   {
     "id": "pack_llocs_publics",
     "nom": "Llocs Públics",
     "preu": 50,
-    "emojis": ["🏭","🏯","🏰","💒","🗼","🗽","⛪","🕌","🛕","🕍","⛩️","🕋"]
+    "emojis": [
+      {"emoji": "🏭", "nom_cat": "fàbrica", "para_frases": ["fàbrica", "lloc", "edifici"]},
+      {"emoji": "🏯", "nom_cat": "castell japonès", "para_frases": ["castell japonès", "lloc", "edifici"]},
+      {"emoji": "🏰", "nom_cat": "castell", "para_frases": ["castell", "lloc", "edifici"]},
+      {"emoji": "💒", "nom_cat": "església casament", "para_frases": ["església", "lloc", "edifici"]},
+      {"emoji": "🗼", "nom_cat": "torre Tokyo", "para_frases": ["torre Tokyo", "lloc", "monument"]},
+      {"emoji": "🗽", "nom_cat": "estatua llibertat", "para_frases": ["estatua llibertat", "lloc", "monument"]},
+      {"emoji": "⛪", "nom_cat": "església", "para_frases": ["església", "lloc", "edifici"]},
+      {"emoji": "🕌", "nom_cat": "mesquita", "para_frases": ["mesquita", "lloc", "edifici"]},
+      {"emoji": "🛕", "nom_cat": "temple hindú", "para_frases": ["temple hindú", "lloc", "edifici"]},
+      {"emoji": "🕍", "nom_cat": "sinagoga", "para_frases": ["sinagoga", "lloc", "edifici"]},
+      {"emoji": "⛩️", "nom_cat": "santuari shinto", "para_frases": ["santuari shinto", "lloc", "edifici"]},
+      {"emoji": "🕋", "nom_cat": "kaaba", "para_frases": ["kaaba", "lloc", "edifici"]}
+    ]
   },
   {
     "id": "pack_paisatges",
     "nom": "Paisatges",
     "preu": 60,
-    "emojis": ["🌁","🌃","🏙️","🌆","🌉","🌊","🏖️","🏜️"]
+    "emojis": [
+      {"emoji": "🌁", "nom_cat": "boira", "para_frases": ["boira", "lloc", "clima"]},
+      {"emoji": "🌃", "nom_cat": "nit ciutat", "para_frases": ["nit ciutat", "lloc"]},
+      {"emoji": "🏙️", "nom_cat": "ciutat", "para_frases": ["ciutat", "lloc"]},
+      {"emoji": "🌆", "nom_cat": "capvespre ciutat", "para_frases": ["capvespre ciutat", "lloc"]},
+      {"emoji": "🌉", "nom_cat": "pont", "para_frases": ["pont", "lloc"]},
+      {"emoji": "🌊", "nom_cat": "ona", "para_frases": ["ona", "lloc", "mar", "natura"]},
+      {"emoji": "🏖️", "nom_cat": "platja", "para_frases": ["platja", "lloc", "mar", "natura"]},
+      {"emoji": "🏜️", "nom_cat": "desert", "para_frases": ["desert", "lloc", "natura"]}
+    ]
   },
   {
     "id": "pack_arbre_plantes",
     "nom": "Arbres i Plantes",
     "preu": 50,
-    "emojis": ["🌲","🌳","🌴","🌵","🌶️","🍄","🌾","🌿","☘️","🍀","🍁","🍂"]
+    "emojis": [
+      {"emoji": "🌲", "nom_cat": "pi", "para_frases": ["pi", "arbre", "natura", "planta"]},
+      {"emoji": "🌳", "nom_cat": "arbre", "para_frases": ["arbre", "natura", "planta"]},
+      {"emoji": "🌴", "nom_cat": "palmera", "para_frases": ["palmera", "arbre", "natura", "planta"]},
+      {"emoji": "🌵", "nom_cat": "cactus", "para_frases": ["cactus", "natura", "planta"]},
+      {"emoji": "🌶️", "nom_cat": "bitxo", "para_frases": ["bitxo", "menjar", "planta"]},
+      {"emoji": "🍄", "nom_cat": "bolet", "para_frases": ["bolet", "natura", "planta"]},
+      {"emoji": "🌾", "nom_cat": "espigues", "para_frases": ["espigues", "natura", "planta"]},
+      {"emoji": "🌿", "nom_cat": "herba", "para_frases": ["herba", "natura", "planta"]},
+      {"emoji": "☘️", "nom_cat": "trèvol", "para_frases": ["trèvol", "natura", "planta"]},
+      {"emoji": "🍀", "nom_cat": "trèvol quatre fulles", "para_frases": ["trèvol quatre fulles", "natura", "planta"]},
+      {"emoji": "🍁", "nom_cat": "fulla tardor", "para_frases": ["fulla tardor", "natura", "planta"]},
+      {"emoji": "🍂", "nom_cat": "fulles caigudes", "para_frases": ["fulles caigudes", "natura", "planta"]}
+    ]
   },
   {
     "id": "pack_flors_natura",
     "nom": "Flors i Natura",
     "preu": 60,
-    "emojis": ["🍃","🌱","🌼","🌸","🌺","🌻","🌹","🥀","🌷","🌎","🌍","🌏"]
+    "emojis": [
+      {"emoji": "🍃", "nom_cat": "fulla vent", "para_frases": ["fulla vent", "natura", "planta"]},
+      {"emoji": "🌱", "nom_cat": "planta jove", "para_frases": ["planta jove", "natura", "planta"]},
+      {"emoji": "🌼", "nom_cat": "margarida", "para_frases": ["margarida", "flor", "natura", "planta"]},
+      {"emoji": "🌸", "nom_cat": "flor cirerer", "para_frases": ["flor cirerer", "flor", "natura", "planta"]},
+      {"emoji": "🌺", "nom_cat": "hibisc", "para_frases": ["hibisc", "flor", "natura", "planta"]},
+      {"emoji": "🌻", "nom_cat": "gira-sol", "para_frases": ["gira-sol", "flor", "natura", "planta"]},
+      {"emoji": "🌹", "nom_cat": "rosa", "para_frases": ["rosa", "flor", "natura", "planta"]},
+      {"emoji": "🥀", "nom_cat": "rosa marcida", "para_frases": ["rosa marcida", "flor", "natura", "planta"]},
+      {"emoji": "🌷", "nom_cat": "tulipa", "para_frases": ["tulipa", "flor", "natura", "planta"]},
+      {"emoji": "🌎", "nom_cat": "terra Amèrica", "para_frases": ["terra", "natura", "planeta"]},
+      {"emoji": "🌍", "nom_cat": "terra Europa Àfrica", "para_frases": ["terra", "natura", "planeta"]},
+      {"emoji": "🌏", "nom_cat": "terra Àsia Austràlia", "para_frases": ["terra", "natura", "planeta"]}
+    ]
   },
   {
     "id": "pack_muntanya",
     "nom": "Muntanya i Espai",
     "preu": 50,
-    "emojis": ["🌋","🗻","🏔️","⛰️","🌄","🌅","🌠","🌌"]
+    "emojis": [
+      {"emoji": "🌋", "nom_cat": "volcà", "para_frases": ["volcà", "natura", "muntanya"]},
+      {"emoji": "🗻", "nom_cat": "Fuji", "para_frases": ["Fuji", "natura", "muntanya"]},
+      {"emoji": "🏔️", "nom_cat": "muntanya nevada", "para_frases": ["muntanya nevada", "natura", "muntanya"]},
+      {"emoji": "⛰️", "nom_cat": "muntanya", "para_frases": ["muntanya", "natura"]},
+      {"emoji": "🌄", "nom_cat": "sortida sol muntanya", "para_frases": ["sortida sol muntanya", "natura"]},
+      {"emoji": "🌅", "nom_cat": "sortida sol", "para_frases": ["sortida sol", "natura"]},
+      {"emoji": "🌠", "nom_cat": "estrella fugaç", "para_frases": ["estrella fugaç", "natura", "espai"]},
+      {"emoji": "🌌", "nom_cat": "via làctia", "para_frases": ["via làctia", "natura", "espai"]}
+    ]
   },
   {
     "id": "pack_clima",
     "nom": "Clima",
     "preu": 60,
-    "emojis": ["☀️","🌤️","⛅","🌦️","🌧️","⛈️","🌩️","🌨️","❄️","☃️","⛄","🌬️"]
+    "emojis": [
+      {"emoji": "☀️", "nom_cat": "sol", "para_frases": ["sol", "clima", "natura"]},
+      {"emoji": "🌤️", "nom_cat": "sol núvols", "para_frases": ["sol núvols", "clima", "natura"]},
+      {"emoji": "⛅", "nom_cat": "núvols", "para_frases": ["núvols", "clima", "natura"]},
+      {"emoji": "🌦️", "nom_cat": "pluja sol", "para_frases": ["pluja sol", "clima", "natura"]},
+      {"emoji": "🌧️", "nom_cat": "pluja", "para_frases": ["pluja", "clima", "natura"]},
+      {"emoji": "⛈️", "nom_cat": "tempesta", "para_frases": ["tempesta", "clima", "natura"]},
+      {"emoji": "🌩️", "nom_cat": "llamp", "para_frases": ["llamp", "clima", "natura"]},
+      {"emoji": "🌨️", "nom_cat": "neu", "para_frases": ["neu", "clima", "natura"]},
+      {"emoji": "❄️", "nom_cat": "floc neu", "para_frases": ["floc neu", "clima", "natura"]},
+      {"emoji": "☃️", "nom_cat": "ninot neu", "para_frases": ["ninot neu", "clima", "natura"]},
+      {"emoji": "⛄", "nom_cat": "ninot neu sense neu", "para_frases": ["ninot neu", "clima", "natura"]},
+      {"emoji": "🌬️", "nom_cat": "vent", "para_frases": ["vent", "clima", "natura"]}
+    ]
   },
   {
     "id": "pack_fenomens",
     "nom": "Fenòmens Naturals",
     "preu": 50,
-    "emojis": ["💨","🌪️","🌈","☔","⚡","🔥","💧","🌊","☁️","🌙","⭐","🌟"]
+    "emojis": [
+      {"emoji": "💨", "nom_cat": "ràfega vent", "para_frases": ["ràfega vent", "clima", "natura"]},
+      {"emoji": "🌪️", "nom_cat": "tornado", "para_frases": ["tornado", "clima", "natura"]},
+      {"emoji": "🌈", "nom_cat": "arc de Sant Martí", "para_frases": ["arc de Sant Martí", "clima", "natura"]},
+      {"emoji": "☔", "nom_cat": "paragües pluja", "para_frases": ["paragües pluja", "clima", "objecte"]},
+      {"emoji": "⚡", "nom_cat": "llamp", "para_frases": ["llamp", "clima", "natura"]},
+      {"emoji": "🔥", "nom_cat": "foc", "para_frases": ["foc", "natura"]},
+      {"emoji": "💧", "nom_cat": "gota", "para_frases": ["gota", "aigua", "natura"]},
+      {"emoji": "🌊", "nom_cat": "ona mar", "para_frases": ["ona mar", "mar", "natura"]},
+      {"emoji": "☁️", "nom_cat": "núvol", "para_frases": ["núvol", "clima", "natura"]},
+      {"emoji": "🌙", "nom_cat": "lluna", "para_frases": ["lluna", "natura", "espai"]},
+      {"emoji": "⭐", "nom_cat": "estrella", "para_frases": ["estrella", "natura", "espai"]},
+      {"emoji": "🌟", "nom_cat": "estrella brillant", "para_frases": ["estrella brillant", "natura", "espai"]}
+    ]
   },
   {
     "id": "pack_accions",
     "nom": "Accions",
     "preu": 70,
-    "emojis": ["🏃","🚶","🧍","🧎","🧑‍🦯","🧑‍🦼","🧑‍🦽","🏃‍♂️","🏃‍♀️","💃","🕺","🕴️","🧘","🏋️","🤸","🤼"]
+    "emojis": [
+      {"emoji": "🏃", "nom_cat": "córrer", "para_frases": ["córrer", "acció", "esport"]},
+      {"emoji": "🚶", "nom_cat": "caminar", "para_frases": ["caminar", "acció"]},
+      {"emoji": "🧍", "nom_cat": "dret", "para_frases": ["dret", "acció"]},
+      {"emoji": "🧎", "nom_cat": "agenollat", "para_frases": ["agenollat", "acció"]},
+      {"emoji": "🧑‍🦯", "nom_cat": "persona bastó", "para_frases": ["persona bastó", "acció"]},
+      {"emoji": "🧑‍🦼", "nom_cat": "persona cadira elèctrica", "para_frases": ["persona cadira elèctrica", "acció"]},
+      {"emoji": "🧑‍🦽", "nom_cat": "persona cadira rodes", "para_frases": ["persona cadira rodes", "acció"]},
+      {"emoji": "🏃‍♂️", "nom_cat": "home córrer", "para_frases": ["home córrer", "acció", "esport"]},
+      {"emoji": "🏃‍♀️", "nom_cat": "dona córrer", "para_frases": ["dona córrer", "acció", "esport"]},
+      {"emoji": "💃", "nom_cat": "ballar dona", "para_frases": ["ballar dona", "acció", "ball"]},
+      {"emoji": "🕺", "nom_cat": "ballar home", "para_frases": ["ballar home", "acció", "ball"]},
+      {"emoji": "🕴️", "nom_cat": "home levitant", "para_frases": ["home levitant", "acció"]},
+      {"emoji": "🧘", "nom_cat": "meditar", "para_frases": ["meditar", "acció", "ioga"]},
+      {"emoji": "🏋️", "nom_cat": "aixecar peses", "para_frases": ["aixecar peses", "acció", "esport"]},
+      {"emoji": "🤸", "nom_cat": "fer tombarella", "para_frases": ["fer tombarella", "acció", "esport"]},
+      {"emoji": "🤼", "nom_cat": "lluita", "para_frases": ["lluita", "acció", "esport"]}
+    ]
   },
   {
     "id": "pack_esports_accio",
     "nom": "Accions Esportives",
     "preu": 60,
-    "emojis": ["🤽","🤾","🤹","🧗","🧖","🏊","🏄","🚣","🚴","🚵","🤺","🏇","⛷️","🏂","🏌️","🏌️‍♀️"]
+    "emojis": [
+      {"emoji": "🤽", "nom_cat": "waterpolo", "para_frases": ["waterpolo", "esport", "acció"]},
+      {"emoji": "🤾", "nom_cat": "handbol", "para_frases": ["handbol", "esport", "acció"]},
+      {"emoji": "🤹", "nom_cat": "malabarisme", "para_frases": ["malabarisme", "acció"]},
+      {"emoji": "🧗", "nom_cat": "escalar", "para_frases": ["escalar", "acció", "esport"]},
+      {"emoji": "🧖", "nom_cat": "sauna", "para_frases": ["sauna", "acció", "relax"]},
+      {"emoji": "🏊", "nom_cat": "nedar", "para_frases": ["nedar", "acció", "esport"]},
+      {"emoji": "🏄", "nom_cat": "surf", "para_frases": ["surf", "acció", "esport", "mar"]},
+      {"emoji": "🚣", "nom_cat": "remar", "para_frases": ["remar", "acció", "esport"]},
+      {"emoji": "🚴", "nom_cat": "anar amb bici", "para_frases": ["anar amb bici", "acció", "esport"]},
+      {"emoji": "🚵", "nom_cat": "BTT", "para_frases": ["BTT", "acció", "esport"]},
+      {"emoji": "🤺", "nom_cat": "esgrima", "para_frases": ["esgrima", "acció", "esport"]},
+      {"emoji": "🏇", "nom_cat": "curses cavalls", "para_frases": ["curses cavalls", "acció", "esport"]},
+      {"emoji": "⛷️", "nom_cat": "esquí", "para_frases": ["esquí", "acció", "esport", "neu"]},
+      {"emoji": "🏂", "nom_cat": "snowboard", "para_frases": ["snowboard", "acció", "esport", "neu"]},
+      {"emoji": "🏌️", "nom_cat": "jugar golf", "para_frases": ["jugar golf", "acció", "esport"]},
+      {"emoji": "🏌️‍♀️", "nom_cat": "dona jugar golf", "para_frases": ["dona jugar golf", "acció", "esport"]}
+    ]
   },
   {
     "id": "pack_emocions",
     "nom": "Emocions",
     "preu": 50,
-    "emojis": ["😀","😃","😄","😁","😆","😅","😂","🤣","😊","😇","🙂","🙃","😉","😌","😍","🥰"]
+    "emojis": [
+      {"emoji": "😀", "nom_cat": "somriure", "para_frases": ["somriure", "emoció", "cara"]},
+      {"emoji": "😃", "nom_cat": "somriure obert", "para_frases": ["somriure obert", "emoció", "cara"]},
+      {"emoji": "😄", "nom_cat": "riure", "para_frases": ["riure", "emoció", "cara"]},
+      {"emoji": "😁", "nom_cat": "riure dents", "para_frases": ["riure dents", "emoció", "cara"]},
+      {"emoji": "😆", "nom_cat": "riure fort", "para_frases": ["riure fort", "emoció", "cara"]},
+      {"emoji": "😅", "nom_cat": "riure suor", "para_frases": ["riure suor", "emoció", "cara"]},
+      {"emoji": "😂", "nom_cat": "riure plorar", "para_frases": ["riure plorar", "emoció", "cara"]},
+      {"emoji": "🤣", "nom_cat": "mort riure", "para_frases": ["mort riure", "emoció", "cara"]},
+      {"emoji": "😊", "nom_cat": "somriure ulls", "para_frases": ["somriure ulls", "emoció", "cara"]},
+      {"emoji": "😇", "nom_cat": "àngel", "para_frases": ["àngel", "emoció", "cara"]},
+      {"emoji": "🙂", "nom_cat": "cara feliç", "para_frases": ["cara feliç", "emoció", "cara"]},
+      {"emoji": "🙃", "nom_cat": "cara al revés", "para_frases": ["cara al revés", "emoció", "cara"]},
+      {"emoji": "😉", "nom_cat": "ullada", "para_frases": ["ullada", "emoció", "cara"]},
+      {"emoji": "😌", "nom_cat": "alleujat", "para_frases": ["alleujat", "emoció", "cara"]},
+      {"emoji": "😍", "nom_cat": "enamorat", "para_frases": ["enamorat", "emoció", "cara"]},
+      {"emoji": "🥰", "nom_cat": "amor cors", "para_frases": ["amor cors", "emoció", "cara"]}
+    ]
   },
   {
     "id": "pack_cares",
     "nom": "Cares",
     "preu": 50,
-    "emojis": ["😘","😗","😙","😚","😋","😛","😝","😜","🤪","🤨","🧐","🤓","😎","🤩","🥳","😏"]
+    "emojis": [
+      {"emoji": "😘", "nom_cat": "petó", "para_frases": ["petó", "emoció", "cara"]},
+      {"emoji": "😗", "nom_cat": "petó cara", "para_frases": ["petó cara", "emoció", "cara"]},
+      {"emoji": "😙", "nom_cat": "petó somrient", "para_frases": ["petó somrient", "emoció", "cara"]},
+      {"emoji": "😚", "nom_cat": "petó ulls tancats", "para_frases": ["petó ulls tancats", "emoció", "cara"]},
+      {"emoji": "😋", "nom_cat": "deliciós", "para_frases": ["deliciós", "emoció", "cara"]},
+      {"emoji": "😛", "nom_cat": "llengua", "para_frases": ["llengua", "emoció", "cara"]},
+      {"emoji": "😝", "nom_cat": "llengua ulls tancats", "para_frases": ["llengua ulls tancats", "emoció", "cara"]},
+      {"emoji": "😜", "nom_cat": "ullada llengua", "para_frases": ["ullada llengua", "emoció", "cara"]},
+      {"emoji": "🤪", "nom_cat": "boig", "para_frases": ["boig", "emoció", "cara"]},
+      {"emoji": "🤨", "nom_cat": "cella aixecada", "para_frases": ["cella aixecada", "emoció", "cara"]},
+      {"emoji": "🧐", "nom_cat": "monocle", "para_frases": ["monocle", "emoció", "cara"]},
+      {"emoji": "🤓", "nom_cat": "friki", "para_frases": ["friki", "emoció", "cara"]},
+      {"emoji": "😎", "nom_cat": "guai ulleres", "para_frases": ["guai ulleres", "emoció", "cara"]},
+      {"emoji": "🤩", "nom_cat": "estrelles ulls", "para_frases": ["estrelles ulls", "emoció", "cara"]},
+      {"emoji": "🥳", "nom_cat": "festa", "para_frases": ["festa", "emoció", "cara"]},
+      {"emoji": "😏", "nom_cat": "somriure maliciós", "para_frases": ["somriure maliciós", "emoció", "cara"]}
+    ]
   },
   {
     "id": "pack_tecno",
     "nom": "Tecnologia",
     "preu": 60,
-    "emojis": ["📱","💻","⌚","🖥️","🖨️","🖱️","🖲️","💽","💾","💿","📀","📼","📷","📹","📺","📻"]
+    "emojis": [
+      {"emoji": "📱", "nom_cat": "mòbil", "para_frases": ["mòbil", "objecte", "tecnologia"]},
+      {"emoji": "💻", "nom_cat": "portàtil", "para_frases": ["portàtil", "objecte", "tecnologia"]},
+      {"emoji": "⌚", "nom_cat": "rellotge", "para_frases": ["rellotge", "objecte", "tecnologia"]},
+      {"emoji": "🖥️", "nom_cat": "ordinador", "para_frases": ["ordinador", "objecte", "tecnologia"]},
+      {"emoji": "🖨️", "nom_cat": "impressora", "para_frases": ["impressora", "objecte", "tecnologia"]},
+      {"emoji": "🖱️", "nom_cat": "ratolí", "para_frases": ["ratolí", "objecte", "tecnologia"]},
+      {"emoji": "🖲️", "nom_cat": "trackball", "para_frases": ["trackball", "objecte", "tecnologia"]},
+      {"emoji": "💽", "nom_cat": "disc dur", "para_frases": ["disc dur", "objecte", "tecnologia"]},
+      {"emoji": "💾", "nom_cat": "diskette", "para_frases": ["diskette", "objecte", "tecnologia"]},
+      {"emoji": "💿", "nom_cat": "CD", "para_frases": ["CD", "objecte", "tecnologia"]},
+      {"emoji": "📀", "nom_cat": "DVD", "para_frases": ["DVD", "objecte", "tecnologia"]},
+      {"emoji": "📼", "nom_cat": "cinta vídeo", "para_frases": ["cinta vídeo", "objecte", "tecnologia"]},
+      {"emoji": "📷", "nom_cat": "càmera", "para_frases": ["càmera", "objecte", "tecnologia"]},
+      {"emoji": "📹", "nom_cat": "vídeo càmera", "para_frases": ["vídeo càmera", "objecte", "tecnologia"]},
+      {"emoji": "📺", "nom_cat": "televisió", "para_frases": ["televisió", "objecte", "tecnologia"]},
+      {"emoji": "📻", "nom_cat": "ràdio", "para_frases": ["ràdio", "objecte", "tecnologia"]}
+    ]
   },
   {
     "id": "pack_eines",
     "nom": "Eines i Objectes",
     "preu": 50,
-    "emojis": ["🎙️","🎚️","🎛️","🧭","⏱️","⏲️","⏰","🕰️","⌛","⏳","📡","🔋","🔌","💡","🔦","🕯️"]
+    "emojis": [
+      {"emoji": "🎙️", "nom_cat": "micròfon estudi", "para_frases": ["micròfon estudi", "objecte", "música"]},
+      {"emoji": "🎚️", "nom_cat": "mesclador", "para_frases": ["mesclador", "objecte", "música"]},
+      {"emoji": "🎛️", "nom_cat": "controls", "para_frases": ["controls", "objecte"]},
+      {"emoji": "🧭", "nom_cat": "brúixola", "para_frases": ["brúixola", "objecte"]},
+      {"emoji": "⏱️", "nom_cat": "cronòmetre", "para_frases": ["cronòmetre", "objecte", "temps"]},
+            {"emoji": "⏲️", "nom_cat": "temporitzador", "para_frases": ["temporitzador", "objecte", "temps"]},
+      {"emoji": "⏰", "nom_cat": "despertador", "para_frases": ["despertador", "objecte", "temps"]},
+      {"emoji": "🕰️", "nom_cat": "rellotge antic", "para_frases": ["rellotge antic", "objecte", "temps"]},
+      {"emoji": "⌛", "nom_cat": "rellotge sorra", "para_frases": ["rellotge sorra", "objecte", "temps"]},
+      {"emoji": "⏳", "nom_cat": "rellotge sorra corrent", "para_frases": ["rellotge sorra corrent", "objecte", "temps"]},
+      {"emoji": "📡", "nom_cat": "antena", "para_frases": ["antena", "objecte", "tecnologia"]},
+      {"emoji": "🔋", "nom_cat": "pila", "para_frases": ["pila", "objecte", "tecnologia"]},
+      {"emoji": "🔌", "nom_cat": "endoll", "para_frases": ["endoll", "objecte", "tecnologia"]},
+      {"emoji": "💡", "nom_cat": "bombeta", "para_frases": ["bombeta", "objecte"]},
+      {"emoji": "🔦", "nom_cat": "llinterna", "para_frases": ["llinterna", "objecte"]},
+      {"emoji": "🕯️", "nom_cat": "espelma", "para_frases": ["espelma", "objecte"]}
+    ]
   },
   {
     "id": "pack_festa",
     "nom": "Festa",
     "preu": 60,
-    "emojis": ["🎉","🎊","🎈","🎁","🎀","🎗️","🎟️","🎫","🎖️","🏆","🏅","🥇","🥈","🥉"]
+    "emojis": [
+      {"emoji": "🎉", "nom_cat": "confetti", "para_frases": ["confetti", "festa", "celebració"]},
+      {"emoji": "🎊", "nom_cat": "bola confetti", "para_frases": ["bola confetti", "festa", "celebració"]},
+      {"emoji": "🎈", "nom_cat": "globus", "para_frases": ["globus", "festa", "celebració"]},
+      {"emoji": "🎁", "nom_cat": "regal", "para_frases": ["regal", "festa", "celebració"]},
+      {"emoji": "🎀", "nom_cat": "llaç", "para_frases": ["llaç", "festa", "celebració"]},
+      {"emoji": "🎗️", "nom_cat": "cinta consciència", "para_frases": ["cinta consciència", "festa", "objecte"]},
+      {"emoji": "🎟️", "nom_cat": "entrada", "para_frases": ["entrada", "festa", "objecte"]},
+      {"emoji": "🎫", "nom_cat": "bitllet", "para_frases": ["bitllet", "festa", "objecte"]},
+      {"emoji": "🎖️", "nom_cat": "medalla militar", "para_frases": ["medalla militar", "festa", "premi"]},
+      {"emoji": "🏆", "nom_cat": "trofeu", "para_frases": ["trofeu", "festa", "premi"]},
+      {"emoji": "🏅", "nom_cat": "medalla esportiva", "para_frases": ["medalla esportiva", "festa", "premi"]},
+      {"emoji": "🥇", "nom_cat": "medalla or", "para_frases": ["medalla or", "festa", "premi"]},
+      {"emoji": "🥈", "nom_cat": "medalla plata", "para_frases": ["medalla plata", "festa", "premi"]},
+      {"emoji": "🥉", "nom_cat": "medalla bronze", "para_frases": ["medalla bronze", "festa", "premi"]}
+    ]
   },
   {
     "id": "pack_musica",
     "nom": "Música",
     "preu": 50,
-    "emojis": ["⚽","🏀","🎸","🎻","🥁","🎺","🎷","🪕","🎹","🎤"]
+    "emojis": [
+      {"emoji": "🎸", "nom_cat": "guitarra", "para_frases": ["guitarra", "música", "instrument"]},
+      {"emoji": "🎻", "nom_cat": "violí", "para_frases": ["violí", "música", "instrument"]},
+      {"emoji": "🥁", "nom_cat": "bateria", "para_frases": ["bateria", "música", "instrument"]},
+      {"emoji": "🎺", "nom_cat": "trompeta", "para_frases": ["trompeta", "música", "instrument"]},
+      {"emoji": "🎷", "nom_cat": "saxo", "para_frases": ["saxo", "música", "instrument"]},
+      {"emoji": "🪕", "nom_cat": "banjo", "para_frases": ["banjo", "música", "instrument"]},
+      {"emoji": "🎹", "nom_cat": "piano", "para_frases": ["piano", "música", "instrument"]},
+      {"emoji": "🎤", "nom_cat": "micròfon", "para_frases": ["micròfon", "música", "objecte"]}
+    ]
   }
 ]
