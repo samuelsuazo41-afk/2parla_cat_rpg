@@ -1,8 +1,9 @@
-const CACHE_NAME = 'rpg_parla_cat_v2-v2';
+const CACHE_NAME = 'rpg_parla_cat_v2-v20';
 const urlsToCache = [
   './',
   './index.html',
   './main.js',
+  './styles.css',
   './manifest.json',
   './data/items.json',
   './data/capitols.json',
@@ -12,12 +13,13 @@ const urlsToCache = [
   './data/ruta_rave_port_olympic.json',
   './data/ruta_girona_muralla_viva.json',
   './data/ruta_valencia_ciutat_vella.json',
+  './data/biblioteca_emojis.json',
+  './data/botiga_emojis.json',
+  './data/minijoc_frases.json',
   './camisa_cenguera.png',
   './ram_roses_girona.png',
   './fuet_fires.png',
-  './icon-192.png',
-  './data/biblioteca_emojis.json',
-'./data/botiga_emojis.json'
+  './icon-192.png'
 ];
 
 self.addEventListener('install', event => {
@@ -52,4 +54,3 @@ self.addEventListener('fetch', event => {
       })
   );
 });
-
