@@ -4,61 +4,42 @@
       "id": "familia",
       "nom": "Pack Familia",
       "preu": 50,
-      "emojis": ["persona", "home", "dona", "noi", "noia", "infant", "avi", "àvia", "pare", "mare", "germà", "germana", "familia"]
+      "descripcio": "Persones i família",
+      "emojis": [
+        {"emoji": "👨", "nom_cat": "home", "para_frases": ["home"]},
+        {"emoji": "👩", "nom_cat": "dona", "para_frases": ["dona"]},
+        {"emoji": "👦", "nom_cat": "noi", "para_frases": ["noi"]},
+        {"emoji": "👧", "nom_cat": "noia", "para_frases": ["noia"]},
+        {"emoji": "👶", "nom_cat": "infant", "para_frases": ["infant"]},
+        {"emoji": "👴", "nom_cat": "avi", "para_frases": ["avi"]},
+        {"emoji": "👵", "nom_cat": "àvia", "para_frases": ["àvia"]}
+      ]
     },
     {
       "id": "professions",
       "nom": "Pack Professions",
       "preu": 80,
-      "emojis": ["metge", "infermera", "professor", "professora", "cuiner", "cuinera", "policia_home", "policia_dona", "bomber_home", "bombera", "pagès", "pagèsa", "pilot", "astronauta", "artist", "musico", "cientific", "enginyer"]
+      "descripcio": "Feines i oficis",
+      "emojis": [
+        {"emoji": "👨‍⚕️", "nom_cat": "metge", "para_frases": ["metge"]},
+        {"emoji": "👩‍⚕️", "nom_cat": "infermera", "para_frases": ["infermera"]},
+        {"emoji": "👨‍🏫", "nom_cat": "professor", "para_frases": ["professor"]},
+        {"emoji": "👨‍🍳", "nom_cat": "cuiner", "para_frases": ["cuiner"]},
+        {"emoji": "👨‍✈️", "nom_cat": "pilot", "para_frases": ["pilot"]},
+        {"emoji": "👨‍🚀", "nom_cat": "astronauta", "para_frases": ["astronauta"]}
+      ]
     },
     {
       "id": "transport",
       "nom": "Pack Transport",
       "preu": 70,
-      "emojis": ["cotxe", "cotxe_roig", "camio", "autobus", "moto", "taxi", "ambulancia", "policia", "bomber", "helicopter", "vaixell_gran", "avió", "tren", "bici"]
-    },
-    {
-      "id": "natura",
-      "nom": "Pack Natura",
-      "preu": 60,
-      "emojis": ["arbre", "flor", "bosc", "muntanya", "mar", "platja", "sol", "lluna", "cel", "pluja", "neu", "vent"]
-    },
-    {
-      "id": "animals",
-      "nom": "Pack Animals",
-      "preu": 65,
-      "emojis": ["gat", "gos", "cavall", "vaca", "porc", "gallina", "peix", "ocell", "papallona", "llop", "llop", "elefant"]
-    },
-    {
-      "id": "escola",
-      "nom": "Pack Escola",
-      "preu": 55,
-      "emojis": ["escola", "llibre", "pinzell", "llapis", "llibreta", "regla", "goma", "estudiant"]
-    },
-    {
-      "id": "objectes",
-      "nom": "Pack Objectes",
-      "preu": 75,
-      "emojis": ["ordinador", "ordinador_portatil", "telefon", "tablet", "teclat", "ratoli_pc", "cadira", "taula", "llit"]
-    },
-    {
-      "id": "menjar",
-      "nom": "Pack Menjar",
-      "preu": 60,
-      "emojis": ["poma", "pa", "formatge", "ou", "pastis", "fruita", "verdura", "carn", "peix_cuina"]
-    },
-    {
-      "id": "esports",
-      "nom": "Pack Esports",
-      "preu": 65,
-      "emojis": ["futbol", "basquet", "tennis", "natacio", "ciclisme", "atletisme"]
-    },
-    {
-      "id": "direccions",
-      "nom": "Pack Direccions",
-      "preu": 40,
-      "emojis": ["amunt", "avall", "esquerra", "dreta", "davant", "darrere"]
+      "descripcio": "Vehicles i viatges",
+      "emojis": [
+        {"emoji": "🚗", "nom_cat": "cotxe", "para_frases": ["cotxe"]},
+        {"emoji": "🚌", "nom_cat": "autobus", "para_frases": ["autobus"]},
+        {"emoji": "✈️", "nom_cat": "avió", "para_frases": ["avió"]},
+        {"emoji": "🚲", "nom_cat": "bici", "para_frases": ["bici"]}
+      ]
     }
   ]
 }
