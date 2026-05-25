@@ -704,66 +704,61 @@ function mostrarBibliotecaTab(tab, e) {
 }
 
 // LÓGICA NUEVA DEL MINIJUEGO CON NIVELES
-function novaFraseMinijoc() {
-  const emojisJugador = [...BIBLIOTECA_EMOJIS_BASE.map(e => e.emoji), ...estat.emojisDesbloquejats.map(e => e.emoji)];
-  const packsDesbloquejats = ['base', ...estat.compres];
+const PLANTILLES_FRASES = [
+  { plantilla: "{persona} {accio}", emojis: 2, nivell: 2 },
+  { plantilla: "{persona} i {persona}", emojis: 2, nivell: 2 },
+  { plantilla: "{animal} {lloc}", emojis: 2, nivell: 2 },
+  { plantilla: "{persona} {accio} {objecte}", emojis: 3, nivell: 3 },
+  { plantilla: "{persona} va a {lloc}", emojis: 3, nivell: 3 },
+  { plantilla: "{animal} {accio} a {lloc}", emojis: 4, nivell: 4 },
+  { plantilla: "{persona} {accio} amb {objecte}", emojis: 4, nivell: 4 },
+  { plantilla: "{persona} i {persona} {accio}", emojis: 3, nivell: 3 },
+  { plantilla: "{persona} {accio} {objecte} i {objecte}", emojis: 5, nivell: 5 }
+];
 
-  let numEmojisObjetivo = Math.min(
-    NIVELL_MINIJOC.minEmojis + NIVELL_MINIJOC.nivelActual - 1,
-    NIVELL_MINIJOC.maxEmojis
+const CATEGORIES_EMOJI = {
+  persona: ['👨', '👩', '👦', '👧', '👴', '👵', '👨‍⚕️', '👩‍⚕️', '👨‍🌾', '👨‍🎨', '👨‍🚒'],
+  animal: ['🐶', '🐱', '🐄', '🐦'],
+  lloc: ['🏠', '🏫', '🏥', '🌊', '🌲', '🌳'],
+  objecte: ['🍞', '🧀', '📚', '💻', '⚽'],
+  accio: ['🏃', '🚶', '🍽️', '📖', '💪']
+};
+
+function novaFraseMinijoc() {
+  const emojisJugador = [...BIBLIOTECA_EMOJIS_BASE.map(e => e.emoji),...estat.emojisDesbloquejats.map(e => e.emoji)];
+
+  // Filtra plantillas segons el nivell actual
+  const plantillesDisponibles = PLANTILLES_FRASES.filter(p =>
+    p.nivell <= NIVELL_MINIJOC.nivelActual &&
+    p.emojis <= emojisJugador.length
   );
 
-  let frasesValides = [];
-  let nivellReal = numEmojisObjetivo;
-
-  // Baixa de nivell fins trobar frases
-  while (frasesValides.length === 0 && nivellReal >= NIVELL_MINIJOC.minEmojis) {
-    frasesValides = FRASES_MINIJOC.filter(frase => {
-      const packOk = packsDesbloquejats.includes(frase.pack);
-      const longitudOk = frase.solucio.length === nivellReal;
-      const emojisOk = frase.solucio.every(emoji => emojisJugador.includes(emoji));
-      return packOk && longitudOk && emojisOk;
-    });
-    if (frasesValides.length === 0) nivellReal--;
-  }
-
-  if (frasesValides.length === 0) {
-    document.getElementById('minijoc-frase').textContent = LANG.no_frases_disponibles;
-    document.getElementById('minijoc-emojis').innerHTML = '';
-    document.getElementById('minijoc-triats').textContent = '';
-    document.getElementById('minijoc-feedback').innerHTML = '';
+  if (plantillesDisponibles.length === 0) {
+    document.getElementById('minijoc-frase').textContent = "Compra més emojis per desbloquejar frases!";
     return;
   }
 
-  // Evita repetir
-  let fraseEscollida;
-  let intents = 0;
-  do {
-    fraseEscollida = frasesValides[Math.floor(Math.random() * frasesValides.length)];
-    intents++;
-  } while (
-    estat.minijoc.fraseObjectiu && 
-    fraseEscollida.text === estat.minijoc.fraseObjectiu.text && 
-    frasesValides.length > 1 && 
-    intents < 10
-  );
+  // Tria una plantilla random
+  const plantilla = plantillesDisponibles[Math.floor(Math.random() * plantillesDisponibles.length)];
 
-  estat.minijoc.fraseObjectiu = fraseEscollida;
+  // Genera la frase i la solució
+  const { text, solucio } = generarFraseDinamica(plantilla, emojisJugador);
+
+  estat.minijoc.fraseObjectiu = { text, solucio };
   estat.minijoc.emojisTriats = [];
 
-  document.getElementById('minijoc-frase').textContent = fraseEscollida.text;
+  document.getElementById('minijoc-frase').textContent = text;
   document.getElementById('minijoc-triats').textContent = '';
   document.getElementById('minijoc-feedback').innerHTML = '';
-  document.getElementById('minijoc-nivell').textContent = `Nivell ${NIVELL_MINIJOC.nivelActual} - ${fraseEscollida.solucio.length} emojis`;
+  document.getElementById('minijoc-nivell').textContent = `Nivell ${NIVELL_MINIJOC.nivelActual} - ${solucio.length} emojis`;
 
-  const emojisSolucio = fraseEscollida.solucio;
-  const maxEmojisPantalla = NIVELL_MINIJOC.nivelActual === 1 ? 5 : NIVELL_MINIJOC.nivelActual === 2 ? 7 : 10;
+  // Mostra els emojis per triar
   const emojisFalsos = emojisJugador
-   .filter(e => !emojisSolucio.includes(e))
-   .sort(() => 0.5 - Math.random())
-   .slice(0, maxEmojisPantalla - emojisSolucio.length);
+  .filter(e =>!solucio.includes(e))
+  .sort(() => 0.5 - Math.random())
+  .slice(0, 10 - solucio.length);
 
-  const emojisAMostrar = [...emojisSolucio, ...emojisFalsos].sort(() => 0.5 - Math.random());
+  const emojisAMostrar = [...solucio,...emojisFalsos].sort(() => 0.5 - Math.random());
   estat.minijoc.emojisDisponibles = emojisAMostrar;
 
   let html = '';
@@ -778,6 +773,39 @@ function novaFraseMinijoc() {
     `;
   });
   document.getElementById('minijoc-emojis').innerHTML = html;
+}
+
+function generarFraseDinamica(plantilla, emojisJugador) {
+  let text = plantilla.plantilla;
+  let solucio = [];
+
+  // Omple cada categoria amb un emoji random que el jugador tingui
+  for (const cat in CATEGORIES_EMOJI) {
+    const regex = new RegExp(`\\{${cat}\\}`, 'g');
+    if (text.match(regex)) {
+      const emojisDisponibles = CATEGORIES_EMOJI[cat].filter(e => emojisJugador.includes(e));
+
+      if (emojisDisponibles.length === 0) {
+        // Si no té emojis d'aquesta categoria, torna a provar amb una altra plantilla
+        return generarFraseDinamica(PLANTILLES_FRASES[Math.floor(Math.random() * PLANTILLES_FRASES.length)], emojisJugador);
+      }
+
+      const emojiElegit = emojisDisponibles[Math.floor(Math.random() * emojisDisponibles.length)];
+      text = text.replace(regex, obtenirNomEmoji(emojiElegit));
+      solucio.push(emojiElegit);
+    }
+  }
+
+  return { text, solucio };
+}
+
+function obtenirNomEmoji(emoji) {
+  const noms = {
+    '👨': 'el pare', '👩': 'la mare', '👦': 'el noi', '👧': 'la noia',
+    '👴': 'l\'avi', '👵': 'l\'àvia', '🐶': 'el gos', '🐱': 'el gat',
+    '🏠': 'casa', '🏫': 'l\'escola', '🌊': 'el mar', '🍞': 'pa'
+  };
+  return noms[emoji] || emoji;
 }
 
 function triarEmojiMinijoc(index) {
