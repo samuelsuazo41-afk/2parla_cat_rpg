@@ -645,7 +645,7 @@ function mostrarGremi(tab, e) {
     }
   }
 
-    if(tab === 'llegendes') {
+  if(tab === 'llegendes') {
     const llegendes = [
       { id: 'capitol_01_bcn_born', nom: 'El Born, Barcelona', icona: '🏛️', desbloquejada: estat.capitolsCompletats.includes('capitol_01_bcn_born'), text: 'El Born és el barri gòtic més viu.' },
       { id: 'capitol_02_girona', nom: 'Temps de Flors, Girona', icona: '🏰', desbloquejada: estat.capitolsCompletats.includes('capitol_02_girona'), text: 'Cada maig, Girona s\'omple de flors.' },
@@ -708,7 +708,6 @@ function novaFraseMinijoc() {
   const emojisJugador = estat.emojisDesbloquejats.map(e => e.emoji);
   const packsDesbloquejats = ['base', ...estat.compres];
 
-  // Número máximo de emojis en pantalla según nivel
   const maxEmojisPantalla = NIVELL_MINIJOC.nivelActual === 1 ? 5 : NIVELL_MINIJOC.nivelActual === 2 ? 7 : 10;
 
   const numEmojisObjetivo = Math.min(
@@ -731,51 +730,6 @@ function novaFraseMinijoc() {
       return packOk && longitudOk && emojisOk;
     });
   }
-
-  if (frasesValides.length === 0) {
-    document.getElementById('frase-actual').innerHTML = "Compra más packs per desbloquejar frases!";
-    document.getElementById('emoji-grid').innerHTML = '';
-    return;
-  }
-
-  // Escoge frase
-  const fraseActual = frasesValides[Math.floor(Math.random() * frasesValides.length)];
-  document.getElementById('frase-actual').innerHTML = fraseActual.text;
-
-  // Emojis correctos
-  let emojisDisponibles = [...fraseActual.solucio];
-
-  // Emojis de distracción: los que tiene comprados pero no están en la frase
-  const emojisDistraccio = emojisJugador.filter(e => !emojisDisponibles.includes(e));
-  emojisDistraccio.sort(() => Math.random() - 0.5);
-
-  // Añade distracciones hasta llegar al máximo de pantalla
-  const numDistraccio = Math.min(maxEmojisPantalla - emojisDisponibles.length, emojisDistraccio.length);
-  emojisDisponibles = [...emojisDisponibles, ...emojisDistraccio.slice(0, numDistraccio)];
-
-  // Si aún faltan, rellena con emojis base para que no queden 3 solos en pantalla
-  const emojisBase = ['sol', 'mar', 'flor', 'arbre', 'aigua', 'cel'];
-  while (emojisDisponibles.length < 5 && emojisBase.length > 0) {
-    const random = emojisBase[Math.floor(Math.random() * emojisBase.length)];
-    if (!emojisDisponibles.includes(random)) {
-      emojisDisponibles.push(random);
-    }
-  }
-
-  emojisDisponibles.sort(() => Math.random() - 0.5);
-
-  // Renderiza el grid
-  document.getElementById('emoji-grid').innerHTML = emojisDisponibles.map(e => `
-    <div class="emoji-item" onclick="seleccionarEmoji('${e}')">
-      <div class="emoji-large">${getEmoji(e)}</div>
-      <div class="emoji-name">${e}</div>
-    </div>
-  `).join('');
-
-  // Resetea selección
-  fraseSeleccionada = [];
-  document.getElementById('frase-seleccionada').innerHTML = '';
-}
 
   if (frasesValides.length === 0) {
     document.getElementById('minijoc-frase').textContent = LANG.no_frases_disponibles;
