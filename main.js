@@ -739,7 +739,12 @@ function novaFraseMinijoc() {
     return;
   }
 
-  const fraseEscollida = frasesValides[Math.floor(Math.random() * frasesValides.length)];
+  // Evita repetir la mateixa frase 2 cops seguits
+  let fraseEscollida;
+  do {
+    fraseEscollida = frasesValides[Math.floor(Math.random() * frasesValides.length)];
+  } while (estat.minijoc.fraseObjectiu && fraseEscollida.text === estat.minijoc.fraseObjectiu.text && frasesValides.length > 1);
+
   estat.minijoc.fraseObjectiu = fraseEscollida;
   estat.minijoc.emojisTriats = [];
 
@@ -750,11 +755,11 @@ function novaFraseMinijoc() {
 
   const emojisSolucio = fraseEscollida.solucio;
   const emojisFalsos = emojisJugador
-   .filter(e =>!emojisSolucio.includes(e))
+   .filter(e => !emojisSolucio.includes(e))
    .sort(() => 0.5 - Math.random())
-   .slice(0, 10);
+   .slice(0, maxEmojisPantalla - emojisSolucio.length);
 
-  const emojisAMostrar = [...emojisSolucio,...emojisFalsos].sort(() => 0.5 - Math.random());
+  const emojisAMostrar = [...emojisSolucio, ...emojisFalsos].sort(() => 0.5 - Math.random());
   estat.minijoc.emojisDisponibles = emojisAMostrar;
 
   let html = '';
