@@ -246,9 +246,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     const res = await fetch('./data/biblioteca_emojis.json');
     BIBLIOTECA_EMOJIS_BASE = await res.json();
-    console.log('Biblioteca cargada:', BIBLIOTECA_EMOJIS_BASE.length, 'emojis');
   } catch(err) {
-    console.error('No s\'ha pogut carregar biblioteca_emojis.json', err);
     BIBLIOTECA_EMOJIS_BASE = [];
   }
 
@@ -256,9 +254,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const res = await fetch('./data/minijoc_frases.json');
     const data = await res.json();
     FRASES_MINIJOC = data.frases;
-    console.log('Frases minijoc cargadas:', FRASES_MINIJOC.length);
   } catch(err) {
-    console.error('No s\'ha pogut carregar minijoc_frases.json', err);
     FRASES_MINIJOC = [];
   }
 
@@ -266,18 +262,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     const res = await fetch('./data/frases_mixtas.json');
     const data = await res.json();
     FRASES_MIXTAS = data.frases;
-    console.log('Frases mixtas cargadas:', FRASES_MIXTAS.length);
   } catch(err) {
-    console.error('No s\'ha pogut carregar frases_mixtas.json', err);
     FRASES_MIXTAS = [];
   }
 
   try {
     const res = await fetch('./data/categories_emoji.json');
     CATEGORIES_EMOJI = await res.json();
-    console.log('Categories cargadas');
   } catch(err) {
-    console.error('No s\'ha pogut carregar categories_emoji.json', err);
+    CATEGORIES_EMOJI = {};
   }
 
   NIVELL_MINIJOC.nivelActual = parseInt(localStorage.getItem('cat_nivell_minijoc')) || 1;
@@ -324,7 +317,265 @@ async function carregarItems() {
   }
 }
 
-//... resto del código de capítulos, mapa, etc... igual que lo tenías
+function carregarMapa() {
+  const mapaDiv = document.getElementById('mapa');
+  if (!mapaDiv) return;
+  mapaDiv.innerHTML = '';
+
+  CAPITOLS.forEach(capitol => {
+    const completat = estat.capitolsCompletats.includes(capitol.id);
+    const desbloquejat = capitol.desbloquejat || estat.capitolsCompletats.includes(capitol.requereix);
+    const card = document.createElement('div');
+    card.className = 'capitol-card' + (completat? ' completat' : '') + (!desbloquejat? ' bloquejat' : '');
+    let html = `<div class="capitol-icona">${capitol.icona}</div><h3>${capitol.nom}</h3><p>${capitol.desc}</p>`;
+    if (completat) {
+      html += `✓ ${LANG.completat} <button class="btn btn-sec" style="margin-top:10px;" onclick="repetirCapitol('${capitol.id}'); event.stopPropagation()">${LANG.repetir}</button>`;
+    } else if (desbloquejat) {
+      html += `<button class="btn" onclick="entrarCapitol('${capitol.id}')">${LANG.entrar}</button>`;
+    } else {
+      html += `<p style="color:#888; margin-top:10px;">${LANG.bloquejat}</p>`;
+    }
+    card.innerHTML = html;
+    mapaDiv.appendChild(card);
+  });
+
+  estat.rutesDesbloquejades.forEach(rutaId => {
+    const card = document.createElement('div');
+    card.className = 'capitol-card ruta-secreta';
+    card.innerHTML = `
+      <div class="capitol-icona">🗝️</div>
+      <h3>Ruta Secreta</h3>
+      <p>Contingut ocult desbloquejat!</p>
+      <button class="btn" onclick="carregarCapitol('${rutaId}.json')">Entrar</button>
+    `;
+    mapaDiv.appendChild(card);
+  });
+}
+
+function entrarCapitol(id) {
+  const capitol = CAPITOLS.find(c => c.id === id);
+  if (capitol && capitol.archivo) carregarCapitol(capitol.archivo);
+}
+
+function repetirCapitol(id) {
+  const capitol = CAPITOLS.find(c => c.id === id);
+  if (!capitol) return;
+  if(confirm(idioma === 'ca'? 'Vols repetir aquesta missió?' : '¿Quieres repetir esta misión?')) {
+    estat.capitolsCompletats = estat.capitolsCompletats.filter(c => c!== id);
+    guardarEstat();
+    carregarCapitol(capitol.archivo);
+  }
+}
+
+async function carregarCapitol(nombreArchivo) {
+  pararMusica();
+  try {
+    const res = await fetch(`./data/${nombreArchivo}`);
+    if (!res.ok) throw new Error('Archivo no encontrado: ' + nombreArchivo);
+    const data = await res.json();
+
+    let capitolInfo = CAPITOLS.find(c => c.archivo === nombreArchivo);
+    if (!capitolInfo) {
+      const resCap = await fetch('./data/capitols.json');
+      const capitolsData = await resCap.json();
+      capitolInfo = capitolsData.find(c => c.arxiu === `./data/${nombreArchivo}`);
+    }
+    if (!capitolInfo) throw new Error('Capítol no trobat');
+
+    estat.capitolActual = {id: capitolInfo.id, passos: data, recompensa_100: capitolInfo.recompensa_100 || null};
+    estat.pasActual = 0;
+    estat.falladesCapitol = 0;
+
+    document.getElementById('missio-card').innerHTML = `
+      <h3 id="missio-titol">Selecciona una missió al mapa</h3>
+      <div id="npc-box" style="display:none;">
+        <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:12px;">
+          <span id="npc-emoji" style="font-size:42px; line-height:1;"></span>
+          <div style="flex:1;">
+            <strong id="npc-nom" style="font-size:16px; display:block; margin-bottom:4px;"></strong>
+            <p id="npc-dialog" style="margin:0; line-height:1.4;"></p>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; margin-top:15px; padding-top:12px; border-top:1px solid #333; opacity:0.8;">
+          <span id="jugador-emoji" style="font-size:32px;"></span>
+          <span id="jugador-nom" style="font-size:14px; color:#aaa;"></span>
+        </div>
+      </div>
+      <div id="missio-escenari"></div>
+      <div id="missio-opcions"></div>
+      <div id="missio-feedback"></div>
+    `;
+
+    canviarTab('missio', null);
+    setTimeout(() => carregarPas(), 0);
+  } catch(e) {
+    alert('Error carregant capítol: ' + e.message);
+  }
+}
+
+function carregarPas() {
+  if (!estat.capitolActual) return;
+  const pas = estat.capitolActual.passos[estat.pasActual];
+  if (!pas) { completarCapitol(); return; }
+
+  const esperarElemento = (id, callback, intentos = 20) => {
+    const el = document.getElementById(id);
+    if (el) {
+      callback(el);
+    } else if (intentos > 0) {
+      setTimeout(() => esperarElemento(id, callback, intentos - 1), 50);
+    }
+  };
+
+  esperarElemento('npc-box', (npcBox) => {
+    const npcEmoji = pas.npc_emoji || '👤';
+    const npcNom = pas.npc_nom || 'NPC';
+    const jugadorEmoji = estat.personatge?.emoji || '🧑';
+    const jugadorNom = estat.personatge?.nom || 'Tu';
+
+    npcBox.style.display = 'block';
+    document.getElementById('npc-emoji').textContent = npcEmoji;
+    document.getElementById('npc-nom').textContent = npcNom;
+    document.getElementById('npc-dialog').textContent = pas.dialog || '';
+    document.getElementById('jugador-emoji').textContent = jugadorEmoji;
+    document.getElementById('jugador-nom').textContent = jugadorNom;
+
+    document.getElementById('missio-titol').textContent = pas.pregunta;
+    const opcionsDiv = document.getElementById('missio-opcions');
+    opcionsDiv.innerHTML = '';
+    pas.opcions.forEach((opcio, i) => {
+      const div = document.createElement('div');
+      div.className = 'opcio';
+      div.innerHTML = `<span class="opcio-text">${opcio.text}</span>`;
+      div.onclick = () => seleccionarOpcio(i);
+      opcionsDiv.appendChild(div);
+    });
+    document.getElementById('missio-feedback').innerHTML = '';
+  });
+}
+
+function seleccionarOpcio(idx) {
+  if(estat.bloquejat) return;
+  vibrar();
+  const pas = estat.capitolActual.passos[estat.pasActual];
+  const opcio = pas.opcions[idx];
+  const feedback = opcio.feedback;
+
+  estat.bloquejat = true;
+  document.querySelectorAll('.opcio').forEach(o => o.classList.add('disabled'));
+  const tempsLectura = 6000;
+  mostrarFeedback(feedback, tempsLectura);
+
+  if(opcio.correcte && AUDIO_ENCERT) AUDIO_ENCERT.play();
+  if(!opcio.correcte && AUDIO_FALLADA) AUDIO_FALLADA.play();
+
+  if (opcio.correcte) {
+    estat.monedes += opcio.guany?.monedes || 0;
+    estat.stats.seny += opcio.guany?.seny || 0;
+    estat.stats.rauxa += opcio.guany?.rauxa || 0;
+    estat.stats.arrel += opcio.guany?.arrel || 0;
+    estat.stats.obert += opcio.guany?.obert || 0;
+    if(opcio.stats) Object.keys(opcio.stats).forEach(k => {estat.stats[k] += opcio.stats[k];});
+  } else {
+    estat.falladesCapitol = (estat.falladesCapitol || 0) + 1;
+    estat.fallades.push({capitol: estat.capitolActual.id, pas: estat.pasActual});
+  }
+
+  actualitzarTotem();
+  guardarEstat();
+  actualitzarUI();
+
+  setTimeout(() => {
+    estat.bloquejat = false;
+    estat.pasActual++;
+    carregarPas();
+  }, tempsLectura);
+}
+
+function mostrarFeedback(text, duracio) {
+  const feedbackDiv = document.getElementById('missio-feedback');
+  feedbackDiv.innerHTML = `<div id="feedback-box"><p>${text}</p><div id="feedback-barra" style="animation-duration: ${duracio}ms;"></div></div>`;
+}
+
+function completarCapitol() {
+  tocarJingleCompletado();
+  if (!estat.capitolsCompletats.includes(estat.capitolActual.id)) {
+    estat.capitolsCompletats.push(estat.capitolActual.id);
+  }
+  const seguent = CAPITOLS.find(c => c.requereix === estat.capitolActual.id);
+  if (seguent) seguent.desbloquejat = true;
+
+  document.getElementById('npc-box').style.display = 'none';
+  const es100 = (estat.falladesCapitol || 0) === 0;
+  const fallades = estat.falladesCapitol || 0;
+  let htmlPremi = '';
+  const vecesNecesarias = 3;
+
+  if(es100 && estat.capitolActual.recompensa_100) {
+    estat.capitols100Counts[estat.capitolActual.id] = (estat.capitols100Counts[estat.capitolActual.id] || 0) + 1;
+    const veces100 = estat.capitols100Counts[estat.capitolActual.id];
+    const item = ITEMS[estat.capitolActual.recompensa_100.item_id];
+    if(item &&!estat.objectes.includes(estat.capitolActual.recompensa_100.item_id)) {
+      estat.objectes.push(estat.capitolActual.recompensa_100.item_id);
+    }
+    if(veces100 >= vecesNecesarias && estat.capitolActual.recompensa_100.ruta) {
+      if(!estat.rutesDesbloquejades.includes(estat.capitolActual.recompensa_100.ruta)) {
+        estat.rutesDesbloquejades.push(estat.capitolActual.recompensa_100.ruta);
+      }
+    }
+    const imgHtmlPremi = item?.emoji? `<div style="font-size: 80px; margin-bottom: 15px;">${item.emoji}</div>` : `<img src="${item?.imatge}" style="width:100px; height:100px; object-fit:contain;">`;
+    htmlPremi = `<div class="item-desbloquejat">${imgHtmlPremi}<h3>${item?.nom || 'Premi'}</h3><p>${item?.descripcio || ''}</p><div style="color:#FFD700; font-weight:bold;">${veces100 >= vecesNecesarias? '<span style="color:#4CAF50;">Ruta secreta desbloquejada!</span>' : `Falten ${vecesNecesarias - veces100} cops per la ruta secreta`}</div></div>`;
+  } else {
+    htmlPremi = `<div style="text-align:center; margin-top:20px;"><p style="color:#ff6b6b; font-size:18px; font-weight:bold;">Has fallat ${fallades} pregunta${fallades > 1? 's' : ''}</p><p style="color:#888; margin-top:10px;">Fes 0 fallos per guanyar l'item especial.</p></div>`;
+  }
+
+  document.getElementById('missio-card').innerHTML = `
+    <div class="completion-screen">
+      <h2>✅ ${LANG.mision_completada}</h2>
+      ${htmlPremi}
+      <div class="completion-buttons">
+        <button class="btn btn-sec" onclick="tornarMapa()">${LANG.volver_mapa}</button>
+        <button class="btn" onclick="repetirCapitolActual()">${LANG.repetir}</button>
+      </div>
+    </div>
+  `;
+  guardarEstat();
+  carregarMapa();
+}
+
+function actualitzarTotem() {
+  const stats = estat.stats;
+  let maxStat = 'neutral';
+  let maxVal = 0;
+  Object.keys(stats).forEach(k => {
+    if(stats[k] > maxVal) {maxVal = stats[k]; maxStat = k;}
+  });
+  estat.totem = maxVal >= 20? maxStat : 'neutral';
+  document.documentElement.setAttribute('data-totem', estat.totem);
+  const emojis = { seny: '🦉', rauxa: '🔥', arrel: '🌳', obert: '🌍', neutral: '' };
+  document.getElementById('totem-display').textContent = estat.totem!== 'neutral'? `Tòtem: ${emojis[estat.totem]} ${estat.totem.toUpperCase()}` : '';
+}
+
+function repetirCapitolActual() {
+  if (!estat.capitolActual) return;
+  repetirCapitol(estat.capitolActual.id);
+}
+
+function tornarMapa() {
+  estat.capitolActual = null;
+  estat.pasActual = 0;
+  estat.bloquejat = false;
+  document.getElementById('npc-box').style.display = 'none';
+  document.getElementById('missio-card').innerHTML = `<h3 id="missio-titol">Selecciona una missió al mapa</h3><div id="missio-escenari"></div><div id="missio-opcions"></div><div id="missio-feedback"></div>`;
+  canviarTab('mapa', null);
+}
+
+function carregarMissioTab() {
+  const rutes = document.getElementById('rutes-secretes');
+  if (rutes) {
+    rutes.style.display = estat.capitolActual? 'none' : 'block';
+  }
+}
 
 function guardarEstat() {
   localStorage.setItem('cat_monedes', estat.monedes);
@@ -411,7 +662,7 @@ function mostrarGremi(tab, e) {
     }
   }
 
-  if(tab === 'llegendes') {
+    if(tab === 'llegendes') {
     const llegendes = [
       { id: 'capitol_01_bcn_born', nom: 'El Born, Barcelona', icona: '🏛️', desbloquejada: estat.capitolsCompletats.includes('capitol_01_bcn_born'), text: 'El Born és el barri gòtic més viu.' },
       { id: 'capitol_02_girona', nom: 'Temps de Flors, Girona', icona: '🏰', desbloquejada: estat.capitolsCompletats.includes('capitol_02_girona'), text: 'Cada maig, Girona s\'omple de flors.' },
@@ -428,7 +679,7 @@ function mostrarGremi(tab, e) {
 }
 
 function mostrarBibliotecaTab(tab, e) {
-  document.querySelectorAll('#biblioteca-subtabs.sub-tab-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('#biblioteca-subtabs .sub-tab-btn').forEach(btn => btn.classList.remove('active'));
   if(e) e.target.classList.add('active');
 
   const cont = document.getElementById('gremi-contenidor');
@@ -656,7 +907,7 @@ function comprovarMinijoc() {
       estat.stats.arrel += 5;
       actualitzarUI();
       guardarEstat();
-        } else {
+    } else {
       feedback.innerHTML = `<p style="color:#f44336; font-weight:bold;">${LANG.incorrecte} ${frase.solucio.join(' ')}</p>`;
     }
   } else {
@@ -741,7 +992,6 @@ function comprarPack(id, preu) {
   const pack = estat.packs_botiga.find(p => p.id === id);
   estat.emojisDesbloquejats.push(...pack.emojis);
 
-  // Sube nivel al comprar pack para desbloquear frases mixtas
   NIVELL_MINIJOC.nivelActual = Math.min(NIVELL_MINIJOC.nivelActual + 1, NIVELL_MINIJOC.maxEmojis);
 
   guardarEstat();
