@@ -705,30 +705,26 @@ function mostrarBibliotecaTab(tab, e) {
 
 // LÓGICA NUEVA DEL MINIJUEGO CON NIVELES
 function novaFraseMinijoc() {
-  const emojisJugador = estat.emojisDesbloquejats.map(e => e.emoji);
+  const emojisJugador = [...BIBLIOTECA_EMOJIS_BASE.map(e => e.emoji), ...estat.emojisDesbloquejats.map(e => e.emoji)];
   const packsDesbloquejats = ['base', ...estat.compres];
 
-  const maxEmojisPantalla = NIVELL_MINIJOC.nivelActual === 1 ? 5 : NIVELL_MINIJOC.nivelActual === 2 ? 7 : 10;
-
-  const numEmojisObjetivo = Math.min(
+  let numEmojisObjetivo = Math.min(
     NIVELL_MINIJOC.minEmojis + NIVELL_MINIJOC.nivelActual - 1,
     NIVELL_MINIJOC.maxEmojis
   );
 
-  let frasesValides = FRASES_MINIJOC.filter(frase => {
-    const packOk = packsDesbloquejats.includes(frase.pack);
-    const longitudOk = frase.solucio.length === numEmojisObjetivo;
-    const emojisOk = frase.solucio.every(emoji => emojisJugador.includes(emoji));
-    return packOk && longitudOk && emojisOk;
-  });
+  let frasesValides = [];
+  let nivellReal = numEmojisObjetivo;
 
-  if (frasesValides.length === 0 && numEmojisObjetivo > NIVELL_MINIJOC.minEmojis) {
+  // Baixa de nivell fins trobar frases
+  while (frasesValides.length === 0 && nivellReal >= NIVELL_MINIJOC.minEmojis) {
     frasesValides = FRASES_MINIJOC.filter(frase => {
       const packOk = packsDesbloquejats.includes(frase.pack);
-      const longitudOk = frase.solucio.length === numEmojisObjetivo - 1;
+      const longitudOk = frase.solucio.length === nivellReal;
       const emojisOk = frase.solucio.every(emoji => emojisJugador.includes(emoji));
       return packOk && longitudOk && emojisOk;
     });
+    if (frasesValides.length === 0) nivellReal--;
   }
 
   if (frasesValides.length === 0) {
@@ -739,11 +735,18 @@ function novaFraseMinijoc() {
     return;
   }
 
-  // Evita repetir la mateixa frase 2 cops seguits
+  // Evita repetir
   let fraseEscollida;
+  let intents = 0;
   do {
     fraseEscollida = frasesValides[Math.floor(Math.random() * frasesValides.length)];
-  } while (estat.minijoc.fraseObjectiu && fraseEscollida.text === estat.minijoc.fraseObjectiu.text && frasesValides.length > 1);
+    intents++;
+  } while (
+    estat.minijoc.fraseObjectiu && 
+    fraseEscollida.text === estat.minijoc.fraseObjectiu.text && 
+    frasesValides.length > 1 && 
+    intents < 10
+  );
 
   estat.minijoc.fraseObjectiu = fraseEscollida;
   estat.minijoc.emojisTriats = [];
@@ -754,6 +757,7 @@ function novaFraseMinijoc() {
   document.getElementById('minijoc-nivell').textContent = `Nivell ${NIVELL_MINIJOC.nivelActual} - ${fraseEscollida.solucio.length} emojis`;
 
   const emojisSolucio = fraseEscollida.solucio;
+  const maxEmojisPantalla = NIVELL_MINIJOC.nivelActual === 1 ? 5 : NIVELL_MINIJOC.nivelActual === 2 ? 7 : 10;
   const emojisFalsos = emojisJugador
    .filter(e => !emojisSolucio.includes(e))
    .sort(() => 0.5 - Math.random())
