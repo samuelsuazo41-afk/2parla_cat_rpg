@@ -1,0 +1,124 @@
+{
+  "frases": [
+    {
+      "id": 1,
+      "plantilla": "El {persona} menja {menjar}",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": 2,
+      "plantilla": "El {animal} va a {lloc}",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": 3,
+      "plantilla": "Jo veig el {animal} a {lloc}",
+      "nivell": 1,
+      "emojis": 2
+    },
+    {
+      "id": 4,
+      "plantilla": "El {persona} juga a {esport}",
+      "nivell": 2,
+      "emojis": 2
+    },
+    {
+      "id": 5,
+      "plantilla": "Nosaltres anem a {lloc} amb el {vehicle}",
+      "nivell": 2,
+      "emojis": 2
+    },
+    {
+      "id": 6,
+      "plantilla": "El {persona} beu {beguda} a {lloc}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": 7,
+      "plantilla": "El {persona} treballa de {feina}",
+      "nivell": 3,
+      "emojis": 2
+    },
+    {
+      "id": 8,
+      "plantilla": "El {animal} dorm a {natura}",
+      "nivell": 3,
+      "emojis": 2
+    },
+    {
+      "id": 9,
+      "plantilla": "El {persona} porta {roba} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": 10,
+      "plantilla": "El {persona} escolta {musica} amb el {objecte}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": 11,
+      "plantilla": "El {persona} compra {menjar} a {lloc}",
+      "nivell": 5,
+      "emojis": 3
+    },
+    {
+      "id": 12,
+      "plantilla": "El {persona} i el {persona} van a {lloc} amb {vehicle}",
+      "nivell": 5,
+      "emojis": 4
+    },
+    {
+      "id": 13,
+      "plantilla": "El {persona} cuida el {animal} a {natura}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": 14,
+      "plantilla": "El {persona} fa esport de {esport} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": 15,
+      "plantilla": "El {persona} menja {menjar} i beu {beguda}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": 16,
+      "plantilla": "El {animal} menja {menjar} a {natura}",
+      "nivell": 3,
+      "emojis": 3
+    },
+    {
+      "id": 17,
+      "plantilla": "El {persona} porta el {animal} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": 18,
+      "plantilla": "El {persona} toca {musica} a {lloc}",
+      "nivell": 4,
+      "emojis": 3
+    },
+    {
+      "id": 19,
+      "plantilla": "El {persona} usa el {objecte} per treballar de {feina}",
+      "nivell": 5,
+      "emojis": 3
+    },
+    {
+      "id": 20,
+      "plantilla": "El {persona} i el {animal} van a {lloc} amb {vehicle}",
+      "nivell": 5,
+      "emojis": 4
+    }
+  ]
+}
