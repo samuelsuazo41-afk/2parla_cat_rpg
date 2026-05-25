@@ -1000,6 +1000,15 @@ function comprarPack(id, preu) {
   const pack = estat.packs_botiga.find(p => p.id === id);
   estat.emojisDesbloquejats.push(...pack.emojis.map(e => e.emoji));
 
+  // Afegeix els emojis nous a CATEGORIES_EMOJI en memòria
+  for(const emojiObj of pack.emojis) {
+    const cat = emojiObj.categoria || 'altres';
+    if(!CATEGORIES_EMOJI[cat]) CATEGORIES_EMOJI[cat] = [];
+    if(!CATEGORIES_EMOJI[cat].includes(emojiObj.emoji)) {
+      CATEGORIES_EMOJI[cat].push(emojiObj.emoji);
+    }
+  }
+
   NIVELL_MINIJOC.nivelActual = Math.min(NIVELL_MINIJOC.nivelActual + 1, NIVELL_MINIJOC.maxEmojis);
 
   guardarEstat();
