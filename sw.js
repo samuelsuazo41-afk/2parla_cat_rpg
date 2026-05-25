@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rpg_parla_cat-v1';
+const CACHE_NAME = 'rpg_parla_cat-v7';
 const urlsToCache = [
   './',
   './index.html',
