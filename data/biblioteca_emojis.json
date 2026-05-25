@@ -241,7 +241,7 @@
   {"emoji": "🚃", "nom_cat": "vagó", "para_frases": ["vagó", "tren", "transport"]},
   {"emoji": "🏠", "nom_cat": "casa", "para_frases": ["casa", "llar", "edifici"]},
   {"emoji": "🏡", "nom_cat": "casa amb jardí", "para_frases": ["casa amb jardí", "casa", "llar"]},
-  {"emoji": "🏢", "nom  "edifici"]},
+  {"emoji": "🏢", "nom_cat": "edifici", "para_frases": ["edifici", "lloc"]},`"]},
   {"emoji": "🏣", "nom_cat": "oficina correus", "para_frases": ["oficina correus", "edifici"]},
   {"emoji": "🏤", "nom_cat": "correus", "para_frases": ["correus", "edifici"]},
   {"emoji": "🏥", "nom_cat": "hospital", "para_frases": ["hospital", "metge", "curar", "malalt"]},
