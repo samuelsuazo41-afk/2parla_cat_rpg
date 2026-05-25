@@ -3,10 +3,35 @@ let musicaActivada = true;
 let BIBLIOTECA_EMOJIS_BASE = [];
 let FRASES_MINIJOC = [];
 let FRASES_MIXTAS = [];
-let NIVELL_MINIJOC = {
-  minEmojis: 2,
-  maxEmojis: 5,
-  nivelActual: 1
+let CATEGORIES_EMOJI = {};
+let estat = {
+  monedes: parseInt(localStorage.getItem('cat_monedes')) || 0,
+  capitolsCompletats: JSON.parse(localStorage.getItem('cat_completats')) || [],
+  objectes: JSON.parse(localStorage.getItem('cat_objectes')) || [],
+  rutesDesbloquejades: JSON.parse(localStorage.getItem('cat_rutes')) || [],
+  capitols100Counts: JSON.parse(localStorage.getItem('cat_capitols100')) || {},
+  stats: {
+    seny: parseInt(localStorage.getItem('cat_seny')) || 0,
+    rauxa: parseInt(localStorage.getItem('cat_rauxa')) || 0,
+    arrel: parseInt(localStorage.getItem('cat_arrel')) || 0,
+    obert: parseInt(localStorage.getItem('cat_obert')) || 0
+  },
+  totem: localStorage.getItem('cat_totem') || 'neutral',
+  personatge: JSON.parse(localStorage.getItem('cat_personatge')) || null,
+  capitolActual: null,
+  pasActual: 0,
+  fallades: JSON.parse(localStorage.getItem('cat_fallades')) || [],
+  falladesCapitol: 0,
+  bloquejat: false,
+  compres: JSON.parse(localStorage.getItem('cat_compres')) || [],
+  emojisDesbloquejats: JSON.parse(localStorage.getItem('cat_emojis')) || [],
+  packs_botiga: [],
+  minijoc: {
+    fraseObjectiu: null,
+    emojisTriats: [],
+    emojisDisponibles: [],
+    modo: 'corta'
+  }
 };
 
 const LANGS = {
@@ -83,7 +108,6 @@ const LANGS = {
 let idioma = localStorage.getItem('cat_idioma') || 'es';
 let LANG = LANGS[idioma];
 
-// Personatges jugador
 const PERSONATGES_JUGADOR = [
   {id: 'noi', emoji: '👦', nom: 'Noi'},
   {id: 'noia', emoji: '👧', nom: 'Noia'},
@@ -91,33 +115,10 @@ const PERSONATGES_JUGADOR = [
   {id: 'dona', emoji: '👩', nom: 'Dona'}
 ];
 
-let estat = {
-  monedes: parseInt(localStorage.getItem('cat_monedes')) || 0,
-  capitolsCompletats: JSON.parse(localStorage.getItem('cat_completats')) || [],
-  objectes: JSON.parse(localStorage.getItem('cat_objectes')) || [],
-  rutesDesbloquejades: JSON.parse(localStorage.getItem('cat_rutes')) || [],
-  capitols100Counts: JSON.parse(localStorage.getItem('cat_capitols100')) || {},
-  stats: {
-    seny: parseInt(localStorage.getItem('cat_seny')) || 0,
-    rauxa: parseInt(localStorage.getItem('cat_rauxa')) || 0,
-    arrel: parseInt(localStorage.getItem('cat_arrel')) || 0,
-    obert: parseInt(localStorage.getItem('cat_obert')) || 0
-  },
-  totem: localStorage.getItem('cat_totem') || 'neutral',
-  personatge: JSON.parse(localStorage.getItem('cat_personatge')) || null,
-  capitolActual: null,
-  pasActual: 0,
-  fallades: JSON.parse(localStorage.getItem('cat_fallades')) || [],
-  falladesCapitol: 0,
-  bloquejat: false,
-  compres: JSON.parse(localStorage.getItem('cat_compres')) || [],
-  emojisDesbloquejats: JSON.parse(localStorage.getItem('cat_emojis')) || [],
-  minijoc: {
-    fraseObjectiu: null,
-    emojisTriats: [],
-    emojisDisponibles: [],
-    modo: 'corta'
-  }
+const NIVELL_MINIJOC = {
+  minEmojis: 2,
+  maxEmojis: 5,
+  nivelActual: parseInt(localStorage.getItem('cat_nivell_minijoc')) || 1
 };
 
 const CAPITOLS = [
@@ -155,7 +156,6 @@ const CAPITOLS = [
 let ITEMS = {};
 let AUDIO_ENCERT = null;
 let AUDIO_FALLADA = null;
-let CATEGORIES_EMOJI = {};
 
 // --- MÚSICA ---
 let audioCtx = false;
@@ -272,8 +272,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   } catch(err) {
     CATEGORIES_EMOJI = {};
   }
-
-  NIVELL_MINIJOC.nivelActual = parseInt(localStorage.getItem('cat_nivell_minijoc')) || 1;
 
   await carregarItems();
   actualitzarUI();
@@ -662,7 +660,7 @@ function mostrarGremi(tab, e) {
     }
   }
 
-    if(tab === 'llegendes') {
+  if(tab === 'llegendes') {
     const llegendes = [
       { id: 'capitol_01_bcn_born', nom: 'El Born, Barcelona', icona: '🏛️', desbloquejada: estat.capitolsCompletats.includes('capitol_01_bcn_born'), text: 'El Born és el barri gòtic més viu.' },
       { id: 'capitol_02_girona', nom: 'Temps de Flors, Girona', icona: '🏰', desbloquejada: estat.capitolsCompletats.includes('capitol_02_girona'), text: 'Cada maig, Girona s\'omple de flors.' },
@@ -670,7 +668,7 @@ function mostrarGremi(tab, e) {
     ];
     llegendes.forEach(l => {
       if(l.desbloquejada) {
-        cont.innerHTML += `<div class="gremi-item" style="grid-column:1/-1;"><div style="font-size:36px;">${l.icona}</div><h3 style="margin:10px 0;">${l.nom}</h3><p style="font-size:14px; color:#ccc;">${l.text}</p><div style="color:#4CAF50; font-size:12px; margin-top:10px;">✓ Desbloquejada</div></div>`;
+            cont.innerHTML += `<div class="gremi-item" style="grid-column:1/-1;"><div style="font-size:36px;">${l.icona}</div><h3 style="margin:10px 0;">${l.nom}</h3><p style="font-size:14px; color:#ccc;">${l.text}</p><div style="color:#4CAF50; font-size:12px; margin-top:10px;">✓ Desbloquejada</div></div>`;
       } else {
         cont.innerHTML += `<div class="gremi-item" style="grid-column:1/-1; opacity:0.4;"><div style="font-size:36px;">🔒</div><h3 style="margin:10px 0;">???</h3><p style="font-size:14px; color:#666;">Completa el capítol per desbloquejar aquesta llegenda</p></div>`;
       }
@@ -679,33 +677,43 @@ function mostrarGremi(tab, e) {
 }
 
 function mostrarBibliotecaTab(tab, e) {
-  document.querySelectorAll('#biblioteca-subtabs .sub-tab-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('#biblioteca-subtabs.sub-tab-btn').forEach(btn => btn.classList.remove('active'));
   if(e) e.target.classList.add('active');
 
   const cont = document.getElementById('gremi-contenidor');
 
   if(tab === 'diccionari') {
+    const desbloquejats = new Set(estat.emojisDesbloquejats || []);
     let html = `<h3 style="text-align:center; margin-bottom:10px;">${LANG.biblioteca}</h3>`;
     html += `<p style="text-align:center; color:#888; margin-bottom:20px; font-size:14px;">${LANG.biblioteca_desc}</p>`;
-    html += `<div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; max-height:500px; overflow-y:auto; padding:10px;">`;
 
-    const totsEmojis = [...BIBLIOTECA_EMOJIS_BASE,...estat.emojisDesbloquejats];
-    totsEmojis.forEach(p => {
-      html += `
-        <div class="gremi-item" style="text-align:center; padding:15px 8px;">
-          <div style="font-size:42px; margin-bottom:8px;">${p.emoji}</div>
-          <div style="font-size:13px; font-weight:600; line-height:1.2;">${p.nom_cat}</div>
-        </div>
-      `;
-    });
-    html += `</div>`;
+    for (const [cat, emojis] of Object.entries(CATEGORIES_EMOJI)) {
+      html += `<h4 style="margin:15px 0 8px; color:#4CAF50;">${cat}</h4>`;
+      html += `<div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:15px;">`;
+
+      emojis.forEach(emoji => {
+        const info = BIBLIOTECA_EMOJIS_BASE.find(e => e.emoji === emoji);
+        const nom = info? info.nom_cat : emoji;
+        const comprat = desbloquejats.has(emoji);
+        const opacidad = comprat? '1' : '0.3';
+        const filtro = comprat? '' : 'grayscale(1)';
+
+        html += `
+          <div style="text-align:center; padding:12px 6px; background:#1a1a1a; border-radius:8px; opacity:${opacidad}; filter:${filtro};">
+            <div style="font-size:36px; margin-bottom:6px;">${emoji}</div>
+            <div style="font-size:11px; font-weight:600; line-height:1.2;">${nom}</div>
+          </div>
+        `;
+      });
+      html += `</div>`;
+    }
     cont.innerHTML = html;
   }
 
   if(tab === 'minijocs') {
     cont.innerHTML = `
       <h3>${LANG.minijoc_titol}</h3>
-      <p id="minijoc-nivell" style="color:#4CAF50; font-weight:bold; margin:8px 0;">Nivell 1 - 2 emojis</p>
+      <p id="minijoc-nivell" style="color:#4CAF50; font-weight:bold; margin:8px 0;">Nivell ${NIVELL_MINIJOC.nivelActual} - ${NIVELL_MINIJOC.minEmojis} emojis</p>
       <p style="color:var(--text-sec); margin:12px 0;">${LANG.minijoc_desc}</p>
       <div id="minijoc-frase" style="background:#222; padding:15px; border-radius:12px; min-height:50px; margin-bottom:15px; text-align:center; font-size:18px;">
         Prem "Nova frase" per començar
@@ -756,9 +764,9 @@ function generarFraseMixta(emojisJugador) {
     `Nivell ${NIVELL_MINIJOC.nivelActual} - Completa amb ${frase.solucio.length} emoji(s)`;
 
   const emojisFalsos = emojisJugador
-   .filter(e =>!frase.solucio.some(eSol => quitarSkinTone(e) === quitarSkinTone(eSol)))
-   .sort(() => 0.5 - Math.random())
-   .slice(0, 8 - frase.solucio.length);
+  .filter(e =>!frase.solucio.some(eSol => quitarSkinTone(e) === quitarSkinTone(eSol)))
+  .sort(() => 0.5 - Math.random())
+  .slice(0, 8 - frase.solucio.length);
 
   const emojisAMostrar = [...frase.solucio,...emojisFalsos].sort(() => 0.5 - Math.random());
   estat.minijoc.emojisDisponibles = emojisAMostrar;
@@ -806,9 +814,9 @@ function generarFraseCorta(emojisJugador) {
 function generarEmojisParaFraseCorta(frase) {
   const emojisJugador = [...BIBLIOTECA_EMOJIS_BASE.map(e => e.emoji),...estat.emojisDesbloquejats.map(e => e.emoji)];
   const emojisFalsos = emojisJugador
-   .filter(e =>!frase.solucio.some(eSol => quitarSkinTone(e) === quitarSkinTone(eSol)))
-   .sort(() => 0.5 - Math.random())
-   .slice(0, 10 - frase.solucio.length);
+  .filter(e =>!frase.solucio.some(eSol => quitarSkinTone(e) === quitarSkinTone(eSol)))
+  .sort(() => 0.5 - Math.random())
+  .slice(0, 10 - frase.solucio.length);
 
   const emojisAMostrar = [...frase.solucio,...emojisFalsos].sort(() => 0.5 - Math.random());
   estat.minijoc.emojisDisponibles = emojisAMostrar;
@@ -954,10 +962,10 @@ async function carregarBotiga() {
   try {
     const res = await fetch('./data/botiga_emojis.json');
     const data = await res.json();
-    estat.packs_botiga = data.packs;
+    estat.packs_botiga = data;
     cont.innerHTML = '';
 
-    data.packs.forEach(pack => {
+    data.forEach(pack => {
       const comprat = estat.compres.includes(pack.id);
       const card = document.createElement('div');
       card.className = 'capitol-card';
@@ -990,7 +998,7 @@ function comprarPack(id, preu) {
   estat.compres.push(id);
 
   const pack = estat.packs_botiga.find(p => p.id === id);
-  estat.emojisDesbloquejats.push(...pack.emojis);
+  estat.emojisDesbloquejats.push(...pack.emojis.map(e => e.emoji));
 
   NIVELL_MINIJOC.nivelActual = Math.min(NIVELL_MINIJOC.nivelActual + 1, NIVELL_MINIJOC.maxEmojis);
 
