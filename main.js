@@ -1,10 +1,11 @@
 // main.js - Lógica de RPG Parla Cat v2
 let musicaActivada = true;
 let BIBLIOTECA_EMOJIS_BASE = []; // Declarado arriba para que exista globalmente
+let FRASES_MINIJOC = []; // Nuevo: frases del minijuego
 
 const LANGS = {
   es: {
-    app_titol: "RPG Parla Cat v2  - Crónicas de Cataluña",
+    app_titol: "RPG Parla Cat v2 - Crónicas de Cataluña",
     monedes: "Monedas",
     tab_mapa: "Mundo",
     tab_missio: "Misión",
@@ -34,7 +35,8 @@ const LANGS = {
     incorrecte: "No és així. Era:",
     no_prou_monedes: "No tens prou monedes!",
     comprat: "Comprat",
-    desbloqueja_ruta: "Amb 3 ítems del capítol {n} desbloqueges la ruta secreta de {ciutat}"
+    desbloqueja_ruta: "Amb 3 ítems del capítol {n} desbloqueges la ruta secreta de {ciutat}",
+    no_frases_disponibles: "Compra més emojis per desbloquejar frases!"
   },
   ca: {
     app_titol: "Parla Cat RPG - Cròniques de Catalunya",
@@ -67,7 +69,8 @@ const LANGS = {
     incorrecte: "No és així. Era:",
     no_prou_monedes: "No tens prou monedes!",
     comprat: "Comprat",
-    desbloqueja_ruta: "Amb 3 ítems del capítol {n} desbloqueges la ruta secreta de {ciutat}"
+    desbloqueja_ruta: "Amb 3 ítems del capítol {n} desbloqueges la ruta secreta de {ciutat}",
+    no_frases_disponibles: "Compra més emojis per desbloquejar frases!"
   }
 };
 
@@ -224,12 +227,10 @@ function tocarJingleCompletado() {
 document.addEventListener('DOMContentLoaded', async () => {
   aplicarIdioma();
 
-  // Unlock audio en iOS
   document.body.addEventListener('click', () => {
     if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
   }, { once: true });
 
-  // 1. Carga los emojis primero y espera
   try {
     const res = await fetch('./data/biblioteca_emojis.json');
     BIBLIOTECA_EMOJIS_BASE = await res.json();
@@ -239,7 +240,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     BIBLIOTECA_EMOJIS_BASE = [];
   }
 
-  // 2. Ahora sí carga el resto, porque ya tienes los emojis
+  try {
+    const res = await fetch('./data/minijoc_frases.json');
+    const data = await res.json();
+    FRASES_MINIJOC = data.frases;
+    console.log('Frases minijoc cargadas:', FRASES_MINIJOC.length);
+  } catch(err) {
+    console.error('No s\'ha pogut carregar minijoc_frases.json', err);
+    FRASES_MINIJOC = [];
+  }
+
   await carregarItems();
   actualitzarUI();
   actualitzarTotem();
@@ -301,10 +311,8 @@ async function carregarCapitol(nombreArchivo) {
     estat.pasActual = 0;
     estat.falladesCapitol = 0;
 
-    // PRIMERO pintamos el HTML
     document.getElementById('missio-card').innerHTML = `
       <h3 id="missio-titol">Selecciona una missió al mapa</h3>
-
       <div id="npc-box" style="display:none;">
         <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:12px;">
           <span id="npc-emoji" style="font-size:42px; line-height:1;"></span>
@@ -318,13 +326,11 @@ async function carregarCapitol(nombreArchivo) {
           <span id="jugador-nom" style="font-size:14px; color:#aaa;"></span>
         </div>
       </div>
-
       <div id="missio-escenari"></div>
       <div id="missio-opcions"></div>
       <div id="missio-feedback"></div>
     `;
 
-    // DESPUÉS cambiamos de tab y cargamos el paso
     canviarTab('missio', null);
     setTimeout(() => carregarPas(), 0);
   } catch(e) {
@@ -386,7 +392,6 @@ function carregarPas() {
   const pas = estat.capitolActual.passos[estat.pasActual];
   if (!pas) { completarCapitol(); return; }
 
-  // Espera a que el DOM exista
   const esperarElemento = (id, callback, intentos = 20) => {
     const el = document.getElementById(id);
     if (el) {
@@ -630,11 +635,11 @@ function mostrarGremi(tab, e) {
         }
       });
     }
-  } // <- llave cerrada aquí
+  }
 
   if(tab === 'llegendes') {
     const llegendes = [
-      { id: 'capitol1_bcn_born', nom: 'El Born, Barcelona', icona: '🏛️', desbloquejada: estat.capitolsCompletats.includes('capitol1_bcn_born'), text: 'El Born és el barri gòtic més viu.' },
+      { id: 'capitol_01_bcn_born', nom: 'El Born, Barcelona', icona: '🏛️', desbloquejada: estat.capitolsCompletats.includes('capitol_01_bcn_born'), text: 'El Born és el barri gòtic més viu.' },
       { id: 'capitol_02_girona', nom: 'Temps de Flors, Girona', icona: '🏰', desbloquejada: estat.capitolsCompletats.includes('capitol_02_girona'), text: 'Cada maig, Girona s\'omple de flors.' },
       { id: 'capitol_03_fires_valencia', nom: 'Falles, València', icona: '🔥', desbloquejada: estat.capitolsCompletats.includes('capitol_03_fires_valencia'), text: 'El foc purifica tot.' }
     ];
@@ -649,7 +654,7 @@ function mostrarGremi(tab, e) {
 }
 
 function mostrarBibliotecaTab(tab, e) {
-  document.querySelectorAll('#biblioteca-subtabs.sub-tab-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('#biblioteca-subtabs .sub-tab-btn').forEach(btn => btn.classList.remove('active'));
   if(e) e.target.classList.add('active');
 
   const cont = document.getElementById('gremi-contenidor');
@@ -689,36 +694,50 @@ function mostrarBibliotecaTab(tab, e) {
   }
 }
 
+// NUEVA LÓGICA DEL MINIJUEGO
 function novaFraseMinijoc() {
-  const frases = [
-    {frase: "El gat està content", emojis: ["🐱", "😊"]},
-    {frase: "El gos està trist", emojis: ["🐶", "😢"]},
-    {frase: "Jo tinc una poma", emojis: ["jo", "🍎"]},
-    {frase: "Tu tens un plàtan", emojis: ["tu", "🍌"]},
-    {frase: "La casa és gran", emojis: ["🏠", "😊"]},
-    {frase: "El cotxe és ràpid", emojis: ["🚗", "😊"]},
-    {frase: "Llegeixo un llibre", emojis: ["jo", "📚"]},
-    {frase: "Bebem cafè", emojis: ["nosaltres", "☕"]}
-  ];
+  // Filtra frases que se pueden armar con los emojis desbloqueados
+  const emojisJugador = estat.emojisDesbloquejats.map(e => e.emoji);
+  
+  const frasesValides = FRASES_MINIJOC.filter(frase =>
+    frase.solucio.every(emoji => emojisJugador.includes(emoji))
+  );
 
-  const random = frases[Math.floor(Math.random() * frases.length)];
+  if (frasesValides.length === 0) {
+    document.getElementById('minijoc-frase').textContent = LANG.no_frases_disponibles;
+    document.getElementById('minijoc-emojis').innerHTML = '';
+    document.getElementById('minijoc-triats').textContent = '';
+    document.getElementById('minijoc-feedback').innerHTML = '';
+    return;
+  }
+
+  // Escoge frase random válida
+  const random = frasesValides[Math.floor(Math.random() * frasesValides.length)];
   estat.minijoc.fraseObjectiu = random;
   estat.minijoc.emojisTriats = [];
 
-  document.getElementById('minijoc-frase').textContent = random.frase;
+  document.getElementById('minijoc-frase').textContent = random.text;
   document.getElementById('minijoc-triats').textContent = '';
   document.getElementById('minijoc-feedback').innerHTML = '';
 
-  const totsEmojis = [...BIBLIOTECA_EMOJIS_BASE,...estat.emojisDesbloquejats];
-  const emojisBarreja = totsEmojis.sort(() => 0.5 - Math.random()).slice(0, 15);
-  estat.minijoc.emojisDisponibles = emojisBarreja;
+  // Genera opciones: solución + 8 emojis random de relleno
+  const emojisSolucio = random.solucio;
+  const emojisFalsos = emojisJugador
+    .filter(e => !emojisSolucio.includes(e))
+    .sort(() => 0.5 - Math.random())
+    .slice(0, 8);
+
+  const emojisAMostrar = [...emojisSolucio, ...emojisFalsos].sort(() => 0.5 - Math.random());
+  estat.minijoc.emojisDisponibles = emojisAMostrar;
 
   let html = '';
-  emojisBarreja.forEach((e, i) => {
+  emojisAMostrar.forEach((emoji, i) => {
+    const emojiData = BIBLIOTECA_EMOJIS_BASE.find(e => e.emoji === emoji);
+    const nom = emojiData ? emojiData.nom_cat : '';
     html += `
       <div class="emoji-item" onclick="triarEmojiMinijoc(${i})" style="cursor:pointer;">
-        <div class="emoji-large">${e.emoji}</div>
-        <div class="emoji-name">${e.nom_cat}</div>
+        <div class="emoji-large">${emoji}</div>
+        <div class="emoji-name">${nom}</div>
       </div>
     `;
   });
@@ -736,23 +755,27 @@ function triarEmojiMinijoc(index) {
 
 function actualitzarTriatsMinijoc() {
   const div = document.getElementById('minijoc-triats');
-  div.textContent = estat.minijoc.emojisTriats.map(e => e.emoji).join(' ');
+  div.textContent = estat.minijoc.emojisTriats.join(' ');
 }
 
 function comprovarMinijoc() {
   vibrar();
-  const objectiu = estat.minijoc.fraseObjectiu.emojis.join('');
-  const triats = estat.minijoc.emojisTriats.map(e => e.emoji).join('');
+  const solucio = estat.minijoc.fraseObjectiu.solucio;
+  const triats = estat.minijoc.emojisTriats;
+  
+  const esCorrecte = triats.length === solucio.length && 
+                     triats.every((e, i) => e === solucio[i]);
+  
   const feedback = document.getElementById('minijoc-feedback');
 
-  if (objectiu === triats) {
+  if (esCorrecte) {
     feedback.innerHTML = `<p style="color:#4CAF50; font-weight:bold;">${LANG.correcte}</p>`;
     estat.monedes += 50;
     estat.stats.arrel += 5;
     actualitzarUI();
     guardarEstat();
   } else {
-    feedback.innerHTML = `<p style="color:#f44336; font-weight:bold;">${LANG.incorrecte} ${estat.minijoc.fraseObjectiu.emojis.join(' ')}</p>`;
+    feedback.innerHTML = `<p style="color:#f44336; font-weight:bold;">${LANG.incorrecte} ${solucio.join(' ')}</p>`;
   }
 
   setTimeout(() => novaFraseMinijoc(), 2000);
@@ -827,4 +850,4 @@ function comprarPack(id, preu) {
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW error:', err));
-    }
+}
