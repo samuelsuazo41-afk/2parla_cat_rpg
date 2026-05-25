@@ -1,28 +1,64 @@
 {
   "frases": [
     {
-      "text": "El gat està content",
-      "solucio": ["🐱", "😊"],
-      "pack": "base",
-      "nivell": 1
-    },
-    {
       "text": "L'arbre i la flor",
       "solucio": ["🌳", "🌸"],
       "pack": "natura",
       "nivell": 2
     },
     {
-      "text": "El tambor a la selva",
-      "solucio": ["🥁", "🌴"],
-      "pack": "congo",
+      "text": "El sol i el mar",
+      "solucio": ["☀️", "🌊"],
+      "pack": "natura",
+      "nivell": 2
+    },
+    {
+      "text": "La flor sota el sol",
+      "solucio": ["🌸", "☀️"],
+      "pack": "natura",
+      "nivell": 2
+    },
+    {
+      "text": "L'arbre al costat del mar",
+      "solucio": ["🌳", "🌊"],
+      "pack": "natura",
+      "nivell": 2
+    },
+    {
+      "text": "El mar i la flor",
+      "solucio": ["🌊", "🌸"],
+      "pack": "natura",
+      "nivell": 2
+    },
+    {
+      "text": "L'arbre i el sol",
+      "solucio": ["🌳", "☀️"],
+      "pack": "natura",
+      "nivell": 2
+    },
+    {
+      "text": "El sol escalfa la flor",
+      "solucio": ["☀️", "🌸"],
+      "pack": "natura",
       "nivell": 3
     },
     {
-      "text": "Cuino una paella",
-      "solucio": ["🍳", "🍅"],
-      "pack": "cuina",
-      "nivell": 2
+      "text": "L'arbre toca el cel",
+      "solucio": ["🌳", "☀️"],
+      "pack": "natura",
+      "nivell": 3
+    },
+    {
+      "text": "La flor vora el mar",
+      "solucio": ["🌸", "🌊"],
+      "pack": "natura",
+      "nivell": 3
+    },
+    {
+      "text": "El sol surt del mar",
+      "solucio": ["☀️", "🌊"],
+      "pack": "natura",
+      "nivell": 3
     }
   ]
 }
