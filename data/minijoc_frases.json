@@ -10,16 +10,28 @@
     {"text": "Gat", "solucio": ["🐱"], "pack": "animals", "nivell": 1},
     {"text": "Gos", "solucio": ["🐶"], "pack": "animals", "nivell": 1},
     {"text": "Casa", "solucio": ["🏠"], "pack": "ciutat", "nivell": 1},
-    
-    {"text": "Puja amunt", "solucio": ["⬆️"], "pack": "direccions", "nivell": 2},
-    {"text": "Baixa avall", "solucio": ["⬇️"], "pack": "direccions", "nivell": 2},
-    {"text": "Ves a l'esquerra", "solucio": ["⬅️"], "pack": "direccions", "nivell": 2},
-    {"text": "Ves a la dreta", "solucio": ["➡️"], "pack": "direccions", "nivell": 2},
-    {"text": "Hola, com estàs", "solucio": ["👋"], "pack": "salutacions", "nivell": 2},
+
     {"text": "El pare i la mare", "solucio": ["👨", "👩"], "pack": "familia", "nivell": 2},
-    {"text": "El metge cura el nen", "solucio": ["👨‍⚕️", "👦"], "pack": "professions", "nivell": 2},
-    {"text": "El cotxe va ràpid", "solucio": ["🚗"], "pack": "transport", "nivell": 2},
-    {"text": "El llibre està a la taula", "solucio": ["📚"], "pack": "objectes", "nivell": 2},
-    {"text": "L'arbre i la flor", "solucio": ["🌳", "🌸"], "pack": "natura", "nivell": 2}
+    {"text": "El noi i la noia", "solucio": ["👦", "👧"], "pack": "familia", "nivell": 2},
+    {"text": "L'avi i l'àvia", "solucio": ["👴", "👵"], "pack": "familia", "nivell": 2},
+    {"text": "El gos i el gat", "solucio": ["🐶", "🐱"], "pack": "animals", "nivell": 2},
+    {"text": "El sol i la lluna", "solucio": ["☀️", "🌙"], "pack": "natura", "nivell": 2},
+    {"text": "La casa gran", "solucio": ["🏠"], "pack": "ciutat", "nivell": 2},
+    {"text": "El cotxe ràpid", "solucio": ["🚗"], "pack": "transport", "nivell": 2},
+
+    {"text": "El pare porta el nen", "solucio": ["👨", "👶"], "pack": "familia", "nivell": 3},
+    {"text": "La mare cuina pa", "solucio": ["👩", "🍞"], "pack": "familia", "nivell": 3},
+    {"text": "El gat dorm al sol", "solucio": ["🐱", "☀️"], "pack": "animals", "nivell": 3},
+    {"text": "El gos corre al mar", "solucio": ["🐶", "🌊"], "pack": "animals", "nivell": 3},
+    {"text": "L'arbre té flors", "solucio": ["🌳", "🌸"], "pack": "natura", "nivell": 3},
+
+    {"text": "El pare i la mare van a casa", "solucio": ["👨", "👩", "🏠"], "pack": "familia", "nivell": 4},
+    {"text": "El noi juga amb el gos", "solucio": ["👦", "🐶"], "pack": "animals", "nivell": 4},
+    {"text": "La noia mira el mar", "solucio": ["👧", "🌊"], "pack": "natura", "nivell": 4},
+    {"text": "L'avi llegeix el diari", "solucio": ["👴", "📚"], "pack": "objectes", "nivell": 4},
+
+    {"text": "La família menja pa i formatge", "solucio": ["👨", "👩", "👶", "🍞", "🧀"], "pack": "familia", "nivell": 5},
+    {"text": "El gat i el gos dormen al sol", "solucio": ["🐱", "🐶", "☀️"], "pack": "animals", "nivell": 5},
+    {"text": "L'avi i l'àvia van al mar", "solucio": ["👴", "👵", "🌊"], "pack": "familia", "nivell": 5}
   ]
 }
