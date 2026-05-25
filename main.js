@@ -2,6 +2,7 @@
 let musicaActivada = true;
 let BIBLIOTECA_EMOJIS_BASE = [];
 let FRASES_MINIJOC = [];
+let FRASES_MIXTAS = [];
 let NIVELL_MINIJOC = {
   minEmojis: 2,
   maxEmojis: 5,
@@ -114,7 +115,8 @@ let estat = {
   minijoc: {
     fraseObjectiu: null,
     emojisTriats: [],
-    emojisDisponibles: []
+    emojisDisponibles: [],
+    modo: 'corta'
   }
 };
 
@@ -253,6 +255,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   } catch(err) {
     console.error('No s\'ha pogut carregar minijoc_frases.json', err);
     FRASES_MINIJOC = [];
+  }
+
+  try {
+    const res = await fetch('./data/frases_mixtas.json');
+    const data = await res.json();
+    FRASES_MIXTAS = data.frases;
+    console.log('Frases mixtas cargadas:', FRASES_MIXTAS.length);
+  } catch(err) {
+    console.error('No s\'ha pogut carregar frases_mixtas.json', err);
+    FRASES_MIXTAS = [];
   }
 
   NIVELL_MINIJOC.nivelActual = parseInt(localStorage.getItem('cat_nivell_minijoc')) || 1;
@@ -703,32 +715,68 @@ function mostrarBibliotecaTab(tab, e) {
   }
 }
 
-// LÓGICA NUEVA DEL MINIJUEGO CON NIVELES
-const PLANTILLES_FRASES = [
-  { plantilla: "{persona} {accio}", emojis: 2, nivell: 2 },
-  { plantilla: "{persona} i {persona}", emojis: 2, nivell: 2 },
-  { plantilla: "{animal} {lloc}", emojis: 2, nivell: 2 },
-  { plantilla: "{persona} {accio} {objecte}", emojis: 3, nivell: 3 },
-  { plantilla: "{persona} va a {lloc}", emojis: 3, nivell: 3 },
-  { plantilla: "{animal} {accio} a {lloc}", emojis: 4, nivell: 4 },
-  { plantilla: "{persona} {accio} amb {objecte}", emojis: 4, nivell: 4 },
-  { plantilla: "{persona} i {persona} {accio}", emojis: 3, nivell: 3 },
-  { plantilla: "{persona} {accio} {objecte} i {objecte}", emojis: 5, nivell: 5 }
-];
-
-const CATEGORIES_EMOJI = {
-  persona: ['👨', '👩', '👦', '👧', '👴', '👵', '👨‍⚕️', '👩‍⚕️', '👨‍🌾', '👨‍🎨', '👨‍🚒'],
-  animal: ['🐶', '🐱', '🐄', '🐦'],
-  lloc: ['🏠', '🏫', '🏥', '🌊', '🌲', '🌳'],
-  objecte: ['🍞', '🧀', '📚', '💻', '⚽'],
-  accio: ['🏃', '🚶', '🍽️', '📖', '💪']
-};
-
+// LÓGICA MINIJUEGO HÍBRIDO
 function novaFraseMinijoc() {
   const emojisJugador = [...BIBLIOTECA_EMOJIS_BASE.map(e => e.emoji),...estat.emojisDesbloquejats.map(e => e.emoji)];
+  
+  // Nivel 1-2: modo corto solo emojis. Nivel 3+: 60% modo mixto con huecos
+  const usarMixta = NIVELL_MINIJOC.nivelActual >= 2 && Math.random() > 0.4;
 
-  // Filtra plantillas segons el nivell actual
-  const plantillesDisponibles = PLANTILLES_FRASES.filter(p =>
+  if (usarMixta) {
+    generarFraseMixta(emojisJugador);
+  } else {
+    generarFraseCorta(emojisJugador);
+  }
+}
+
+function generarFraseMixta(emojisJugador) {
+  const frasesDisponibles = FRASES_MIXTAS.filter(f =>
+    f.nivell <= NIVELL_MINIJOC.nivelActual &&
+    f.solucio.every(e => emojisJugador.includes(e))
+  );
+
+  if (frasesDisponibles.length === 0) {
+    generarFraseCorta(emojisJugador);
+    return;
+  }
+
+  const frase = frasesDisponibles[Math.floor(Math.random() * frasesDisponibles.length)];
+  estat.minijoc.fraseObjectiu = frase;
+  estat.minijoc.emojisTriats = [];
+  estat.minijoc.modo = 'mixta';
+
+  // Mostrar frase con hueco ___ sin rellenar
+  document.getElementById('minijoc-frase').textContent = frase.text;
+  document.getElementById('minijoc-triats').textContent = '';
+  document.getElementById('minijoc-feedback').innerHTML = '';
+  document.getElementById('minijoc-nivell').textContent = 
+    `Nivell ${NIVELL_MINIJOC.nivelActual} - Completa amb ${frase.solucio.length} emoji(s)`;
+
+  // Emojis disponibles: los correctos + falsos
+  const emojisFalsos = emojisJugador
+    .filter(e => !frase.solucio.includes(e))
+    .sort(() => 0.5 - Math.random())
+    .slice(0, 8 - frase.solucio.length);
+
+  const emojisAMostrar = [...frase.solucio, ...emojisFalsos].sort(() => 0.5 - Math.random());
+  estat.minijoc.emojisDisponibles = emojisAMostrar;
+
+  let html = '';
+  emojisAMostrar.forEach((emoji, i) => {
+    const emojiData = BIBLIOTECA_EMOJIS_BASE.find(e => e.emoji === emoji) ||
+                      estat.emojisDesbloquejats.find(e => e.emoji === emoji);
+    html += `
+      <div class="emoji-item" onclick="triarEmojiMinijoc(${i})" style="cursor:pointer;">
+        <div class="emoji-large">${emoji}</div>
+        <div class="emoji-name">${emojiData?.nom_cat || ''}</div>
+      </div>
+    `;
+  });
+  document.getElementById('minijoc-emojis').innerHTML = html;
+}
+
+function generarFraseCorta(emojisJugador) {
+  const plantillesDisponibles = FRASES_MINIJOC.filter(p =>
     p.nivell <= NIVELL_MINIJOC.nivelActual &&
     p.emojis <= emojisJugador.length
   );
@@ -738,27 +786,29 @@ function novaFraseMinijoc() {
     return;
   }
 
-  // Tria una plantilla random
   const plantilla = plantillesDisponibles[Math.floor(Math.random() * plantillesDisponibles.length)];
-
-  // Genera la frase i la solució
   const { text, solucio } = generarFraseDinamica(plantilla, emojisJugador);
 
   estat.minijoc.fraseObjectiu = { text, solucio };
   estat.minijoc.emojisTriats = [];
+  estat.minijoc.modo = 'corta';
 
   document.getElementById('minijoc-frase').textContent = text;
   document.getElementById('minijoc-triats').textContent = '';
   document.getElementById('minijoc-feedback').innerHTML = '';
   document.getElementById('minijoc-nivell').textContent = `Nivell ${NIVELL_MINIJOC.nivelActual} - ${solucio.length} emojis`;
 
-  // Mostra els emojis per triar
-  const emojisFalsos = emojisJugador
-  .filter(e =>!solucio.includes(e))
-  .sort(() => 0.5 - Math.random())
-  .slice(0, 10 - solucio.length);
+  generarEmojisParaFraseCorta({solucio});
+}
 
-  const emojisAMostrar = [...solucio,...emojisFalsos].sort(() => 0.5 - Math.random());
+function generarEmojisParaFraseCorta(frase) {
+  const emojisJugador = [...BIBLIOTECA_EMOJIS_BASE.map(e => e.emoji),...estat.emojisDesbloquejats.map(e => e.emoji)];
+  const emojisFalsos = emojisJugador
+    .filter(e =>!frase.solucio.includes(e))
+    .sort(() => 0.5 - Math.random())
+    .slice(0, 10 - frase.solucio.length);
+
+  const emojisAMostrar = [...frase.solucio,...emojisFalsos].sort(() => 0.5 - Math.random());
   estat.minijoc.emojisDisponibles = emojisAMostrar;
 
   let html = '';
@@ -779,15 +829,13 @@ function generarFraseDinamica(plantilla, emojisJugador) {
   let text = plantilla.plantilla;
   let solucio = [];
 
-  // Omple cada categoria amb un emoji random que el jugador tingui
   for (const cat in CATEGORIES_EMOJI) {
     const regex = new RegExp(`\\{${cat}\\}`, 'g');
     if (text.match(regex)) {
       const emojisDisponibles = CATEGORIES_EMOJI[cat].filter(e => emojisJugador.includes(e));
 
       if (emojisDisponibles.length === 0) {
-        // Si no té emojis d'aquesta categoria, torna a provar amb una altra plantilla
-        return generarFraseDinamica(PLANTILLES_FRASES[Math.floor(Math.random() * PLANTILLES_FRASES.length)], emojisJugador);
+        return generarFraseDinamica(FRASES_MINIJOC[Math.floor(Math.random() * FRASES_MINIJOC.length)], emojisJugador);
       }
 
       const emojiElegit = emojisDisponibles[Math.floor(Math.random() * emojisDisponibles.length)];
@@ -803,7 +851,9 @@ function obtenirNomEmoji(emoji) {
   const noms = {
     '👨': 'el pare', '👩': 'la mare', '👦': 'el noi', '👧': 'la noia',
     '👴': 'l\'avi', '👵': 'l\'àvia', '🐶': 'el gos', '🐱': 'el gat',
-    '🏠': 'casa', '🏫': 'l\'escola', '🌊': 'el mar', '🍞': 'pa'
+    '🏠': 'casa', '🏫': 'l\'escola', '🌊': 'el mar', '🍞': 'pa',
+    '💻': 'ordinador', '🎵': 'música', '🐦': 'ocells', '⭐': 'estrelles',
+    '🏥': 'hospital', '⚽': 'futbol'
   };
   return noms[emoji] || emoji;
 }
@@ -821,27 +871,59 @@ function triarEmojiMinijoc(index) {
 
 function actualitzarTriatsMinijoc() {
   const div = document.getElementById('minijoc-triats');
-  div.textContent = estat.minijoc.emojisTriats.join(' ');
+  const fraseDiv = document.getElementById('minijoc-frase');
+  const frase = estat.minijoc.fraseObjectiu;
+
+  if (estat.minijoc.modo === 'mixta') {
+    // Mostrar emojis elegidos abajo
+    div.textContent = estat.minijoc.emojisTriats.join(' ');
+    
+    // Rellenar hueco ___ en la frase de arriba
+    let fraseMostrada = frase.text;
+    estat.minijoc.emojisTriats.forEach(emoji => {
+      fraseMostrada = fraseMostrada.replace('___', emoji);
+    });
+    fraseDiv.textContent = fraseMostrada;
+  } else {
+    // Modo corto sigue igual
+    div.textContent = estat.minijoc.emojisTriats.join(' ');
+  }
 }
 
 function comprovarMinijoc() {
   vibrar();
-  const solucio = estat.minijoc.fraseObjectiu.solucio;
-  const triats = estat.minijoc.emojisTriats;
-  
-  const esCorrecte = triats.length === solucio.length && 
-                     triats.every((e, i) => e === solucio[i]);
-  
-  const feedback = document.getElementById('minijoc-feedback');
+  const frase = estat.minijoc.fraseObjectiu;
 
-  if (esCorrecte) {
-    feedback.innerHTML = `<p style="color:#4CAF50; font-weight:bold;">${LANG.correcte}</p>`;
-    estat.monedes += 50;
-    estat.stats.arrel += 5;
-    actualitzarUI();
-    guardarEstat();
+  if (estat.minijoc.modo === 'mixta') {
+    const esCorrecte = frase.solucio.every(e => estat.minijoc.emojisTriats.includes(e)) &&
+                       estat.minijoc.emojisTriats.length === frase.solucio.length;
+
+    const feedback = document.getElementById('minijoc-feedback');
+    if (esCorrecte) {
+      const fraseCompleta = frase.text.replace('___', frase.paraules[0]);
+      feedback.innerHTML = `<p style="color:#4CAF50; font-weight:bold;">${LANG.correcte}<br>${fraseCompleta}</p>`;
+      estat.monedes += 50;
+      estat.stats.arrel += 5;
+      actualitzarUI();
+      guardarEstat();
+    } else {
+      feedback.innerHTML = `<p style="color:#f44336; font-weight:bold;">${LANG.incorrecte} ${frase.solucio.join(' ')}</p>`;
+    }
   } else {
-    feedback.innerHTML = `<p style="color:#f44336; font-weight:bold;">${LANG.incorrecte} ${solucio.join(' ')}</p>`;
+    const solucioCorrecta = frase.solucio.join('');
+    const triatsCorrecte = estat.minijoc.emojisTriats.join('');
+    const esCorrecte = solucioCorrecta === triatsCorrecte;
+    const feedback = document.getElementById('minijoc-feedback');
+
+    if (esCorrecte) {
+      feedback.innerHTML = `<p style="color:#4CAF50; font-weight:bold;">${LANG.correcte}</p>`;
+      estat.monedes += 50;
+      estat.stats.arrel += 5;
+      actualitzarUI();
+      guardarEstat();
+    } else {
+      feedback.innerHTML = `<p style="color:#f44336; font-weight:bold;">${LANG.incorrecte} ${frase.solucio.join(' ')}</p>`;
+    }
   }
 
   setTimeout(() => novaFraseMinijoc(), 2000);
@@ -909,6 +991,7 @@ function comprarPack(id, preu) {
   const pack = estat.packs_botiga.find(p => p.id === id);
   estat.emojisDesbloquejats.push(...pack.emojis);
 
+  // Subir nivel al comprar pack
   NIVELL_MINIJOC.nivelActual = Math.min(NIVELL_MINIJOC.nivelActual + 1, NIVELL_MINIJOC.maxEmojis);
 
   guardarEstat();
