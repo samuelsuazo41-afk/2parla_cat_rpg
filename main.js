@@ -683,31 +683,33 @@ function mostrarBibliotecaTab(tab, e) {
   const cont = document.getElementById('gremi-contenidor');
 
   if(tab === 'diccionari') {
-    const desbloquejats = new Set(estat.emojisDesbloquejats || []);
-    let html = `<h3 style="text-align:center; margin-bottom:10px;">${LANG.biblioteca}</h3>`;
-    html += `<p style="text-align:center; color:#888; margin-bottom:20px; font-size:14px;">${LANG.biblioteca_desc}</p>`;
+  const desbloquejats = new Set(estat.emojisDesbloquejats || []);
+  let html = `<h3 style="text-align:center; margin-bottom:10px;">${LANG.biblioteca}</h3>`;
+  html += `<p style="text-align:center; color:#888; margin-bottom:20px; font-size:14px;">${LANG.biblioteca_desc}</p>`;
 
-    for (const [cat, emojis] of Object.entries(CATEGORIES_EMOJI)) {
-      html += `<h4 style="margin:15px 0 8px; color:#4CAF50;">${cat}</h4>`;
-      html += `<div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:15px;">`;
+  for (const [cat, emojis] of Object.entries(CATEGORIES_EMOJI)) {
+    html += `<h4 style="margin:15px 0 8px; color:#4CAF50; text-transform:capitalize;">${cat}</h4>`;
+    html += `<div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:20px;">`;
 
-      emojis.forEach(emoji => {
-        const info = BIBLIOTECA_EMOJIS_BASE.find(e => e.emoji === emoji);
-        const nom = info? info.nom_cat : emoji;
-        const comprat = desbloquejats.has(emoji);
-        const opacidad = comprat? '1' : '0.3';
-        const filtro = comprat? '' : 'grayscale(1)';
+    emojis.forEach(emoji => {
+      const info = BIBLIOTECA_EMOJIS_BASE.find(e => e.emoji === emoji);
+      const nom = info ? info.nom_cat : emoji;
+      const paraules = info ? info.para_frases.join(', ') : '';
+      const comprat = desbloquejats.has(emoji);
+      const opacidad = comprat ? '1' : '0.3';
+      const filtro = comprat ? '' : 'grayscale(1)';
 
-        html += `
-          <div style="text-align:center; padding:12px 6px; background:#1a1a1a; border-radius:8px; opacity:${opacidad}; filter:${filtro};">
-            <div style="font-size:36px; margin-bottom:6px;">${emoji}</div>
-            <div style="font-size:11px; font-weight:600; line-height:1.2;">${nom}</div>
-          </div>
-        `;
-      });
-      html += `</div>`;
-    }
-    cont.innerHTML = html;
+      html += `
+        <div style="text-align:center; padding:12px 8px; background:#1a1a1a; border-radius:10px; opacity:${opacidad}; filter:${filtro};">
+          <div style="font-size:42px; margin-bottom:6px;">${emoji}</div>
+          <div style="font-size:13px; font-weight:600; color:#fff;">${nom}</div>
+          <div style="font-size:10px; color:#aaa; margin-top:4px;">${paraules}</div>
+        </div>
+      `;
+    });
+    html += `</div>`;
+  }
+  cont.innerHTML = html;
   }
 
   if(tab === 'minijocs') {
