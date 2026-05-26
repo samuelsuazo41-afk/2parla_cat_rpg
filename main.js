@@ -4,6 +4,8 @@ let BIBLIOTECA_EMOJIS_BASE = [];
 let FRASES_MINIJOC = [];
 let FRASES_MIXTAS = [];
 let CATEGORIES_EMOJI = {};
+let EMOJIS_JUGABLES = []; // <- Nuevo: emojis base + packs comprados
+
 let estat = {
   monedes: parseInt(localStorage.getItem('cat_monedes')) || 0,
   capitolsCompletats: JSON.parse(localStorage.getItem('cat_completats')) || [],
@@ -196,14 +198,12 @@ function iniciarMusicaChiptune(nombreMelodia = 'estudio') {
     gain.connect(audioCtx.destination);
     osc.start(tiempo);
     osc.stop(tiempo + nota.dur);
+    tiempo += nota.dur;
   }
 
   function loop() {
     tiempo = audioCtx.currentTime;
-    notas.forEach(nota => {
-      tocarNota(nota);
-      tiempo += nota.dur;
-    });
+    notas.forEach(nota => tocarNota(nota));
     musicaLoop = setTimeout(loop, notas.reduce((a, b) => a + b.dur, 0) * 1000);
   }
   loop();
@@ -226,13 +226,61 @@ function tocarJingleCompletado() {
     const gain = audioCtx.createGain();
     osc.type = 'square';
     osc.frequency.value = nota.freq;
-    gain.gain.value = 0.00;
+    gain.gain.value = 0.001;
     osc.connect(gain);
     gain.connect(audioCtx.destination);
     osc.start(tiempo);
     osc.stop(tiempo + nota.dur);
     tiempo += nota.dur;
   });
+}
+
+// --- CARGA DE DATOS ---
+async function carregarDades() {
+  // 1. Carga base
+  try {
+    const res = await fetch('./data/biblioteca_emojis.json');
+    BIBLIOTECA_EMOJIS_BASE = await res.json();
+  } catch(err) {
+    BIBLIOTECA_EMOJIS_BASE = [];
+  }
+
+  // 2. Carga packs comprados
+  let packsComprats = [];
+  try {
+    const resBotiga = await fetch('./data/botiga_emojis.json');
+    const dataBotiga = await resBotiga.json();
+    packsComprats = dataBotiga.filter(p => estat.compres.includes(p.id));
+  } catch(err) {
+    packsComprats = [];
+  }
+
+  // 3. Fusiona todo en EMOJIS_JUGABLES
+  EMOJIS_JUGABLES = [...BIBLIOTECA_EMOJIS_BASE];
+  packsComprats.forEach(pack => {
+    EMOJIS_JUGABLES = EMOJIS_JUGABLES.concat(pack.emojis);
+  });
+
+  // 4. Reconstruye CATEGORIES_EMOJI con los emojis desbloqueados
+  CATEGORIES_EMOJI = {};
+  EMOJIS_JUGABLES.forEach(e => {
+    if (estat.emojisDesbloquejats.includes(e.emoji)) {
+      const cat = e.categoria || 'altres';
+      if (!CATEGORIES_EMOJI[cat]) CATEGORIES_EMOJI[cat] = [];
+      if (!CATEGORIES_EMOJI[cat].includes(e.emoji)) {
+        CATEGORIES_EMOJI[cat].push(e.emoji);
+      }
+    }
+  });
+
+  // 5. Carga frases
+  try {
+    const res = await fetch('./data/minijoc_frases.json');
+    const data = await res.json();
+    FRASES_MINIJOC = data.frases;
+  } catch(err) {
+    FRASES_MINIJOC = [];
+  }
 }
 
 // INIT
@@ -243,39 +291,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
   }, { once: true });
 
-  try {
-    const res = await fetch('./data/biblioteca_emojis.json');
-    BIBLIOTECA_EMOJIS_BASE = await res.json();
-
-    // Reconstruye CATEGORIES_EMOJI con los emojis desbloqueados
-    CATEGORIES_EMOJI = {};
-    BIBLIOTECA_EMOJIS_BASE.forEach(e => {
-      if (estat.emojisDesbloquejats.includes(e.emoji)) {
-        const cat = e.categoria || 'altres';
-        if (!CATEGORIES_EMOJI[cat]) CATEGORIES_EMOJI[cat] = [];
-        CATEGORIES_EMOJI[cat].push(e.emoji);
-      }
-    });
-  } catch(err) {
-    BIBLIOTECA_EMOJIS_BASE = [];
-  }
-
-  try {
-    const res = await fetch('./data/minijoc_frases.json');
-    const data = await res.json();
-    FRASES_MINIJOC = data.frases;
-  } catch(err) {
-    FRASES_MINIJOC = [];
-  }
-
-  try {
-    const res = await fetch('./data/frases_mixtas.json');
-    const data = await res.json();
-    FRASES_MIXTAS = data.frases;
-  } catch(err) {
-    FRASES_MIXTAS = [];
-  }
-
+  await carregarDades();
   await carregarItems();
   actualitzarUI();
   actualitzarTotem();
@@ -664,7 +680,7 @@ function mostrarGremi(tab, e) {
   }
 
   if(tab === 'llegendes') {
-        const llegendes = [
+    const llegendes = [
       { id: 'capitol_01_bcn_born', nom: 'El Born, Barcelona', icona: '🏛️', desbloquejada: estat.capitolsCompletats.includes('capitol_01_bcn_born'), text: 'El Born és el barri gòtic més viu.' },
       { id: 'capitol_02_girona', nom: 'Temps de Flors, Girona', icona: '🏰', desbloquejada: estat.capitolsCompletats.includes('capitol_02_girona'), text: 'Cada maig, Girona s\'omple de flors.' },
       { id: 'capitol_03_fires_valencia', nom: 'Falles, València', icona: '🔥', desbloquejada: estat.capitolsCompletats.includes('capitol_03_fires_valencia'), text: 'El foc purifica tot.' }
@@ -695,7 +711,7 @@ function mostrarBibliotecaTab(tab, e) {
       html += `<div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:20px;">`;
 
       emojis.forEach(emoji => {
-        const info = BIBLIOTECA_EMOJIS_BASE.find(e => e.emoji === emoji);
+        const info = EMOJIS_JUGABLES.find(e => e.emoji === emoji);
         const nom = info? info.nom_cat : emoji;
         const paraules = info? info.para_frases.join(', ') : '';
         const comprat = desbloquejats.has(emoji);
@@ -741,8 +757,8 @@ function novaFraseMinijoc() {
 function carregarFrasesMinijoc() {
   if (!FRASES_MINIJOC || FRASES_MINIJOC.length === 0) return;
 
-  // Filtra solo emojis desbloqueados
-  const emojisDisponibles = BIBLIOTECA_EMOJIS_BASE.filter(e =>
+  // Filtra solo emojis desbloqueados de EMOJIS_JUGABLES
+  const emojisDisponibles = EMOJIS_JUGABLES.filter(e =>
     estat.emojisDesbloquejats.includes(e.emoji)
   );
 
@@ -769,18 +785,18 @@ function carregarFrasesMinijoc() {
 }
 
 function generarEmojisParaFraseCorta(frase) {
-  const emojisJugador = [...BIBLIOTECA_EMOJIS_BASE.map(e => e.emoji),...estat.emojisDesbloquejats];
+  const emojisJugador = EMOJIS_JUGABLES.map(e => e.emoji);
   const emojisFalsos = emojisJugador
- .filter(e =>!frase.solucio.some(eSol => quitarSkinTone(e) === quitarSkinTone(eSol)))
- .sort(() => 0.5 - Math.random())
- .slice(0, 10 - frase.solucio.length);
+   .filter(e =>!frase.solucio.some(eSol => quitarSkinTone(e) === quitarSkinTone(eSol)))
+   .sort(() => 0.5 - Math.random())
+   .slice(0, 10 - frase.solucio.length);
 
   const emojisAMostrar = [...frase.solucio,...emojisFalsos].sort(() => 0.5 - Math.random());
   estat.minijoc.emojisDisponibles = emojisAMostrar;
 
   let html = '';
   emojisAMostrar.forEach((emoji, i) => {
-    const emojiData = BIBLIOTECA_EMOJIS_BASE.find(e => quitarSkinTone(e.emoji) === quitarSkinTone(emoji));
+    const emojiData = EMOJIS_JUGABLES.find(e => quitarSkinTone(e.emoji) === quitarSkinTone(emoji));
     html += `
       <div class="emoji-item" onclick="triarEmojiMinijoc(${i})" style="cursor:pointer;">
         <div class="emoji-large">${emoji}</div>
@@ -792,38 +808,29 @@ function generarEmojisParaFraseCorta(frase) {
 }
 
 function generarFraseDinamica(plantilla, emojisJugador) {
-  let text = plantilla.plantilla;
+  let text = plantilla.text;
   let solucio = [];
 
-  for (const cat in CATEGORIES_EMOJI) {
-    const regex = new RegExp(`\\{${cat}\\}`, 'g');
-    if (text.match(regex)) {
-      const emojisDisponibles = CATEGORIES_EMOJI[cat].filter(eBase =>
-        emojisJugador.some(eJug => quitarSkinTone(eJug) === quitarSkinTone(eBase))
-      );
+  for (const cat of plantilla.categories) {
+    const emojisDisponibles = CATEGORIES_EMOJI[cat].filter(eBase =>
+      emojisJugador.some(eJug => quitarSkinTone(eJug) === quitarSkinTone(eBase))
+    );
 
-      if (emojisDisponibles.length === 0) {
-        return generarFraseDinamica(FRASES_MINIJOC[Math.floor(Math.random() * FRASES_MINIJOC.length)], emojisJugador);
-      }
-
-      const emojiElegit = emojisDisponibles[Math.floor(Math.random() * emojisDisponibles.length)];
-      text = text.replace(regex, obtenirNomEmoji(emojiElegit));
-      solucio.push(emojiElegit);
+    if (!emojisDisponibles || emojisDisponibles.length === 0) {
+      return generarFraseDinamica(FRASES_MINIJOC[Math.floor(Math.random() * FRASES_MINIJOC.length)], emojisJugador);
     }
+
+    const emojiElegit = emojisDisponibles[Math.floor(Math.random() * emojisDisponibles.length)];
+    text = text.replace(`{${cat}}`, obtenirNomEmoji(emojiElegit));
+    solucio.push(emojiElegit);
   }
 
   return { text, solucio };
 }
 
 function obtenirNomEmoji(emoji) {
-  const noms = {
-    '👨': 'el pare', '👩': 'la mare', '👦': 'el noi', '👧': 'la noia',
-    '👴': 'l\'avi', '👵': 'l\'àvia', '🐶': 'el gos', '🐱': 'el gat',
-    '🏠': 'casa', '🏫': 'l\'escola', '🌊': 'el mar', '🍞': 'pa',
-    '💻': 'ordinador', '🎵': 'música', '🐦': 'ocells', '⭐': 'estrelles',
-    '🏥': 'hospital', '⚽': 'futbol'
-  };
-  return noms[quitarSkinTone(emoji)] || emoji;
+  const emojiData = EMOJIS_JUGABLES.find(e => quitarSkinTone(e.emoji) === quitarSkinTone(emoji));
+  return emojiData?.nom_cat || emoji;
 }
 
 function triarEmojiMinijoc(index) {
@@ -913,7 +920,7 @@ async function carregarBotiga() {
   }
 }
 
-function comprarPack(id, preu) {
+async function comprarPack(id, preu) {
   if (estat.monedes < preu) {
     alert(LANG.no_prou_monedes);
     return;
@@ -929,15 +936,10 @@ function comprarPack(id, preu) {
       if (!estat.emojisDesbloquejats.includes(e.emoji)) {
         estat.emojisDesbloquejats.push(e.emoji);
       }
-
-      const cat = e.categoria || 'altres';
-      if(!CATEGORIES_EMOJI[cat]) CATEGORIES_EMOJI[cat] = [];
-      if(!CATEGORIES_EMOJI[cat].includes(e.emoji)) {
-        CATEGORIES_EMOJI[cat].push(e.emoji);
-      }
     });
 
-    localStorage.setItem('cat_emojis', JSON.stringify(estat.emojisDesbloquejats));
+    // Recarga todo para que aparezcan en el minijoc
+    await carregarDades();
     carregarFrasesMinijoc();
   }
 
