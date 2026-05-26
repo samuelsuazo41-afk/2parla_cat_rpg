@@ -748,20 +748,34 @@ function mostrarGremi(tab, e) {
   }
 
   if(tab === 'llegendes') {
-    const llegendes = [
-      { id: 'capitol_01_bcn_born', nom: 'El Born, Barcelona', icona: '🏛️', desbloquejada: estat.capitolsCompletats.includes('capitol_01_bcn_born'), text: 'El Born és el barri gòtic més viu.' },
-      { id: 'capitol_02_girona', nom: 'Temps de Flors, Girona', icona: '🏰', desbloquejada: estat.capitolsCompletats.includes('capitol_02_girona'), text: 'Cada maig, Girona s\'omple de flors.' },
-      { id: 'capitol_03_fires_valencia', nom: 'Falles, València', icona: '🔥', desbloquejada: estat.capitolsCompletats.includes('capitol_03_fires_valencia'), text: 'El foc purifica tot.' }
-    ];
-    llegendes.forEach(l => {
-      if(l.desbloquejada) {
-        cont.innerHTML += `<div class="gremi-item" style="grid-column:1/-1;"><div style="font-size:36px;">${l.icona}</div><h3 style="margin:10px 0;">${l.nom}</h3><p style="font-size:14px; color:#ccc;">${l.text}</p><div style="color:#4CAF50; font-size:12px; margin-top:10px;">✓ Desbloquejada</div></div>`;
+  Promise.all([
+    fetch('./data/llegendes_barcelona.json').then(r => r.json()),
+    fetch('./data/llegendes_girona.json').then(r => r.json()),
+    fetch('./data/llegendes_valencia.json').then(r => r.json())
+  ])
+  .then(([barcelona, girona, valencia]) => {
+    const totes = [...barcelona, ...girona, ...valencia];
+    cont.innerHTML = '';
+    totes.forEach(l => {
+      const desbloquejada = estat.capitolsCompletats.includes(l.condicio);
+      if(desbloquejada) {
+        cont.innerHTML += `<div class="gremi-item" style="grid-column:1/-1;">
+          <div style="font-size:36px;">${l.icona}</div>
+          <h3 style="margin:10px 0;">${l.titol}</h3>
+          <p style="font-size:14px; color:#ccc; line-height:1.6; text-align:left;">${l.text}</p>
+          <div style="color:#4CAF50; font-size:12px; margin-top:10px;">✓ Desbloquejada</div>
+        </div>`;
       } else {
-        cont.innerHTML += `<div class="gremi-item" style="grid-column:1/-1; opacity:0.4;"><div style="font-size:36px;">🔒</div><h3 style="margin:10px 0;">???</h3><p style="font-size:14px; color:#666;">Completa el capítol per desbloquejar aquesta llegenda</p></div>`;
+        cont.innerHTML += `<div class="gremi-item" style="grid-column:1/-1; opacity:0.4;">
+          <div style="font-size:36px;">🔒</div>
+          <h3 style="margin:10px 0;">???</h3>
+          <p style="font-size:14px; color:#666;">Completa el capítol per desbloquejar aquesta llegenda</p>
+        </div>`;
       }
     });
+  })
+  .catch(err => console.error('Error carregant llegendes:', err));
   }
-}
 
 function mostrarBibliotecaTab(tab, e) {
   document.querySelectorAll('#biblioteca-subtabs.sub-tab-btn').forEach(btn => btn.classList.remove('active'));
