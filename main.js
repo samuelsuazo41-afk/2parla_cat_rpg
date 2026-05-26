@@ -24,7 +24,7 @@ let estat = {
   falladesCapitol: 0,
   bloquejat: false,
   compres: JSON.parse(localStorage.getItem('cat_compres')) || [],
-  emojisDesbloquejats: JSON.parse(localStorage.getItem('cat_emojis')) || [],
+  emojisDesbloquejats: JSON.parse(localStorage.getItem('cat_emojis')) || ['😀','😊','😂'],
   packs_botiga: [],
   minijoc: {
     fraseObjectiu: null,
@@ -998,8 +998,21 @@ function comprarPack(id, preu) {
   estat.monedes -= preu;
   estat.compres.push(id);
 
-  const pack = estat.packs_botiga.find(p => p.id === id);
-  estat.emojisDesbloquejats.push(...pack.emojis.map(e => e.emoji));
+  // Añade los emojis del pack a los desbloqueados
+const pack = estat.packs_botiga.find(p => p.id === packId);
+if (pack) {
+  pack.emojis.forEach(e => {
+    if (!estat.emojisDesbloquejats.includes(e.emoji)) {
+      estat.emojisDesbloquejats.push(e.emoji);
+    }
+  });
+  
+  // Guarda los emojis desbloqueados
+  localStorage.setItem('cat_emojis', JSON.stringify(estat.emojisDesbloquejats));
+  
+  // Recarga las frases del minijoc para que usen los nuevos emojis
+  carregarFrasesMinijoc();
+}
 
   // Afegeix els emojis nous a CATEGORIES_EMOJI en memòria
   for(const emojiObj of pack.emojis) {
