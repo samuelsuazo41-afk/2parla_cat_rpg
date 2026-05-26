@@ -1,0 +1,18 @@
+[
+  {
+    "id": "falles_valencia",
+    "titol": "Les Falles i el Foc Purificador",
+    "icona": "🔥",
+    "desbloquejada": false,
+    "condicio": "completar_capitol_03_fires_valencia",
+    "text": "Cada mes de març, València crema. No és un incendi, és Les Falles, la festa més gran de la ciutat. Durant una setmana, els carrers s'omplen de ninots gegants fets de cartró i fusta. Són falles que critiquen la política, la societat i les notícies de l'any amb humor i ironia.\n\nLa nit del 19 de març, la nit de Sant Josep, arriba la Cremà. Totes les falles cremen al mateix temps en una explosió de foc, llum i música. La gent diu que el foc purifica la ciutat i crema el vell per deixar lloc al nou. És una tradició de més de 250 anys declarada Patrimoni Immaterial de la Humanitat per la UNESCO.\n\nPerò València no és només foc. Durant les Falles, la plaça de l'Ajuntament fa una mascletà cada dia a les 14:00. Són milers de petards que fan tremolar el terra i el pit. Entre el soroll, la gent menja bunyols, xurros i beu orxata. És una setmana on València viu 24 hores al dia sense dormir."
+  },
+  {
+    "id": "lonja_seda",
+    "titol": "La Lonja de la Seda i la Paella",
+    "icona": "🏛️",
+    "desbloquejada": false,
+    "condicio": "completar_capitol_03_fires_valencia",
+    "text": "Al cor del barri del Mercat de València hi ha un edifici gòtic que sembla un palau: la Lonja de la Seda. Construïda entre 1482 i 1548, era el centre del comerç de la seda i un dels ports comercials més importants del Mediterrani. Les seves columnes retorçades de 16 metres d'altura no tenen cap suport. És una obra mestra de l'arquitectura gòtica valenciana.\n\nValència també és la terra de la paella. La recepta original neix a l'Albufera, al sud de la ciutat, on els llauradors cuinaven arròs amb el que tenien: conill, pollastre, fesols i garrofó. Avui, la paella valenciana autèntica només porta aquests ingredients. Res de marisc si vols fer-la com un valencià.\n\nDesprés de visitar la Lonja, baixa al barri del Carme. Carrers estrets, art urbà i bars on sona la música fins tard. I si vas al port, veuràs la Ciutat de les Arts i les Ciències de Calatrava. València és això: gòtic medieval al costat d'arquitectura futurista, tradició i avantguarda menjant paella davant del mar."
+  }
+]
