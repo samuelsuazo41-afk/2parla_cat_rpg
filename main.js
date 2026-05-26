@@ -203,19 +203,6 @@ function confirmarAccio() {
   if(accioPendents) accioPendents();
 }
 
-// --- AJUSTOS PUNTO 5 ---
-function carregarAjustos() {
-  document.body.style.filter = `brightness(${localStorage.getItem('brillo') || 1})`;
-  const toggleMusica = document.getElementById('toggleMusica');
-  const toggleEfectes = document.getElementById('toggleEfectes');
-  if (toggleMusica) toggleMusica.checked = localStorage.getItem('musica')!== 'false';
-  if (toggleEfectes) toggleEfectes.checked = localStorage.getItem('efectes')!== 'false';
-}
-
-function tancarAjustos() {
-  document.getElementById('modalAjustos').classList.add('hidden');
-}
-
 function vibrar() {
   if (navigator.vibrate) navigator.vibrate(20);
 }
@@ -337,32 +324,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   actualitzarUI();
   actualitzarTotem();
   carregarMapa();
-  carregarAjustos(); // PUNTO 5
 
-  // Delegación de eventos PUNTO 3
+  // Delegación de eventos
   document.addEventListener('click', (e) => {
     if(e.target.id === 'btnMapa') tornarMapa();
     if(e.target.id === 'btnRepetir') mostrarModal("Vols repetir aquesta missió?", () => repetirCapitolActual());
-    if(e.target.id === 'btnAjustos') document.getElementById('modalAjustos').classList.remove('hidden');
   });
-
-  document.getElementById('selectBrillo').onchange = (e) => {
-    document.body.style.filter = `brightness(${e.target.value})`;
-    localStorage.setItem('brillo', e.target.value);
-  };
-
-  document.getElementById('toggleMusica').onchange = (e) => {
-    localStorage.setItem('musica', e.target.checked);
-    musicaActivada = e.target.checked;
-    if(window.musica) window.musica.muted =!e.target.checked;
-  };
-
-  document.getElementById('toggleEfectes').onchange = (e) => {
-    localStorage.setItem('efectes', e.target.checked);
-  };
-
-  AUDIO_ENCERT = new Audio('data:audio/wav;base64,UklGRiZDAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQIAAAAAAAA=');
-  AUDIO_FALLADA = new Audio('data:audio/wav;base64,UklGRiZDAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQIAAAAAAAAA');
 });
 
 function aplicarIdioma() {
@@ -700,7 +667,7 @@ function mostrarGremi(tab, e) {
     bibSubtabs.style.display = 'none';
   }
 
-  if(tab === 'personatges') {
+    if(tab === 'personatges') {
     if(!estat.personatge) {
       let html = `<h3 style="text-align:center; margin-bottom:20px;">${LANG.tria_personatge}</h3>`;
       html += `<div style="display:grid; grid-template-columns:repeat(2,1fr); gap:15px; max-width:300px; margin:0 auto;">`;
@@ -748,34 +715,39 @@ function mostrarGremi(tab, e) {
   }
 
   if(tab === 'llegendes') {
-  Promise.all([
-    fetch('./data/llegendes_barcelona.json').then(r => r.json()),
-    fetch('./data/llegendes_girona.json').then(r => r.json()),
-    fetch('./data/llegendes_valencia.json').then(r => r.json())
-  ])
-  .then(([barcelona, girona, valencia]) => {
-    const totes = [...barcelona, ...girona, ...valencia];
-    cont.innerHTML = '';
-    totes.forEach(l => {
-      const desbloquejada = estat.capitolsCompletats.includes(l.condicio);
-      if(desbloquejada) {
-        cont.innerHTML += `<div class="gremi-item" style="grid-column:1/-1;">
-          <div style="font-size:36px;">${l.icona}</div>
-          <h3 style="margin:10px 0;">${l.titol}</h3>
-          <p style="font-size:14px; color:#ccc; line-height:1.6; text-align:left;">${l.text}</p>
-          <div style="color:#4CAF50; font-size:12px; margin-top:10px;">✓ Desbloquejada</div>
-        </div>`;
-      } else {
-        cont.innerHTML += `<div class="gremi-item" style="grid-column:1/-1; opacity:0.4;">
-          <div style="font-size:36px;">🔒</div>
-          <h3 style="margin:10px 0;">???</h3>
-          <p style="font-size:14px; color:#666;">Completa el capítol per desbloquejar aquesta llegenda</p>
-        </div>`;
+    Promise.all([
+      fetch('./data/llegendes_barcelona.json').then(r => r.json()).catch(()=>[]),
+      fetch('./data/llegendes_girona.json').then(r => r.json()).catch(()=>[]),
+      fetch('./data/llegendes_valencia.json').then(r => r.json()).catch(()=>[])
+    ])
+   .then(([barcelona, girona, valencia]) => {
+      const totes = [...barcelona,...girona,...valencia];
+      cont.innerHTML = '';
+      if(totes.length === 0) {
+        cont.innerHTML = '<p style="text-align:center; color:#666;">No hi ha llegendes encara</p>';
+        return;
       }
-    });
-  })
-  .catch(err => console.error('Error carregant llegendes:', err));
+      totes.forEach(l => {
+        const desbloquejada = estat.capitolsCompletats.includes(l.condicio);
+        if(desbloquejada) {
+          cont.innerHTML += `<div class="gremi-item" style="grid-column:1/-1;">
+            <div style="font-size:36px;">${l.icona}</div>
+            <h3 style="margin:10px 0;">${l.titol}</h3>
+            <p style="font-size:14px; color:#ccc; line-height:1.6; text-align:left;">${l.text}</p>
+            <div style="color:#4CAF50; font-size:12px; margin-top:10px;">✓ Desbloquejada</div>
+          </div>`;
+        } else {
+          cont.innerHTML += `<div class="gremi-item" style="grid-column:1/-1; opacity:0.4;">
+            <div style="font-size:36px;">🔒</div>
+            <h3 style="margin:10px 0;">???</h3>
+            <p style="font-size:14px; color:#666;">Completa el capítol per desbloquejar aquesta llegenda</p>
+          </div>`;
+        }
+      });
+    })
+   .catch(err => console.error('Error carregant llegendes:', err));
   }
+}
 
 function mostrarBibliotecaTab(tab, e) {
   document.querySelectorAll('#biblioteca-subtabs.sub-tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -864,9 +836,9 @@ function carregarFrasesMinijoc() {
 function generarEmojisParaFraseCorta(frase) {
   const emojisJugador = EMOJIS_JUGABLES.map(e => e.emoji);
   const emojisFalsos = emojisJugador
- .filter(e =>!frase.solucio.some(eSol => quitarSkinTone(e) === quitarSkinTone(eSol)))
- .sort(() => 0.5 - Math.random())
- .slice(0, 10 - frase.solucio.length);
+.filter(e =>!frase.solucio.some(eSol => quitarSkinTone(e) === quitarSkinTone(eSol)))
+.sort(() => 0.5 - Math.random())
+.slice(0, 10 - frase.solucio.length);
 
   const emojisAMostrar = [...frase.solucio,...emojisFalsos].sort(() => 0.5 - Math.random());
   estat.minijoc.emojisDisponibles = emojisAMostrar;
@@ -1023,8 +995,8 @@ async function comprarPack(id, preu) {
 
   guardarEstat();
   actualitzarUI();
-  renderitzarBotiga(); // PUNTO 1: refresca la tienda al instante
-  mostrarModal("Pack desbloquejat!", null); // PUNTO 2: usa modal custom
+  renderitzarBotiga();
+  mostrarModal("Pack desbloquejat!", null);
 }
 
 function renderitzarBotiga() {
