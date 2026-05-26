@@ -1,0 +1,18 @@
+[
+  {
+    "id": "lleona_girona",
+    "titol": "La Lleona de Girona",
+    "icona": "🦁",
+    "desbloquejada": false,
+    "condicio": "completar_capitol_02_girona",
+    "text": "A la façana de la Catedral de Girona, just al costat de l'escala barroca, hi ha una escultura molt especial: la Lleona. És una columna romana antiga amb una lleona pujant per un tronc. La llegenda diu que si la beses al cul, tornaràs a Girona segur.\n\nLa tradició ve de l'època medieval, quan els viatgers i estudiants juraven tornar a la ciutat després de besar l'animal. Avui, milers de turistes fan la cua per tocar-la i fer la foto. Però la Lleona és molt més que una broma: és un símbol de la resistència de Girona.\n\nGirona és una ciutat que ha patit 25 setges al llarg de la història. Els francesos van atacar-la moltes vegades, però la ciutat mai es va rendir del tot. La Lleona representa aquesta força. Pujant per l'escala de la Catedral, veus el Barri Vell sencer: carrers de pedra, cases de colors sobre el riu Onyar, i els banys àrabs del segle XII. Cada pedra explica una història de 2000 anys."
+  },
+  {
+    "id": "temps_de_flors",
+    "titol": "Temps de Flors i els Banys Àrabs",
+    "icona": "🌸",
+    "desbloquejada": false,
+    "condicio": "completar_capitol_02_girona",
+    "text": "Cada mes de maig, Girona es transforma. Durant 10 dies se celebra Temps de Flors, un festival on 120 espais del Barri Vell s'omplen d'instal·lacions florals gegants. Patis secrets, esglésies, ponts i places es converteixen en jardins impossibles. És el moment més bonic per visitar la ciutat.\n\nUn dels llocs més màgics és el claustre dels Banys Àrabs. Tot i el nom, no són d'origen àrab, sinó romànics del segle XII. La gent pensava que eren banys musulmans perquè tenien una cúpula amb ocul i columnes fines, com els banys de Còrdova. Avui, amb les flors, el claustre sembla un somni.\n\nGirona també és coneguda pels seus carrers del Barri Jueu, un dels millors conservats d'Europa. Passejar per la Pujada de Sant Domènec és retrocedir 800 anys. A la nit, els carrers s'il·luminen i la ciutat fa olor de gessamí. Si vens a Girona, vine al maig. Entendràs per què diuen que és una de les ciutats més boniques de Catalunya."
+  }
+]
