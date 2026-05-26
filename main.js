@@ -246,6 +246,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     const res = await fetch('./data/biblioteca_emojis.json');
     BIBLIOTECA_EMOJIS_BASE = await res.json();
+
+    // Reconstruye CATEGORIES_EMOJI con los emojis desbloqueados
+    CATEGORIES_EMOJI = {};
+    BIBLIOTECA_EMOJIS_BASE.forEach(e => {
+      if (estat.emojisDesbloquejats.includes(e.emoji)) {
+        const cat = e.categoria || 'altres';
+        if (!CATEGORIES_EMOJI[cat]) CATEGORIES_EMOJI[cat] = [];
+        CATEGORIES_EMOJI[cat].push(e.emoji);
+      }
+    });
   } catch(err) {
     BIBLIOTECA_EMOJIS_BASE = [];
   }
@@ -264,13 +274,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     FRASES_MIXTAS = data.frases;
   } catch(err) {
     FRASES_MIXTAS = [];
-  }
-
-  try {
-    const res = await fetch('./data/categories_emoji.json');
-    CATEGORIES_EMOJI = await res.json();
-  } catch(err) {
-    CATEGORIES_EMOJI = {};
   }
 
   await carregarItems();
@@ -660,8 +663,8 @@ function mostrarGremi(tab, e) {
     }
   }
 
-    if(tab === 'llegendes') {
-    const llegendes = [
+  if(tab === 'llegendes') {
+        const llegendes = [
       { id: 'capitol_01_bcn_born', nom: 'El Born, Barcelona', icona: '🏛️', desbloquejada: estat.capitolsCompletats.includes('capitol_01_bcn_born'), text: 'El Born és el barri gòtic més viu.' },
       { id: 'capitol_02_girona', nom: 'Temps de Flors, Girona', icona: '🏰', desbloquejada: estat.capitolsCompletats.includes('capitol_02_girona'), text: 'Cada maig, Girona s\'omple de flors.' },
       { id: 'capitol_03_fires_valencia', nom: 'Falles, València', icona: '🔥', desbloquejada: estat.capitolsCompletats.includes('capitol_03_fires_valencia'), text: 'El foc purifica tot.' }
@@ -730,7 +733,7 @@ function mostrarBibliotecaTab(tab, e) {
   }
 }
 
-// LÓGICA MINIJUEGO HÍBRIDO CON SKIN TONES
+// LÓGICA MINIJUEGO
 function novaFraseMinijoc() {
   carregarFrasesMinijoc();
 }
@@ -743,7 +746,7 @@ function carregarFrasesMinijoc() {
     estat.emojisDesbloquejats.includes(e.emoji)
   );
 
-  if (emojisDisponibles.length < 5) {
+  if (emojisDisponibles.length < 2) {
     document.getElementById('minijoc-frase').textContent = LANG.no_frases_disponibles;
     document.getElementById('minijoc-emojis').innerHTML = '';
     return;
@@ -762,16 +765,15 @@ function carregarFrasesMinijoc() {
   document.getElementById('minijoc-feedback').innerHTML = '';
   document.getElementById('minijoc-nivell').textContent = `Nivell ${NIVELL_MINIJOC.nivelActual} - ${solucio.length} emojis`;
 
-  // Genera los emojis para elegir
   generarEmojisParaFraseCorta({solucio});
 }
 
 function generarEmojisParaFraseCorta(frase) {
   const emojisJugador = [...BIBLIOTECA_EMOJIS_BASE.map(e => e.emoji),...estat.emojisDesbloquejats];
   const emojisFalsos = emojisJugador
-  .filter(e =>!frase.solucio.some(eSol => quitarSkinTone(e) === quitarSkinTone(eSol)))
-  .sort(() => 0.5 - Math.random())
-  .slice(0, 10 - frase.solucio.length);
+ .filter(e =>!frase.solucio.some(eSol => quitarSkinTone(e) === quitarSkinTone(eSol)))
+ .sort(() => 0.5 - Math.random())
+ .slice(0, 10 - frase.solucio.length);
 
   const emojisAMostrar = [...frase.solucio,...emojisFalsos].sort(() => 0.5 - Math.random());
   estat.minijoc.emojisDisponibles = emojisAMostrar;
@@ -837,9 +839,6 @@ function triarEmojiMinijoc(index) {
 
 function actualitzarTriatsMinijoc() {
   const div = document.getElementById('minijoc-triats');
-  const fraseDiv = document.getElementById('minijoc-frase');
-  const frase = estat.minijoc.fraseObjectiu;
-
   div.textContent = estat.minijoc.emojisTriats.join(' ');
 }
 
@@ -924,31 +923,22 @@ function comprarPack(id, preu) {
   estat.monedes -= preu;
   estat.compres.push(id);
 
-  // Añade los emojis del pack a los desbloqueados
   const pack = estat.packs_botiga.find(p => p.id === id);
   if (pack) {
     pack.emojis.forEach(e => {
       if (!estat.emojisDesbloquejats.includes(e.emoji)) {
         estat.emojisDesbloquejats.push(e.emoji);
       }
+
+      const cat = e.categoria || 'altres';
+      if(!CATEGORIES_EMOJI[cat]) CATEGORIES_EMOJI[cat] = [];
+      if(!CATEGORIES_EMOJI[cat].includes(e.emoji)) {
+        CATEGORIES_EMOJI[cat].push(e.emoji);
+      }
     });
 
-    // Guarda los emojis desbloqueados
     localStorage.setItem('cat_emojis', JSON.stringify(estat.emojisDesbloquejats));
-
-    // Recarga las frases del minijoc para que usen los nuevos emojis
     carregarFrasesMinijoc();
-  }
-
-  // Afegeix els emojis nous a CATEGORIES_EMOJI en memòria
-  if (pack) {
-    for(const emojiObj of pack.emojis) {
-      const cat = emojiObj.categoria || 'altres';
-      if(!CATEGORIES_EMOJI[cat]) CATEGORIES_EMOJI[cat] = [];
-      if(!CATEGORIES_EMOJI[cat].includes(emojiObj.emoji)) {
-        CATEGORIES_EMOJI[cat].push(emojiObj.emoji);
-      }
-    }
   }
 
   NIVELL_MINIJOC.nivelActual = Math.min(NIVELL_MINIJOC.nivelActual + 1, NIVELL_MINIJOC.maxEmojis);
