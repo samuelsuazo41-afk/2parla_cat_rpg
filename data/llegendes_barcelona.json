@@ -1,0 +1,18 @@
+[
+  {
+    "id": "sant_jordi",
+    "titol": "Sant Jordi i el Drac de Montcada",
+    "icona": "🐉",
+    "desbloquejada": false,
+    "condicio": "completar_capitol_01_bcn_born",
+    "text": "Fa molts segles, a prop del barri de Montcada, un drac terrible aterrava els pobles de la plana de Barcelona. La bèstia vivia a les coves de Collserola i cada setmana exigia un animal per menjar. Quan els animals es van acabar, el rei va decidir fer un sorteig amb els joves de la ciutat.\n\nUn dia va tocar el nom de la princesa Elionor. Quan el drac estava a punt d'atacar-la, va aparèixer un cavaller amb armadura brillant. Era Jordi, un soldat romà que venia de Capadòcia. Amb la seva llança va vèncer el drac i de la seva sang va néixer un roser amb roses vermelles.\n\nDes d'aquell dia, el 23 d'abril Barcelona celebra Sant Jordi. Els carrers del Barri Gòtic i la Rambla s'omplen de llibres i roses. Els homes regalen una rosa i les dones un llibre. És una festa única al món que barreja amor, cultura i llegenda. Passejar per la Plaça Sant Jaume aquell dia és veure la història de Barcelona viva."
+  },
+  {
+    "id": "sagrada_familia",
+    "titol": "Gaudí i la Sagrada Família",
+    "icona": "⛪",
+    "desbloquejada": false,
+    "condicio": "completar_capitol_01_bcn_born",
+    "text": "Al cor de l'Eixample de Barcelona hi ha un temple que fa més de 140 anys que es construeix. És la Sagrada Família, l'obra mestra d'Antoni Gaudí. Quan el 1883 l'arquitecte es va fer càrrec del projecte, només hi havia els fonaments. Gaudí va decidir trencar totes les regles de l'arquitectura tradicional.\n\nVa estudiar la natura per dissenyar columnes que semblen arbres i façanes plenes de figures. La Sagrada Família no té línies rectes perquè Gaudí deia que a la natura no n'hi ha. Durant 43 anys va viure gairebé només per aquesta obra, fins que va morir atropellat per un tramvia l'any 1926.\n\nAvui, quan entres al temple, la llum entra pels vitralls de colors i pinta el terra com si fos un bosc màgic. És un lloc que atrau més de 4 milions de visitants cada any. Encara ara, els picapedrers continuen tallant pedra seguint els plànols i maquetes que Gaudí va deixar. La Sagrada Família no és només una església, és el símbol de Barcelona i de la creativitat catalana."
+  }
+]
