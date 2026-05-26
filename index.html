@@ -14,6 +14,8 @@
 <header>
   <h1 id="app-titol">Parla Cat RPG</h1>
   <div id="totem-display" style="font-size: 12px; margin-top: 4px;"></div>
+  <!-- BOTÓN AJUSTES -->
+  <button id="btnAjustos" class="btn-ajustos">⚙️</button>
 </header>
 
 <div class="stats-bar">
@@ -37,31 +39,26 @@
     <div id="missio-card">
       <h3 id="missio-titol">Selecciona una missió al mapa</h3>
       
-      <!-- RUTES SECRETES -->
+      <!-- RUTES SECRETES - CAMBIO PUNTO 7 -->
       <div id="rutes-secretes" style="display:none;">
         <h3 style="margin:20px 0 12px 0;">🔒 Rutes Secretes</h3>
+        
         <div class="capitol-card ruta-secreta" id="ruta-valencia">
           <div class="capitol-icona">🔒</div>
           <h4>Ruta Secreta de València</h4>
-          <p style="font-size:14px; color:var(--text-sec); margin:8px 0;">
-            Amb 3 ítems del capítol 1 desbloqueges la ruta secreta de València
-          </p>
+          <p class="ruta-secreta-txt">Falten 3 ítems per desbloquejar</p>
         </div>
         
         <div class="capitol-card ruta-secreta" id="ruta-girona">
           <div class="capitol-icona">🔒</div>
           <h4>Ruta Secreta de Girona</h4>
-          <p style="font-size:14px; color:var(--text-sec); margin:8px 0;">
-            Amb 3 ítems del capítol 2 desbloqueges la ruta secreta de Girona
-          </p>
+          <p class="ruta-secreta-txt">Falten 3 ítems per desbloquejar</p>
         </div>
         
         <div class="capitol-card ruta-secreta" id="ruta-tarragona">
           <div class="capitol-icona">🔒</div>
           <h4>Ruta Secreta de Tarragona</h4>
-          <p style="font-size:14px; color:var(--text-sec); margin:8px 0;">
-            Amb 3 ítems del capítol 3 desbloqueges la ruta secreta de Tarragona
-          </p>
+          <p class="ruta-secreta-txt">Falten 3 ítems per desbloquejar</p>
         </div>
       </div>
       
@@ -79,7 +76,6 @@
       <button class="sub-tab-btn" onclick="mostrarGremi('llegendes', event)">Llegendes</button>
     </div>
     
-    <!-- Sub-tabs per Biblioteca -->
     <div class="sub-tabs" id="biblioteca-subtabs" style="display:none;">
       <button class="sub-tab-btn active" onclick="mostrarBibliotecaTab('diccionari', event)">📖 Diccionari</button>
       <button class="sub-tab-btn" onclick="mostrarBibliotecaTab('minijocs', event)">🎮 Mini-jocs</button>
@@ -113,6 +109,45 @@
     <span id="tab-botiga-txt">Botiga</span>
   </div>
 </nav>
+
+<!-- MODAL CUSTOM PUNTO 2 -->
+<div id="modal" class="modal hidden">
+  <div class="modal-content">
+    <p id="modalText"></p>
+    <div class="modal-botons">
+      <button onclick="tancarModal()">Cancel·lar</button>
+      <button onclick="confirmarAccio()">Acceptar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL AJUSTOS PUNTO 5 -->
+<div id="modalAjustos" class="modal hidden">
+  <div class="modal-content">
+    <h3>Ajustos</h3>
+    
+    <label class="ajust-item">
+      <span>Música</span>
+      <input type="checkbox" id="toggleMusica">
+    </label>
+    
+    <label class="ajust-item">
+      <span>Efectes de so</span>
+      <input type="checkbox" id="toggleEfectes">
+    </label>
+    
+    <label class="ajust-item">
+      <span>Brillo</span>
+      <select id="selectBrillo">
+        <option value="0.7">Baix</option>
+        <option value="1">Mitjà</option>
+        <option value="1.3">Alt</option>
+      </select>
+    </label>
+    
+    <button onclick="tancarAjustos()" class="btn-tancar">Tancar</button>
+  </div>
+</div>
 
 <script>
 function vibrar() {
