@@ -184,6 +184,38 @@ const MELODIAS = {
   calma: [{freq: 147, dur: 3.0}, {freq: 165, dur: 3.0}]
 };
 
+// --- MODAL CUSTOM PUNTO 2 ---
+let accioPendents = null;
+
+function mostrarModal(text, accio = null) {
+  document.getElementById('modalText').textContent = text;
+  accioPendents = accio;
+  document.getElementById('modal').classList.remove('hidden');
+}
+
+function tancarModal() {
+  document.getElementById('modal').classList.add('hidden');
+  accioPendents = null;
+}
+
+function confirmarAccio() {
+  tancarModal();
+  if(accioPendents) accioPendents();
+}
+
+// --- AJUSTOS PUNTO 5 ---
+function carregarAjustos() {
+  document.body.style.filter = `brightness(${localStorage.getItem('brillo') || 1})`;
+  const toggleMusica = document.getElementById('toggleMusica');
+  const toggleEfectes = document.getElementById('toggleEfectes');
+  if (toggleMusica) toggleMusica.checked = localStorage.getItem('musica')!== 'false';
+  if (toggleEfectes) toggleEfectes.checked = localStorage.getItem('efectes')!== 'false';
+}
+
+function tancarAjustos() {
+  document.getElementById('modalAjustos').classList.add('hidden');
+}
+
 function vibrar() {
   if (navigator.vibrate) navigator.vibrate(20);
 }
@@ -251,7 +283,6 @@ function tocarJingleCompletado() {
 
 // --- CARGA DE DATOS ---
 async function carregarDades() {
-  // 1. Carga base del JSON
   try {
     const res = await fetch('./data/biblioteca_emojis.json');
     BIBLIOTECA_EMOJIS_BASE = await res.json();
@@ -259,7 +290,6 @@ async function carregarDades() {
     BIBLIOTECA_EMOJIS_BASE = [];
   }
 
-  // 2. Carga packs comprados
   let packsComprats = [];
   try {
     const resBotiga = await fetch('./data/botiga_emojis.json');
@@ -269,16 +299,13 @@ async function carregarDades() {
     packsComprats = [];
   }
 
-  // 3. Fusiona: starter + base + packs comprados
   EMOJIS_JUGABLES = [...EMOJIS_STARTER,...BIBLIOTECA_EMOJIS_BASE];
   packsComprats.forEach(pack => {
     EMOJIS_JUGABLES = EMOJIS_JUGABLES.concat(pack.emojis);
   });
 
-  // Elimina duplicados por emoji
   EMOJIS_JUGABLES = EMOJIS_JUGABLES.filter((v,i,a)=>a.findIndex(t=>(t.emoji===v.emoji))===i);
 
-  // 4. Reconstruye CATEGORIES_EMOJI con TODO lo de EMOJIS_JUGABLES
   CATEGORIES_EMOJI = {};
   EMOJIS_JUGABLES.forEach(e => {
     const cat = e.categoria || 'altres';
@@ -288,7 +315,6 @@ async function carregarDades() {
     }
   });
 
-  // 5. Carga frases
   try {
     const res = await fetch('./data/minijoc_frases.json');
     const data = await res.json();
@@ -311,6 +337,29 @@ document.addEventListener('DOMContentLoaded', async () => {
   actualitzarUI();
   actualitzarTotem();
   carregarMapa();
+  carregarAjustos(); // PUNTO 5
+
+  // Delegación de eventos PUNTO 3
+  document.addEventListener('click', (e) => {
+    if(e.target.id === 'btnMapa') tornarMapa();
+    if(e.target.id === 'btnRepetir') mostrarModal("Vols repetir aquesta missió?", () => repetirCapitolActual());
+    if(e.target.id === 'btnAjustos') document.getElementById('modalAjustos').classList.remove('hidden');
+  });
+
+  document.getElementById('selectBrillo').onchange = (e) => {
+    document.body.style.filter = `brightness(${e.target.value})`;
+    localStorage.setItem('brillo', e.target.value);
+  };
+
+  document.getElementById('toggleMusica').onchange = (e) => {
+    localStorage.setItem('musica', e.target.checked);
+    musicaActivada = e.target.checked;
+    if(window.musica) window.musica.muted =!e.target.checked;
+  };
+
+  document.getElementById('toggleEfectes').onchange = (e) => {
+    localStorage.setItem('efectes', e.target.checked);
+  };
 
   AUDIO_ENCERT = new Audio('data:audio/wav;base64,UklGRiZDAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQIAAAAAAAA=');
   AUDIO_FALLADA = new Audio('data:audio/wav;base64,UklGRiZDAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQIAAAAAAAAA');
@@ -392,11 +441,11 @@ function entrarCapitol(id) {
 function repetirCapitol(id) {
   const capitol = CAPITOLS.find(c => c.id === id);
   if (!capitol) return;
-  if(confirm(idioma === 'ca'? 'Vols repetir aquesta missió?' : '¿Quieres repetir esta misión?')) {
+  mostrarModal(idioma === 'ca'? 'Vols repetir aquesta missió?' : '¿Quieres repetir esta misión?', () => {
     estat.capitolsCompletats = estat.capitolsCompletats.filter(c => c!== id);
     guardarEstat();
     carregarCapitol(capitol.archivo);
-  }
+  });
 }
 
 async function carregarCapitol(nombreArchivo) {
@@ -436,12 +485,16 @@ async function carregarCapitol(nombreArchivo) {
       <div id="missio-escenari"></div>
       <div id="missio-opcions"></div>
       <div id="missio-feedback"></div>
+      <div id="missio-final-botons" style="display:none; gap:10px; margin-top:15px;">
+        <button id="btnMapa" class="btn btn-sec">Volver al mapa</button>
+        <button id="btnRepetir" class="btn">Repetir</button>
+      </div>
     `;
 
     canviarTab('missio', null);
     setTimeout(() => carregarPas(), 0);
   } catch(e) {
-    alert('Error carregant capítol: ' + e.message);
+    mostrarModal('Error carregant capítol: ' + e.message);
   }
 }
 
@@ -565,9 +618,9 @@ function completarCapitol() {
     <div class="completion-screen">
       <h2>✅ ${LANG.mision_completada}</h2>
       ${htmlPremi}
-      <div class="completion-buttons">
-        <button class="btn btn-sec" onclick="tornarMapa()">${LANG.volver_mapa}</button>
-        <button class="btn" onclick="repetirCapitolActual()">${LANG.repetir}</button>
+      <div class="completion-buttons" id="missio-final-botons">
+        <button id="btnMapa" class="btn btn-sec">${LANG.volver_mapa}</button>
+        <button id="btnRepetir" class="btn">${LANG.repetir}</button>
       </div>
     </div>
   `;
@@ -598,7 +651,7 @@ function tornarMapa() {
   estat.pasActual = 0;
   estat.bloquejat = false;
   document.getElementById('npc-box').style.display = 'none';
-  document.getElementById('missio-card').innerHTML = `<h3 id="missio-titol">Selecciona una missió al mapa</h3><div id="missio-escenari"></div><div id="missio-opcions"></div><div id="missio-feedback"></div>`;
+  document.getElementById('missio-card').innerHTML = `<h3 id="missio-titol">Selecciona una missió al mapa</h3><div id="missio-escenari"></div><div id="missio-opcions"></div><div id="missio-feedback"></div><div id="missio-final-botons" style="display:none; gap:10px; margin-top:15px;"><button id="btnMapa" class="btn btn-sec">Volver al mapa</button><button id="btnRepetir" class="btn">Repetir</button></div>`;
   canviarTab('mapa', null);
 }
 
@@ -639,7 +692,7 @@ function mostrarGremi(tab, e) {
   const bibSubtabs = document.getElementById('biblioteca-subtabs');
   cont.innerHTML = '';
 
-    if (tab === 'biblioteca') {
+  if (tab === 'biblioteca') {
     bibSubtabs.style.display = 'flex';
     mostrarBibliotecaTab('diccionari');
     return;
@@ -797,9 +850,9 @@ function carregarFrasesMinijoc() {
 function generarEmojisParaFraseCorta(frase) {
   const emojisJugador = EMOJIS_JUGABLES.map(e => e.emoji);
   const emojisFalsos = emojisJugador
-  .filter(e =>!frase.solucio.some(eSol => quitarSkinTone(e) === quitarSkinTone(eSol)))
-  .sort(() => 0.5 - Math.random())
-  .slice(0, 10 - frase.solucio.length);
+ .filter(e =>!frase.solucio.some(eSol => quitarSkinTone(e) === quitarSkinTone(eSol)))
+ .sort(() => 0.5 - Math.random())
+ .slice(0, 10 - frase.solucio.length);
 
   const emojisAMostrar = [...frase.solucio,...emojisFalsos].sort(() => 0.5 - Math.random());
   estat.minijoc.emojisDisponibles = emojisAMostrar;
@@ -932,7 +985,7 @@ async function carregarBotiga() {
 
 async function comprarPack(id, preu) {
   if (estat.monedes < preu) {
-    alert(LANG.no_prou_monedes);
+    mostrarModal(LANG.no_prou_monedes);
     return;
   }
 
@@ -956,7 +1009,32 @@ async function comprarPack(id, preu) {
 
   guardarEstat();
   actualitzarUI();
-  carregarBotiga();
+  renderitzarBotiga(); // PUNTO 1: refresca la tienda al instante
+  mostrarModal("Pack desbloquejat!", null); // PUNTO 2: usa modal custom
+}
+
+function renderitzarBotiga() {
+  const cont = document.getElementById('botiga-contenidor');
+  if (!cont ||!estat.packs_botiga) return;
+
+  cont.innerHTML = '';
+  estat.packs_botiga.forEach(pack => {
+    const comprat = estat.compres.includes(pack.id);
+    const card = document.createElement('div');
+    card.className = 'capitol-card';
+    card.innerHTML = `
+      <div class="capitol-icona">🎁</div>
+      <h3>${pack.nom}</h3>
+      <p style="color:var(--text-sec); margin:8px 0;">${pack.descripcio}</p>
+      <p style="font-size:24px;">${pack.emojis.map(e => e.emoji).join(' ')}</p>
+      <button class="btn ${comprat? 'btn-sec' : ''}"
+              onclick="comprarPack('${pack.id}', ${pack.preu})"
+              ${comprat? 'disabled' : ''}>
+        ${comprat? 'Desbloquejat' : `🪙 ${pack.preu}`}
+      </button>
+    `;
+    cont.appendChild(card);
+  });
 }
 
 if ('serviceWorker' in navigator) {
